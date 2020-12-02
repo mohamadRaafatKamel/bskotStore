@@ -1,0 +1,171 @@
+/* Required height of parents of the Full Page Intro and Intro itself */
+html,
+body,
+.view {
+  height: 250px;
+}
+
+/* Navbar animation */
+.navbar {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.top-nav-collapse {
+  background-color: #1C2331;
+}
+
+.sec-nav {
+  padding: 16px;
+  display: flex;
+}
+
+.sec-nav img {
+  flex-shrink: 0;
+  object-fit: contain;
+  width: 80px;
+  height: 80px;
+  margin-right: 16px;
+}
+
+.sec-nav h1{
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 1.41;
+  letter-spacing: -0.4px;
+  color: #000000;
+}
+
+.sec-nav h2{
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.33;
+  letter-spacing: -0.2px;
+  color: hsl(0,0%,62%);
+}
+
+.fadeIn img {
+  border-radius: 6px;
+  width: 100%;
+  height: 216px;
+  flex-shrink: 0;
+  object-fit: cover;
+}
+
+.fadeIn p{
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 1.41;
+  letter-spacing: -0.4px;
+  color: rgb(0, 0, 0);
+  overflow-wrap: break-word;
+  word-break: break-word;
+  hyphens: auto;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -moz-box-orient: vertical;
+}
+
+.mysearch{
+  margin-top: 0;
+  margin-bottom: 1px;
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  padding: 16px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  background-color: #ffffff;
+}
+
+.mysearch input{
+  background: none;
+  resize: none;
+  padding-top: 4px;
+  padding-bottom: 8px;
+  display: block;
+  width: 100%;
+  border: none;
+  border-radius: 0;
+  border-bottom: 1px solid;
+  border-color: hsl(0,0%,96%);
+  color: #000000;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.33;
+  -webkit-letter-spacing: -0.2px;
+  -moz-letter-spacing: -0.2px;
+  -ms-letter-spacing: -0.2px;
+  letter-spacing: -0.2px;
+  border: none;
+  border-radius: 8px;
+  background: hsl(0,0%,96%);
+  padding: 8px;
+  -webkit-appearance: none;
+}
+
+.btnfooter {
+  position: -webkit-sticky;
+  position: sticky;
+  z-index: 3000;
+  bottom: 0;
+  padding: 8px;
+  min-height: 64px;
+  background-color: #ffffff;
+}
+
+.orderbtn {
+  width: 100%;
+  border-radius: 4px;
+  color: #000000;
+  border: none;
+  background-color: rgba(247,118,14,1);
+  font-size: 15px;
+  -webkit-letter-spacing: -0.2px;
+  -moz-letter-spacing: -0.2px;
+  -ms-letter-spacing: -0.2px;
+  letter-spacing: -0.2px;
+  line-height: 1.27;
+  min-height: 48px;
+  padding: 14px 16px;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  position: relative;
+  font-stretch: normal;
+  font-style: normal;
+  font-weight: 600;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  touch-action: manipulation;
+  -webkit-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
+  border: 1px solid;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Adding color to the Navbar on mobile */
+@media only screen and (max-width: 768px) {
+  .navbar {
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+
+  /* Footer color for sake of consistency with Navbar */
+  .page-footer {
+    background-color: #1C2331;
+  }
+}
