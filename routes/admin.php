@@ -12,10 +12,25 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+define('PAGINATION_COUNT',10);
 
 Route::group(['namespace'=>'App\Http\Controllers\Admin', 'middleware'=>'auth:admin'],function (){
 
     Route::get('/','DashboardController@index')->name('admin.dashboard');
+    Route::get('logout','DashboardController@logout')->name('admin.logout');
+    ##################### Category ############################
+    Route::group(['prefix'=>'category'],function (){
+        Route::get('/','CategoryController@index')->name('admin.category');
+        Route::get('create','CategoryController@create')->name('admin.category.create');
+        Route::post('store','CategoryController@store')->name('admin.category.store');
+
+        Route::get('edit/{id}','CategoryController@edit')->name('admin.category.edit');
+        Route::post('update/{id}','CategoryController@update')->name('admin.category.update');
+
+        //Route::get('delete/{id}','CategoryController@destroy') -> name('admin.category.delete');
+    });
+    ##################### End Category ########################
+
 });
 
 

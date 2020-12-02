@@ -13,7 +13,7 @@ class CategoryRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,19 @@ class CategoryRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name_ar'=>'required|string|max:100',
+            'name_en'=>'required|string|max:100',
+            'img' => 'max:2048',
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'required'=>"هذا الحقل مطلوب",
+            'string'  =>"يجب ان يكون احرف",
+            'max'     =>"الاسم طويل",
+            'in'      =>"القيمه غير صحيحه",
         ];
     }
 }

@@ -1,17 +1,19 @@
 @extends('layouts.admin')
-
+@section('title','اضافه تصنيف')
 @section('content')
+
     <div class="app-content content">
         <div class="content-wrapper">
             <div class="content-header row">
                 <div class="content-header-left col-md-6 col-12 mb-2">
-                    <h3 class="content-header-title"> التصنيفات </h3>
                     <div class="row breadcrumbs-top">
                         <div class="breadcrumb-wrapper col-12">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">الرئيسية</a>
+                                <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">الرئيسية </a>
                                 </li>
-                                <li class="breadcrumb-item active"> التصنيفات
+                                <li class="breadcrumb-item"><a href="{{route('admin.category')}}"> التصنيفات </a>
+                                </li>
+                                <li class="breadcrumb-item active">إضافة تصنيف
                                 </li>
                             </ol>
                         </div>
@@ -19,13 +21,13 @@
                 </div>
             </div>
             <div class="content-body">
-                <!-- DOM - jQuery events table -->
-                <section id="dom">
-                    <div class="row">
-                        <div class="col-12">
+                <!-- Basic form layout section start -->
+                <section id="basic-form-layouts">
+                    <div class="row match-height">
+                        <div class="col-md-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h4 class="card-title"> كل التصنيفات </h4>
+                                    <h4 class="card-title" id="basic-layout-form"> إضافة تصنيف </h4>
                                     <a class="heading-elements-toggle"><i
                                             class="la la-ellipsis-v font-medium-3"></i></a>
                                     <div class="heading-elements">
@@ -37,61 +39,113 @@
                                         </ul>
                                     </div>
                                 </div>
-
                                 @include('admin.include.alerts.success')
                                 @include('admin.include.alerts.errors')
-
                                 <div class="card-content collapse show">
-                                    <div class="card-body card-dashboard">
-                                        <table
-                                            class="table display nowrap table-striped table-bordered ">
-                                            <thead>
-                                            <tr>
-                                                <th> الاسم عربي</th>
-                                                <th>الاسم انجليزي</th>
-                                                <th>الحالة</th>
-                                                <th>التاريخ</th>
-                                            </tr>
-                                            </thead>
-                                            <tbody>
+                                    <div class="card-body">
+                                        <form class="form" action="{{route('admin.category.store')}}" method="POST"
+                                              enctype="multipart/form-data">
+                                            @csrf
 
-                                            @isset($categories)
-                                                @foreach($categories as $category)
-                                                    <tr>
-                                                        <td>{{$category -> name_ar}}</td>
-                                                        <td>{{$category -> name_en}}</td>
-                                                        <td>{{$category -> getActive()}}</td>
-                                                        <td>{{$category -> date}}</td>
-                                                        <td>
-                                                            <div class="btn-group" role="group"
-                                                                 aria-label="Basic example">
-{{--                                                                <a href="{{route('admin.$category.edit',$language -> id)}}"--}}
-{{--                                                                   class="btn btn-outline-primary btn-min-width box-shadow-3 mr-1 mb-1">تعديل</a>--}}
+                                            <div class="form-body">
+                                                <h4 class="form-section"><i class="ft-home"></i> البيانات   </h4>
+
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label for="projectinput1"> الاسم بالعربي </label>
+                                                            <input type="text" value="" id="name_ar"
+                                                                   class="form-control"
+                                                                   placeholder="الاسم بالعربي"
+                                                                   name="name_ar">
+                                                            @error('name_ar')
+                                                            <span class="text-danger">{{$message}}</span>
+                                                            @enderror
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label for="projectinput1"> الاسم بالانجليزي </label>
+                                                            <input type="text" value="" id="name_en"
+                                                                   class="form-control"
+                                                                   placeholder="الاسم بالانجليزي  "
+                                                                   name="name_en">
+                                                            @error('name_en')
+                                                            <span class="text-danger">{{$message}}</span>
+                                                            @enderror
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label for="projectinput1">  اضف صوره </label>
+                                                            <input type="file" value="" id="img"
+                                                                   class="form-control"
+                                                                   accept="image/*"
+                                                                   name="img" required>
+                                                            @error('img')
+                                                            <span class="text-danger">{{$message}}</span>
+                                                            @enderror
+                                                        </div>
+                                                    </div>
+                                                </div>
+{{--                                                <div class="row">--}}
+{{--                                                    <div class="col-md-6">--}}
+{{--                                                        <div class="form-group">--}}
+{{--                                                            <label for="projectinput2"> الاتجاة </label>--}}
+{{--                                                            <select name="direction" class="select2 form-control">--}}
+{{--                                                                <optgroup label="من فضلك أختر اتجاه اللغة ">--}}
+{{--                                                                    <option value="rtl">من اليمين الي اليسار</option>--}}
+{{--                                                                    <option value="ltr">من اليسار الي اليمين</option>--}}
+{{--                                                                </optgroup>--}}
+{{--                                                            </select>--}}
+{{--                                                            @error('direction')--}}
+{{--                                                            <span class="text-danger">{{$message}}</span>--}}
+{{--                                                            @enderror--}}
+{{--                                                        </div>--}}
+{{--                                                    </div>--}}
+{{--                                                </div>--}}
 
 
-{{--                                                                <a href="{{route('admin.$category.delete',$language -> id)}}"--}}
-{{--                                                                   class="btn btn-outline-danger btn-min-width box-shadow-3 mr-1 mb-1">حذف</a>--}}
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="form-group mt-1">
+                                                            <input type="checkbox"  value="0" name="disabled"
+                                                                   id="switcheryColor4"
+                                                                   class="switchery" data-color="success"
+                                                                   checked/>
+                                                            <label for="switcheryColor4"
+                                                                   class="card-title ml-1">الحالة </label>
+
+                                                            @error('disabled')
+                                                            <span class="text-danger">{{$message}}</span>
+                                                            @enderror
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
 
 
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                @endforeach
-                                            @endisset
-
-
-                                            </tbody>
-                                        </table>
-                                        <div class="justify-content-center d-flex">
-
-                                        </div>
+                                            <div class="form-actions">
+                                                <button type="button" class="btn btn-warning mr-1"
+                                                        onclick="history.back();">
+                                                    <i class="ft-x"></i> تراجع
+                                                </button>
+                                                <button type="submit" class="btn btn-primary">
+                                                    <i class="la la-check-square-o"></i> حفظ
+                                                </button>
+                                            </div>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </section>
+                <!-- // Basic form layout section end -->
             </div>
         </div>
     </div>
+
 @endsection
