@@ -27,9 +27,22 @@ Route::group(['namespace'=>'App\Http\Controllers\Admin', 'middleware'=>'auth:adm
         Route::get('edit/{id}','CategoryController@edit')->name('admin.category.edit');
         Route::post('update/{id}','CategoryController@update')->name('admin.category.update');
 
-        //Route::get('delete/{id}','CategoryController@destroy') -> name('admin.category.delete');
+        Route::get('delete/{id}','CategoryController@destroy') -> name('admin.category.delete');
     });
     ##################### End Category ########################
+
+    ##################### Promo Code ############################
+    Route::group(['prefix'=>'promocode'],function (){
+        Route::get('/','PoromocodeController@index')->name('admin.promocode');
+        Route::get('create','PoromocodeController@create')->name('admin.promocode.create');
+        Route::post('store','PoromocodeController@store')->name('admin.promocode.store');
+
+        Route::get('edit/{id}','PoromocodeController@edit')->name('admin.promocode.edit');
+        Route::post('update/{id}','PoromocodeController@update')->name('admin.promocode.update');
+
+        Route::get('delete/{id}','PoromocodeController@destroy') -> name('admin.promocode.delete');
+    });
+    ##################### End Promo Code ########################
 
 });
 

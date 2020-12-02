@@ -1,17 +1,17 @@
 @extends('layouts.admin')
-
+@section('title','اكواد الخصم')
 @section('content')
     <div class="app-content content">
         <div class="content-wrapper">
             <div class="content-header row">
                 <div class="content-header-left col-md-6 col-12 mb-2">
-                    <h3 class="content-header-title"> التصنيفات </h3>
+                    <h3 class="content-header-title"> كود الخصم </h3>
                     <div class="row breadcrumbs-top">
                         <div class="breadcrumb-wrapper col-12">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">الرئيسية</a>
                                 </li>
-                                <li class="breadcrumb-item active"> التصنيفات
+                                <li class="breadcrumb-item active"> كود الخصم
                                 </li>
                             </ol>
                         </div>
@@ -25,7 +25,7 @@
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h4 class="card-title"> كل التصنيفات </h4>
+                                    <h4 class="card-title"> كل اكواد الخصم </h4>
                                     <a class="heading-elements-toggle"><i
                                             class="la la-ellipsis-v font-medium-3"></i></a>
                                     <div class="heading-elements">
@@ -47,29 +47,30 @@
                                             class="table display nowrap table-striped table-bordered ">
                                             <thead>
                                             <tr>
-                                                <th> الاسم عربي</th>
-                                                <th>الاسم انجليزي</th>
+                                                <th>الكود</th>
+                                                <th>تاريخ التوقف</th>
+                                                <th>قيمه اخصم</th>
                                                 <th>الحالة</th>
-                                                <th>التاريخ</th>
                                             </tr>
                                             </thead>
                                             <tbody>
 
-                                            @isset($categories)
-                                                @foreach($categories as $category)
+                                            @isset($promos)
+                                                @foreach($promos as $promo)
                                                     <tr>
-                                                        <td>{{$category -> name_ar}}</td>
-                                                        <td>{{$category -> name_en}}</td>
-                                                        <td>{{$category -> getActive()}}</td>
+                                                        <td>{{$promo -> code}}</td>
+                                                        <td>{{$promo -> limit_date}}</td>
+                                                        <td>{{$promo -> value}} %</td>
+                                                        <td>{{$promo -> getActive()}}</td>
                                                         <td>
                                                             <div class="btn-group" role="group"
                                                                  aria-label="Basic example">
-                                                                <a href="{{route('admin.category.edit',['id'=> $category->id ])}}"
+                                                                <a href="{{route('admin.promocode.edit',['id'=> $promo->id ])}}"
                                                                    class="btn btn-outline-primary btn-min-width box-shadow-3 mr-1 mb-1">تعديل</a>
 
 
-                                                                <a href="{{route('admin.category.delete',$category -> id)}}"
-                                                                   class="btn btn-outline-danger btn-min-width box-shadow-3 mr-1 mb-1">حذف</a>
+{{--                                                                <a href="{{route('admin.category.delete',$promo -> id)}}"--}}
+{{--                                                                   class="btn btn-outline-danger btn-min-width box-shadow-3 mr-1 mb-1">حذف</a>--}}
 
 
                                                             </div>
