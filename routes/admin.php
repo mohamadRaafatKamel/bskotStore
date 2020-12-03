@@ -44,6 +44,19 @@ Route::group(['namespace'=>'App\Http\Controllers\Admin', 'middleware'=>'auth:adm
     });
     ##################### End Promo Code ########################
 
+    ##################### Product ############################
+    Route::group(['prefix'=>'product'],function (){
+        Route::get('/','ProductController@index')->name('admin.product');
+        Route::get('create','ProductController@create')->name('admin.product.create');
+        Route::post('store','ProductController@store')->name('admin.product.store');
+
+        Route::get('edit/{id}','ProductController@edit')->name('admin.product.edit');
+        Route::post('update/{id}','ProductController@update')->name('admin.product.update');
+
+        Route::get('delete/{id}','ProductController@destroy') -> name('admin.product.delete');
+    });
+    ##################### End Product ########################
+
 });
 
 

@@ -21,17 +21,26 @@ class Product extends Model
         'id', 'name_ar', 'name_en', 'img', 'price', 'cat_id', 'notes_ar', 'notes_en', 'disabled', 'updated_at','created_at'
     ];
 
-    public function scopeActive($query){
+    public function scopeActive($query)
+    {
         return $query -> where('disabled',0);
     }
 
-    public function  scopeSelection($query){
+    public function  scopeSelection($query)
+    {
 
         return $query -> select('id', 'name_ar', 'name_en', 'img', 'price', 'cat_id', 'notes_ar', 'notes_en', 'disabled', 'updated_at','created_at');
     }
 
-    public function getActive(){
+    public function getActive()
+    {
         return   $this -> disabled == 0 ? 'مفعل'  : 'غير مفعل';
+    }
+
+    public function getCategory()
+    {
+        $cat = Category::select('name_ar')->find($this -> cat_id );
+        return $cat['name_ar'];
     }
 
 }

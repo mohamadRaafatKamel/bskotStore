@@ -1,17 +1,17 @@
 @extends('layouts.admin')
-
+@section('title',' المنتجات')
 @section('content')
     <div class="app-content content">
         <div class="content-wrapper">
             <div class="content-header row">
                 <div class="content-header-left col-md-6 col-12 mb-2">
-                    <h3 class="content-header-title"> التصنيفات </h3>
+                    <h3 class="content-header-title"> المنتجات </h3>
                     <div class="row breadcrumbs-top">
                         <div class="breadcrumb-wrapper col-12">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">الرئيسية</a>
                                 </li>
-                                <li class="breadcrumb-item active"> التصنيفات
+                                <li class="breadcrumb-item active"> المنتجات
                                 </li>
                             </ol>
                         </div>
@@ -25,7 +25,7 @@
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h4 class="card-title"> كل التصنيفات </h4>
+                                    <h4 class="card-title"> كل المنتجات </h4>
                                     <a class="heading-elements-toggle"><i
                                             class="la la-ellipsis-v font-medium-3"></i></a>
                                     <div class="heading-elements">
@@ -49,27 +49,30 @@
                                             <tr>
                                                 <th> الاسم عربي</th>
                                                 <th>الاسم انجليزي</th>
+                                                <th> ملحوظه عربي</th>
+                                                <th>ملحوظه انجليزي</th>
+                                                <th>السعر</th>
+                                                <th>التصنيف</th>
                                                 <th>الحالة</th>
                                             </tr>
                                             </thead>
                                             <tbody>
 
-                                            @isset($categories)
-                                                @foreach($categories as $category)
+                                            @isset($products)
+                                                @foreach($products as $product)
                                                     <tr>
-                                                        <td>{{$category -> name_ar}}</td>
-                                                        <td>{{$category -> name_en}}</td>
-                                                        <td>{{$category -> getActive()}}</td>
+                                                        <td>{{$product -> name_ar}}</td>
+                                                        <td>{{$product -> name_en}}</td>
+                                                        <td>{{$product -> notes_ar}}</td>
+                                                        <td>{{$product -> notes_en}}</td>
+                                                        <td>{{$product -> price}}</td>
+                                                        <td>{{$product -> getCategory()}}</td>
+                                                        <td>{{$product -> getActive()}}</td>
                                                         <td>
                                                             <div class="btn-group" role="group"
                                                                  aria-label="Basic example">
-                                                                <a href="{{route('admin.category.edit',['id'=> $category->id ])}}"
+                                                                <a href="{{route('admin.product.edit',['id'=> $product->id ])}}"
                                                                    class="btn btn-outline-primary btn-min-width box-shadow-3 mr-1 mb-1">تعديل</a>
-
-
-                                                                <a href="{{route('admin.category.delete',$category -> id)}}"
-                                                                   class="btn btn-outline-danger btn-min-width box-shadow-3 mr-1 mb-1">حذف</a>
-
 
                                                             </div>
                                                         </td>

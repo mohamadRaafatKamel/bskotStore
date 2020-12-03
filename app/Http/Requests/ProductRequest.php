@@ -27,6 +27,10 @@ class ProductRequest extends FormRequest
             'name_ar'=>'required|string|max:100',
             'name_en'=>'required|string|max:100',
             'img' => 'max:2048',
+            'price'=>'required',
+            'cat_id'=>'required',
+            'notes_ar'=>'required|string|max:250',
+            'notes_en'=>'required|string|max:250',
         ];
     }
 
@@ -37,6 +41,7 @@ class ProductRequest extends FormRequest
             'string'  =>"يجب ان يكون احرف",
             'max'     =>"الاسم طويل",
             'in'      =>"القيمه غير صحيحه",
+            'img.max' =>"حجم الملف كبير",
         ];
     }
 }

@@ -6,7 +6,24 @@
                         class="menu-title" data-i18n="nav.add_on_drag_drop.main">الرئيسية </span></a>
             </li>
 
-            <li class="nav-item">  {{--open --}}
+            <li class="nav-item">
+                <a href=""><i class="la la-home"></i>
+                    <span class="menu-title" data-i18n="nav.dash.main"> المنتجات </span>
+                    <span class="badge badge badge-info badge-pill float-right mr-2">
+                        {{App\Models\Product::count()}}
+                    </span>
+                </a>
+                <ul class="menu-content">
+                    <li><a class="menu-item" href="{{route('admin.product')}}"   {{--class="active"--}}
+                        data-i18n="nav.dash.ecommerce"> عرض الكل </a>
+                    </li>
+                    <li><a class="menu-item" href="{{route('admin.product.create')}}" data-i18n="nav.dash.crypto">
+                            أضافه جديد </a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="nav-item">
                 <a href=""><i class="la la-home"></i>
                     <span class="menu-title" data-i18n="nav.dash.main"> كود خصم </span>
                     <span class="badge badge badge-info badge-pill float-right mr-2">
