@@ -28,13 +28,20 @@ class SiteController extends Controller
 
     public function view($id)
     {
-//        $category = Category::select()->active()->find($id);
-//        if (!$category) {
-//            return redirect()->route('home')->with(['error' => '  غير موجوده']);
-//        }
-//
         $product = Product::select()->find($id);
-
+        if (!$product) {
+            return redirect()->route('home')->with(['error' => '  غير موجوده']);
+        }
         return view('front.view',compact('product'));
+    }
+
+    public function search()
+    {
+        //return view('front.home');
+    }
+
+    public function delivery()
+    {
+        return view('front.delivery');
     }
 }
