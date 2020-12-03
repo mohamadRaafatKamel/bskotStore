@@ -18,17 +18,10 @@
 
 <body>
 
-<!-- Navbar -->
-@include('front.include.header')
-<!-- Navbar -->
 
-@include('front.include.toppage')
+@yield('toppage')
 
-<div class="mysearch">
-    <a href="search">
-        <input type="text" placeholder="Search"/>
-    </a>
-</div>
+
 
 <!--Main layout-->
 @yield('main')

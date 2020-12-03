@@ -157,7 +157,186 @@ body,
   -ms-user-select: none;
   user-select: none;
 }
+/* Product Page */
+.topproducy{
+    background-image: linear-gradient(rgb(255, 255, 255), rgb(255, 255, 255));
+    -moz-box-pack: justify;
+    justify-content: space-between;
+    padding: 16px;
+    top: 0px;
+    position: sticky;
+    width: 100%;
+    z-index: 3000;
+    -moz-box-align: center;
+    align-items: center;
+    height: 48px;
+    flex: 0 0 auto;
+    display: flex;
+    color: rgb(0, 0, 0);
+}
 
+.topproducy h1{
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 1.41;
+    letter-spacing: -0.4px;
+    text-align: center;
+    padding-left: 9%;
+    padding-right: 9%;
+    flex: 1 1 auto;
+    -moz-box-align: center;
+    align-items: center;
+    color: inherit;
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    hyphens: auto;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -moz-box-orient: vertical;
+    opacity: 1;
+    transform: scale3d(1, 1, 1);
+    transition: opacity 0.5s ease 0s, transform 0.2s ease 0s;
+}
+
+.topproducyarrow{
+    font-size: 21px;
+    height: 32px;
+    font-weight: 400;
+    color: currentcolor;
+    display: inline-flex;
+    cursor: pointer;
+    text-align: center;
+    background-color: transparent;
+    appearance: none;
+    border: medium none;
+    font-stretch: normal;
+    font-style: normal;
+    text-decoration: none;
+    user-select: none;
+    vertical-align: middle;
+    flex-shrink: 0;
+    padding: 0px;
+    z-index: 1;
+    touch-action: manipulation;
+    line-height: 1;
+    transform: scale3d(1, 1, 1);
+}
+/* End Product Page */
+/* View Page */
+.grayline{
+    background-color: #eee;
+    height: 10px;
+}
+
+.price{
+    height: 52px;
+    padding: 16px;
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 1.41;
+    -webkit-letter-spacing: -0.4px;
+    -moz-letter-spacing: -0.4px;
+    -ms-letter-spacing: -0.4px;
+    letter-spacing: -0.4px;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+.price .first{
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.33;
+    -webkit-letter-spacing: -0.2px;
+    -moz-letter-spacing: -0.2px;
+    -ms-letter-spacing: -0.2px;
+    letter-spacing: -0.2px;
+    font-weight: 600;
+    color: #000000;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-all;
+    word-break: break-word;
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    -ms-hyphens: auto;
+    hyphens: auto;
+}
+
+.price .second{
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.33;
+    -webkit-letter-spacing: -0.2px;
+    -moz-letter-spacing: -0.2px;
+    -ms-letter-spacing: -0.2px;
+    letter-spacing: -0.2px;
+    color: hsl(0,0%,38%);
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-all;
+    word-break: break-word;
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    -ms-hyphens: auto;
+    hyphens: auto;
+}
+
+.contnernotes{
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    padding: 16px;
+    margin-top: 8px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    background-color: #ffffff;
+    position: relative;
+    width: inherit;
+}
+
+.notes{
+    background: none;
+    resize: none;
+    padding-top: 4px;
+    padding-bottom: 8px;
+    display: block;
+    width: 100%;
+    border: none;
+    border-top-color: currentcolor;
+    border-right-color: currentcolor;
+    border-bottom-color: currentcolor;
+    border-bottom-style: none;
+    border-bottom-width: medium;
+    border-left-color: currentcolor;
+    border-radius: 0;
+    border-bottom: 1px solid;
+    border-bottom-color: currentcolor;
+    border-color: hsl(0,0%,96%);
+    color: #000000;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.33;
+    -webkit-letter-spacing: -0.2px;
+    -moz-letter-spacing: -0.2px;
+    -ms-letter-spacing: -0.2px;
+    letter-spacing: -0.2px;
+}
+/* End View Page */
 /* Adding color to the Navbar on mobile */
 @media only screen and (max-width: 768px) {
   .navbar {

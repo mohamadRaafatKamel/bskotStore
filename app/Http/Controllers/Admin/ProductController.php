@@ -61,12 +61,14 @@ class ProductController extends Controller
                 $image = $request->file('img');
                 $imageName = "prod_".$request->name_en . ".". $image->extension();
                 $image->move(public_path('product'),$imageName);
-                $request->request->add(['img' => "public/product/".$imageName]);
+                //$request->request->add(['img' => "public/product/".$imageName]);
+                $imgPath = "public/product/".$imageName;
             }else{
                 $request->request->add(['img' => $product->img]);
+                $imgPath = $product->img;
             }
 
-            $product->update($request->except('_token'));
+            $product->update(array_merge($request->except('_token'),['img' => $imgPath ]));
 
             return redirect()->route('admin.product')->with(['success' => 'تم التحديث بنجاح']);
 

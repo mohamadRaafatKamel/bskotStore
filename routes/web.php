@@ -16,6 +16,8 @@ use Illuminate\Support\Facades\Route;
 Route::group(['namespace'=>'App\Http\Controllers', 'middleware'=>'guest'],function (){
 
     Route::get('/', 'SiteController@index')->name('home');
+    Route::get('product/{id}', 'SiteController@product')->name('product');
+    Route::get('view/{id}', 'SiteController@view')->name('view');
     //Route::post('login', 'LoginController@login')->name('admin.login');
 });
 

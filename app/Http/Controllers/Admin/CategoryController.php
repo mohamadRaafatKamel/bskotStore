@@ -60,13 +60,15 @@ class CategoryController extends Controller
                 $image = $request->file('img');
                 $imageName = "cat_".$request->name_en . ".". $image->extension();
                 $image->move(public_path('category'),$imageName);
-                $request->request->add(['img' => "public/category/".$imageName]);
+//                $request->request->add(['img' => "public/category/".$imageName]);
 //                array_merge($request ,['img' => "public/category/".$imageName]);
+                $imgPath = "public/category/".$imageName;
             }else{
-                $request->request->add(['img' => $category->img]);
+//                $request->request->add(['img' => $category->img]);
+                $imgPath = $category->img;
             }
 
-            $category->update($request->except('_token'));
+            $category->update(array_merge($request->except('_token'),['img' => $imgPath ]));
 
             return redirect()->route('admin.category')->with(['success' => 'تم التحديث بنجاح']);
 
