@@ -28,7 +28,7 @@ class ProductController extends Controller
             $image = $request->file('img');
             $imageName = "prod_".$request->name_en . ".". $image->extension();
             $image->move(public_path('product'),$imageName);
-            Product::create(array_merge($request->except(['_token']),['img' => "product/".$imageName]));
+            Product::create(array_merge($request->except(['_token']),['img' => "public/product/".$imageName]));
             return redirect()->route('admin.product')->with(['success'=>'تم الحفظ']);
 //        }catch (\Exception $ex){
 //            return redirect()->route('admin.product.create')->with(['error'=>'يوجد خطء']);
@@ -61,7 +61,7 @@ class ProductController extends Controller
                 $image = $request->file('img');
                 $imageName = "prod_".$request->name_en . ".". $image->extension();
                 $image->move(public_path('product'),$imageName);
-                $request->request->add(['img' => "product/".$imageName]);
+                $request->request->add(['img' => "public/product/".$imageName]);
             }else{
                 $request->request->add(['img' => $product->img]);
             }

@@ -29,7 +29,7 @@ class CategoryController extends Controller
             $image = $request->file('img');
             $imageName = "cat_".$request->name_en . ".". $image->extension();
             $image->move(public_path('category'),$imageName);
-            Category::create(array_merge($request->except(['_token']),['img' => "category/".$imageName]));
+            Category::create(array_merge($request->except(['_token']),['img' => "public/category/".$imageName]));
             return redirect()->route('admin.category')->with(['success'=>'تم الحفظ']);
         }catch (\Exception $ex){
             return redirect()->route('admin.category.create')->with(['error'=>'يوجد خطء']);
@@ -48,7 +48,6 @@ class CategoryController extends Controller
     public function update($id, CategoryRequest $request)
     {
         try {
-
             $category = Category::find($id);
             if (!$category) {
                 return redirect()->route('admin.category.edit', $id)->with(['error' => '  غير موجوده']);
@@ -61,7 +60,8 @@ class CategoryController extends Controller
                 $image = $request->file('img');
                 $imageName = "cat_".$request->name_en . ".". $image->extension();
                 $image->move(public_path('category'),$imageName);
-                $request->request->add(['img' => "category/".$imageName]);
+                $request->request->add(['img' => "public/category/".$imageName]);
+//                array_merge($request ,['img' => "public/category/".$imageName]);
             }else{
                 $request->request->add(['img' => $category->img]);
             }

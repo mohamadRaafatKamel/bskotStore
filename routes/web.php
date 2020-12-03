@@ -13,10 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('front.home');
+Route::group(['namespace'=>'App\Http\Controllers', 'middleware'=>'guest'],function (){
+
+    Route::get('/', 'SiteController@index')->name('home');
+    //Route::post('login', 'LoginController@login')->name('admin.login');
 });
 
-Auth::routes();
-
+//Auth::routes();
 //Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

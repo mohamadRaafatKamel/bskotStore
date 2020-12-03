@@ -9,11 +9,11 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
     <!-- Bootstrap core CSS -->
-    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{asset('assets/front/css/bootstrap.min.css')}}" rel="stylesheet">
     <!-- Material Design Bootstrap -->
-    <link href="assets/css/mdb.min.css" rel="stylesheet">
+    <link href="{{asset('assets/front/css/mdb.min.css')}}" rel="stylesheet">
     <!-- Your custom styles (optional) -->
-    <link href="assets/css/style.css" rel="stylesheet">
+    <link href="{{asset('assets/front/css/style.css')}}" rel="stylesheet">
 </head>
 
 <body>
@@ -33,9 +33,7 @@
 <!--Main layout-->
 @yield('main')
 <!--Main layout-->
+@yield('btnfooter')
 
-<div class="btnfooter">
-    <input type="submit" class="orderbtn"/>
-</div>
 <!--Footer-->
 @include('front.include.footer')

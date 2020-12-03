@@ -1,4 +1,4 @@
-<div class="view" style="background-image: url('assets/img/topImg.jpg'); background-repeat: no-repeat; background-size: cover;">
+<div class="view" style="background-image: url('assets/front/img/topImg.jpg'); background-repeat: no-repeat; background-size: cover;">
 
     <!-- Mask & flexbox options-->
     <div class="mask rgba-black-light d-flex justify-content-center align-items-center">
@@ -17,7 +17,7 @@
 <!-- Full Page Intro -->
 <!--  logo-->
 <div class="sec-nav">
-    <img src="assets/img/logo.jpg"/>
+    <img src="assets/front/img/logo.jpg"/>
     <div>
         <h1>DietCare</h1>
         <h2>My Life Concept</h2>

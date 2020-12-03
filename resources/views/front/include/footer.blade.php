@@ -10,13 +10,13 @@
 
 <!-- SCRIPTS -->
 <!-- JQuery -->
-<script type="text/javascript" src="assets/js/jquery-3.4.1.min.js"></script>
+<script type="text/javascript" src="{{asset('assets/front/js/jquery-3.4.1.min.js')}}"></script>
 <!-- Bootstrap tooltips -->
-<script type="text/javascript" src="assets/js/popper.min.js"></script>
+<script type="text/javascript" src="{{asset('assets/front/js/popper.min.js')}}"></script>
 <!-- Bootstrap core JavaScript -->
-<script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="{{asset('assets/front/js/bootstrap.min.js')}}"></script>
 <!-- MDB core JavaScript -->
-<script type="text/javascript" src="assets/js/mdb.min.js"></script>
+<script type="text/javascript" src="{{asset('assets/front/js/mdb.min.js')}}"></script>
 <!-- Initializations -->
 <script type="text/javascript">
     // Animations initialization
