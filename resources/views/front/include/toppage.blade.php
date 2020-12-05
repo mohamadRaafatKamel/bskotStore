@@ -1,4 +1,5 @@
-<div class="view" style="background-image: url('{{asset('assets/front/img/topImg.jpg')}}'); background-repeat: no-repeat; background-size: cover;">
+<div class="view" style="background-image: url('{{asset('assets/front/img/topImg.jpg')}}');
+    background-repeat: no-repeat; bottom: 25px; background-size: cover;">
 
     <!-- Mask & flexbox options-->
     <div class="mask rgba-black-light d-flex justify-content-center align-items-center">

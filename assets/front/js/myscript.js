@@ -20,11 +20,13 @@ function getTree() {
     var tree = [
         {
             text: "Parent 1",
-            icon: "glyphicon glyphicon-stop",
-            selectedIcon: "glyphicon glyphicon-stop",
+            //icon: "glyphicon glyphicon-stop",
+            //icon: "fa fa-angle-right fa-fw",
+            //selectedIcon: "glyphicon glyphicon-stop",
             nodes: [
                 {
                     text: "Child 1",
+                    //icon: "fa fa-angle-down fa-fw",
                     nodes: [
                         {
                             text: "Grandchild 1"
@@ -40,7 +42,24 @@ function getTree() {
             ]
         },
         {
-            text: "Parent 2"
+            text: "Parent 2",
+            nodes: [
+                {
+                    text: "Child 1",
+                    //icon: "fa fa-angle-down fa-fw",
+                    nodes: [
+                        {
+                            text: "Grandchild 1"
+                        },
+                        {
+                            text: "Grandchild 2"
+                        }
+                    ]
+                },
+                {
+                    text: "Child 2"
+                }
+            ]
         },
         {
             text: "Parent 3"
@@ -56,5 +75,9 @@ function getTree() {
     return tree;
 }
 
-$('#tree').treeview({data: getTree() ,showIcon: true});
+$('#tree').treeview({
+    data: getTree(),
+    expandIcon: 'fa fa-angle-down fa-fw',
+    collapseIcon: 'fa fa-angle-right fa-fw',
+});
 

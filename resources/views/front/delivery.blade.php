@@ -12,7 +12,7 @@
     </div>
 @stop
 @section('main')
-<main>
+<main class="h-100">
     <div class="container">
     @include('admin.include.alerts.success')
     @include('admin.include.alerts.errors')

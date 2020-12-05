@@ -15,7 +15,7 @@
     </div>
 @stop
 @section('main')
-<main>
+<main class="h-100">
     <div class="container">
     @include('admin.include.alerts.success')
     @include('admin.include.alerts.errors')
@@ -25,7 +25,7 @@
             <div class="row">
                 @if($categories)
                     @foreach($categories as $category)
-                        <div class="col-md-6 col-xs-6 col-sm-6 col-lg-6">
+                        <div class="col-6 producthome">
                             <a href="{{route('product',$category ->id)}}">
                                 <img src="{{ asset($category ->img) }}" class="img-fluid z-depth-1-half" alt="">
                                 <p>{{$category -> name_en}}</p>

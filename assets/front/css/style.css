@@ -157,6 +157,32 @@ body,
   -ms-user-select: none;
   user-select: none;
 }
+
+.productcontener{
+    border-top: 1px solid;
+    border-top-color: currentcolor;
+    border-top-color: hsl(0,0%,96%);
+    display: grid;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    padding: 16px;
+    margin-top: 0;
+    height: 100%;
+    background-color: #ffffff;
+    grid-gap: 16px;
+    grid-template-columns: repeat(2,1fr);
+}
+
+.producthome{
+    cursor: pointer;
+    width: 100%;
+    margin-top: 8px;
+    height: inherit;
+    background-color: rgb(255, 255, 255);
+    text-decoration: none;
+}
+
 /* Product Page */
 .topproducy{
     background-image: linear-gradient(rgb(255, 255, 255), rgb(255, 255, 255));

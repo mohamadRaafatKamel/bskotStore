@@ -10,7 +10,7 @@
 @stop
 
 @section('main')
-<main>
+<main class="h-100">
     <div class="container">
 
         <!--Section: Main info-->
@@ -19,7 +19,7 @@
             <div class="row">
                 @if($products)
                     @foreach($products as $product)
-                        <div class="col-md-6 col-xs-6 col-sm-6 col-lg-6">
+                        <div class="col-6">
                             <a href="{{route('view',$product ->id)}}">
                                 <img src="{{ asset($product ->img) }}" class="img-fluid z-depth-1-half" alt="">
                                 <p>{{$product -> name_en}}</p>
