@@ -11,9 +11,9 @@
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">الرئيسية </a>
                                 </li>
-                                <li class="breadcrumb-item"><a href="{{route('admin.promocode')}}"> كود خصم </a>
+                                <li class="breadcrumb-item"><a href="{{route('admin.emarh')}}">  المناطق </a>
                                 </li>
-                                <li class="breadcrumb-item active">تعديل كود خصم
+                                <li class="breadcrumb-item active">تعديل  منطقه
                                 </li>
                             </ol>
                         </div>
@@ -43,21 +43,21 @@
                                 @include('admin.include.alerts.errors')
                                 <div class="card-content collapse show">
                                     <div class="card-body">
-                                        <form class="form" action="{{route('admin.promocode.update',$promos -> id)}}" method="POST"
+                                        <form class="form" action="{{route('admin.area.update',$areas -> id)}}" method="POST"
                                               enctype="multipart/form-data">
                                             @csrf
                                             <div class="form-body">
-                                                <h4 class="form-section"><i class="ft-home"></i> بيانات  اللغة </h4>
+                                                <h4 class="form-section"><i class="ft-home"></i> البيانات  </h4>
                                                 <div class="row">
+
                                                     <div class="col-md-6">
                                                         <div class="form-group">
-                                                            <label for="projectinput1"> كود </label>
-                                                            <input type="text"
-                                                                   value="{{$promos -> code}}" id="code"
+                                                            <label for="projectinput1"> الاسم بالعربي </label>
+                                                            <input type="text" value="{{$areas -> name_ar}}" id="name_ar"
                                                                    class="form-control"
-                                                                   placeholder=" كود"
-                                                                   name="code">
-                                                            @error('code')
+                                                                   placeholder="الاسم بالعربي"
+                                                                   name="name_ar">
+                                                            @error('name_ar')
                                                             <span class="text-danger">{{$message}}</span>
                                                             @enderror
                                                         </div>
@@ -65,12 +65,12 @@
 
                                                     <div class="col-md-6">
                                                         <div class="form-group">
-                                                            <label for="projectinput1"> تاريخ الانتهاء </label>
-                                                            <input type="date" value="{{$promos -> limit_date}}" id="code"
+                                                            <label for="projectinput1"> الاسم بالانجليزي </label>
+                                                            <input type="text" value="{{$areas -> name_en}}" id="name_en"
                                                                    class="form-control"
-                                                                   placeholder=" تاريخ الانتهاء"
-                                                                   name="limit_date">
-                                                            @error('limit_date')
+                                                                   placeholder="الاسم بالانجليزي  "
+                                                                   name="name_en">
+                                                            @error('name_en')
                                                             <span class="text-danger">{{$message}}</span>
                                                             @enderror
                                                         </div>
@@ -78,16 +78,38 @@
 
                                                     <div class="col-md-6">
                                                         <div class="form-group">
-                                                            <label for="projectinput1">  قيمه الخصم </label>
-                                                            <input type="text" value="{{$promos -> value}}" id="name_en"
+                                                            <label for="projectinput1">   وقت التوصيل بالدقائق </label>
+                                                            <input type="text" value="{{$areas -> estimated_time}}" id="name_en"
                                                                    class="form-control"
-                                                                   placeholder="قيمه الخصم  "
-                                                                   name="value">
-                                                            @error('value')
+                                                                   placeholder=" وقت التوصيل بالدقائق "
+                                                                   name="estimated_time">
+                                                            @error('estimated_time')
                                                             <span class="text-danger">{{$message}}</span>
                                                             @enderror
                                                         </div>
                                                     </div>
+
+
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label for="projectinput2"> الاماره </label>
+                                                            <select name="emarh_id" class="select2 form-control">
+                                                                <optgroup label="من فضلك أختر الاماره  ">
+                                                                    @if($emarhs)
+                                                                        @foreach($emarhs as $emarh)
+                                                                            <option value="{{$emarh->id}}" @if($emarh->id == $areas->emarh_id) selected @endif>
+                                                                                {{$emarh->name_ar}}</option>
+                                                                        @endforeach
+                                                                    @endif
+                                                                </optgroup>
+                                                            </select>
+                                                            @error('emarh_id')
+                                                            <span class="text-danger">{{$message}}</span>
+                                                            @enderror
+                                                        </div>
+                                                    </div>
+
+
                                                 </div>
 
                                                 <div class="row">
@@ -97,7 +119,7 @@
                                                                    id="switcheryColor4"
                                                                    class="switchery" data-color="success"
 
-                                                                   @if($promos -> disabled  == 0 ) checked @endif
+                                                                   @if($areas -> disabled  == 0 ) checked @endif
                                                             />
                                                             <label for="switcheryColor4"
                                                                    class="card-title ml-1">الحالة </label>

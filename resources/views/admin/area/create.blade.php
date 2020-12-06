@@ -1,5 +1,5 @@
 @extends('layouts.admin')
-@section('title','اضافه كود')
+@section('title','اضافه منطقه')
 @section('content')
 
     <div class="app-content content">
@@ -11,9 +11,9 @@
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">الرئيسية </a>
                                 </li>
-                                <li class="breadcrumb-item"><a href="{{route('admin.promocode')}}"> كود خصم </a>
+                                <li class="breadcrumb-item"><a href="{{route('admin.area')}}">  المناطق </a>
                                 </li>
-                                <li class="breadcrumb-item active">إضافة كود خصم
+                                <li class="breadcrumb-item active">إضافة  منطقه
                                 </li>
                             </ol>
                         </div>
@@ -27,7 +27,7 @@
                         <div class="col-md-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h4 class="card-title" id="basic-layout-form"> إضافة كود خصم </h4>
+                                    <h4 class="card-title" id="basic-layout-form"> إضافة  منطقه </h4>
                                     <a class="heading-elements-toggle"><i
                                             class="la la-ellipsis-v font-medium-3"></i></a>
                                     <div class="heading-elements">
@@ -43,7 +43,7 @@
                                 @include('admin.include.alerts.errors')
                                 <div class="card-content collapse show">
                                     <div class="card-body">
-                                        <form class="form" action="{{route('admin.promocode.store')}}" method="POST"
+                                        <form class="form" action="{{route('admin.area.store')}}" method="POST"
                                               enctype="multipart/form-data">
                                             @csrf
 
@@ -51,14 +51,15 @@
                                                 <h4 class="form-section"><i class="ft-home"></i> البيانات   </h4>
 
                                                 <div class="row">
+
                                                     <div class="col-md-6">
                                                         <div class="form-group">
-                                                            <label for="projectinput1"> كود </label>
-                                                            <input type="text" value="" id="code"
+                                                            <label for="projectinput1"> الاسم بالعربي </label>
+                                                            <input type="text" value="" id="name_ar"
                                                                    class="form-control"
-                                                                   placeholder=" كود"
-                                                                   name="code">
-                                                            @error('code')
+                                                                   placeholder="الاسم بالعربي"
+                                                                   name="name_ar">
+                                                            @error('name_ar')
                                                             <span class="text-danger">{{$message}}</span>
                                                             @enderror
                                                         </div>
@@ -66,29 +67,48 @@
 
                                                     <div class="col-md-6">
                                                         <div class="form-group">
-                                                            <label for="projectinput1"> تاريخ الانتهاء </label>
-                                                            <input type="date" value="" id="code"
-                                                                   class="form-control"
-                                                                   placeholder=" تاريخ الانتهاء"
-                                                                   name="limit_date">
-                                                            @error('limit_date')
-                                                            <span class="text-danger">{{$message}}</span>
-                                                            @enderror
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="col-md-6">
-                                                        <div class="form-group">
-                                                            <label for="projectinput1">  قيمه الخصم </label>
+                                                            <label for="projectinput1"> الاسم بالانجليزي </label>
                                                             <input type="text" value="" id="name_en"
                                                                    class="form-control"
-                                                                   placeholder="قيمه الخصم  "
-                                                                   name="value">
-                                                            @error('value')
+                                                                   placeholder="الاسم بالانجليزي  "
+                                                                   name="name_en">
+                                                            @error('name_en')
                                                             <span class="text-danger">{{$message}}</span>
                                                             @enderror
                                                         </div>
                                                     </div>
+
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label for="projectinput1">   وقت التوصيل بالدقائق </label>
+                                                            <input type="text" value="" id="name_en"
+                                                                   class="form-control"
+                                                                   placeholder=" وقت التوصيل بالدقائق "
+                                                                   name="estimated_time">
+                                                            @error('estimated_time')
+                                                            <span class="text-danger">{{$message}}</span>
+                                                            @enderror
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label for="projectinput2"> الاماره </label>
+                                                            <select name="emarh_id" class="select2 form-control">
+                                                                <optgroup label="من فضلك أختر الاماره  ">
+                                                                    @if($emarhs)
+                                                                        @foreach($emarhs as $emarh)
+                                                                            <option value="{{$emarh->id}}">{{$emarh->name_ar}}</option>
+                                                                        @endforeach
+                                                                    @endif
+                                                                </optgroup>
+                                                            </select>
+                                                            @error('emarh_id')
+                                                            <span class="text-danger">{{$message}}</span>
+                                                            @enderror
+                                                        </div>
+                                                    </div>
+
                                                 </div>
 
                                                 <div class="row">

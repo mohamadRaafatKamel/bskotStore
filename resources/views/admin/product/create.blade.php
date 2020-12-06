@@ -128,7 +128,7 @@
                                                                     @endif
                                                                 </optgroup>
                                                             </select>
-                                                            @error('direction')
+                                                            @error('cat_id')
                                                             <span class="text-danger">{{$message}}</span>
                                                             @enderror
                                                         </div>

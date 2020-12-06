@@ -3,65 +3,65 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\CategoryRequest;
-use App\Http\Requests\PromocodeRequest;
-use App\Models\Category;
-use App\Models\PromoCode;
-use Illuminate\Http\Request;
+use App\Http\Requests\AreaRequest;
+use App\Models\Area;
+use App\Models\Emarh;
 
 class AreaController extends Controller
 {
     public function index()
     {
-        $promos = PromoCode::select()->paginate(PAGINATION_COUNT);
-        return view('admin.promocode.index', compact('promos'));
+        $areas = Area::select()->paginate(PAGINATION_COUNT);
+        return view('admin.area.index', compact('areas'));
     }
 
     public function create()
     {
-        return view('admin.promocode.create');
+        $emarhs = Emarh::select()->active()->get();
+        return view('admin.area.create',compact('emarhs'));
     }
 
-    public function store(PromocodeRequest $request)
+    public function store(AreaRequest $request)
     {
         try {
             if (!$request->has('disabled'))
                 $request->request->add(['disabled' => 1]);
 
-            PromoCode::create($request->except(['_token']));
-            return redirect()->route('admin.promocode')->with(['success'=>'تم الحفظ']);
+            Area::create($request->except(['_token']));
+            return redirect()->route('admin.area')->with(['success'=>'تم الحفظ']);
         }catch (\Exception $ex){
-            return redirect()->route('admin.promocode.create')->with(['error'=>'يوجد خطء']);
+            return redirect()->route('admin.area.create')->with(['error'=>'يوجد خطء']);
         }
     }
 
     public function edit($id)
     {
-        $promos = PromoCode::select()->find($id);
-        if(!$promos){
-            return redirect()->route('admin.promocode')->with(['error'=>"غير موجود"]);
+        $emarhs = Emarh::select()->active()->get();
+        $areas = Area::select()->find($id);
+        if(!$areas){
+            return redirect()->route('admin.area')->with(['error'=>"غير موجود"]);
         }
-        return view('admin.promocode.edit',compact('promos'));
+        return view('admin.area.edit',compact('areas','emarhs'));
     }
 
-    public function update($id, PromocodeRequest $request)
+    public function update($id, AreaRequest $request)
     {
         try {
 
-            $promos = PromoCode::find($id);
-            if (!$promos) {
-                return redirect()->route('admin.promocode.edit', $id)->with(['error' => '  غير موجوده']);
+            $areas = Area::find($id);
+            if (!$areas) {
+                return redirect()->route('admin.area.edit', $id)->with(['error' => '  غير موجوده']);
             }
 
             if (!$request->has('disabled'))
                 $request->request->add(['disabled' => 1]);
 
-            $promos->update($request->except('_token'));
+            $areas->update($request->except('_token'));
 
-            return redirect()->route('admin.promocode')->with(['success' => 'تم التحديث بنجاح']);
+            return redirect()->route('admin.area')->with(['success' => 'تم التحديث بنجاح']);
 
         } catch (\Exception $ex) {
-            return redirect()->route('admin.promocode')->with(['error' => 'هناك خطا ما يرجي المحاوله فيما بعد']);
+            return redirect()->route('admin.area')->with(['error' => 'هناك خطا ما يرجي المحاوله فيما بعد']);
         }
     }
 

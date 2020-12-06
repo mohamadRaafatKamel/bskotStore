@@ -33,4 +33,10 @@ class Area extends Model
         return   $this -> disabled == 0 ? 'مفعل'  : 'غير مفعل';
     }
 
+    public function getEmarh()
+    {
+        $emarh = Emarh::select('name_ar')->find($this -> emarh_id );
+        return $emarh['name_ar'];
+    }
+
 }

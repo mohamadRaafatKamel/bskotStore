@@ -47,7 +47,7 @@
                                               enctype="multipart/form-data">
                                             @csrf
                                             <div class="form-body">
-                                                <h4 class="form-section"><i class="ft-home"></i> بيانات  اللغة </h4>
+                                                <h4 class="form-section"><i class="ft-home"></i> البيانات   </h4>
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="form-group">
