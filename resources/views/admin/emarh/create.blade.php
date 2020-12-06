@@ -1,5 +1,5 @@
 @extends('layouts.admin')
-@section('title','اضافه تصنيف')
+@section('title','اضافه اماره')
 @section('content')
 
     <div class="app-content content">
@@ -11,9 +11,9 @@
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">الرئيسية </a>
                                 </li>
-                                <li class="breadcrumb-item"><a href="{{route('admin.category')}}"> التصنيفات </a>
+                                <li class="breadcrumb-item"><a href="{{route('admin.emarh')}}">  اماره </a>
                                 </li>
-                                <li class="breadcrumb-item active">إضافة تصنيف
+                                <li class="breadcrumb-item active">إضافة  اماره
                                 </li>
                             </ol>
                         </div>
@@ -27,7 +27,7 @@
                         <div class="col-md-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h4 class="card-title" id="basic-layout-form"> إضافة تصنيف </h4>
+                                    <h4 class="card-title" id="basic-layout-form"> إضافة  اماره </h4>
                                     <a class="heading-elements-toggle"><i
                                             class="la la-ellipsis-v font-medium-3"></i></a>
                                     <div class="heading-elements">
@@ -43,7 +43,7 @@
                                 @include('admin.include.alerts.errors')
                                 <div class="card-content collapse show">
                                     <div class="card-body">
-                                        <form class="form" action="{{route('admin.category.store')}}" method="POST"
+                                        <form class="form" action="{{route('admin.emarh.store')}}" method="POST"
                                               enctype="multipart/form-data">
                                             @csrf
 
@@ -51,6 +51,7 @@
                                                 <h4 class="form-section"><i class="ft-home"></i> البيانات   </h4>
 
                                                 <div class="row">
+
                                                     <div class="col-md-6">
                                                         <div class="form-group">
                                                             <label for="projectinput1"> الاسم بالعربي </label>
@@ -79,16 +80,17 @@
 
                                                     <div class="col-md-6">
                                                         <div class="form-group">
-                                                            <label for="projectinput1">  اضف صوره </label>
-                                                            <input type="file" value="" id="img"
+                                                            <label for="projectinput1">  قيمه التوصيل </label>
+                                                            <input type="text" value="" id="name_en"
                                                                    class="form-control"
-                                                                   accept="image/*"
-                                                                   name="img" required>
-                                                            @error('img')
+                                                                   placeholder=" قيمه التوصيل  "
+                                                                   name="price">
+                                                            @error('price')
                                                             <span class="text-danger">{{$message}}</span>
                                                             @enderror
                                                         </div>
                                                     </div>
+
                                                 </div>
 
                                                 <div class="row">

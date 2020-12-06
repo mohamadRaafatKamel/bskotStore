@@ -1,5 +1,5 @@
 @extends('layouts.admin')
-@section('title','اضافه تصنيف')
+@section('title','تعديل')
 @section('content')
 
     <div class="app-content content">
@@ -11,9 +11,9 @@
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">الرئيسية </a>
                                 </li>
-                                <li class="breadcrumb-item"><a href="{{route('admin.category')}}"> التصنيفات </a>
+                                <li class="breadcrumb-item"><a href="{{route('admin.promocode')}}"> كود خصم </a>
                                 </li>
-                                <li class="breadcrumb-item active">إضافة تصنيف
+                                <li class="breadcrumb-item active">تعديل كود خصم
                                 </li>
                             </ol>
                         </div>
@@ -27,7 +27,7 @@
                         <div class="col-md-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h4 class="card-title" id="basic-layout-form"> إضافة تصنيف </h4>
+                                    <h4 class="card-title" id="basic-layout-form">تعديل</h4>
                                     <a class="heading-elements-toggle"><i
                                             class="la la-ellipsis-v font-medium-3"></i></a>
                                     <div class="heading-elements">
@@ -43,22 +43,21 @@
                                 @include('admin.include.alerts.errors')
                                 <div class="card-content collapse show">
                                     <div class="card-body">
-                                        <form class="form" action="{{route('admin.category.store')}}" method="POST"
+                                        <form class="form" action="{{route('admin.promocode.update',$promos -> id)}}" method="POST"
                                               enctype="multipart/form-data">
                                             @csrf
-
                                             <div class="form-body">
-                                                <h4 class="form-section"><i class="ft-home"></i> البيانات   </h4>
-
+                                                <h4 class="form-section"><i class="ft-home"></i> بيانات  اللغة </h4>
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="form-group">
-                                                            <label for="projectinput1"> الاسم بالعربي </label>
-                                                            <input type="text" value="" id="name_ar"
+                                                            <label for="projectinput1"> كود </label>
+                                                            <input type="text"
+                                                                   value="{{$promos -> code}}" id="code"
                                                                    class="form-control"
-                                                                   placeholder="الاسم بالعربي"
-                                                                   name="name_ar">
-                                                            @error('name_ar')
+                                                                   placeholder=" كود"
+                                                                   name="code">
+                                                            @error('code')
                                                             <span class="text-danger">{{$message}}</span>
                                                             @enderror
                                                         </div>
@@ -66,12 +65,12 @@
 
                                                     <div class="col-md-6">
                                                         <div class="form-group">
-                                                            <label for="projectinput1"> الاسم بالانجليزي </label>
-                                                            <input type="text" value="" id="name_en"
+                                                            <label for="projectinput1"> تاريخ الانتهاء </label>
+                                                            <input type="date" value="{{$promos -> limit_date}}" id="code"
                                                                    class="form-control"
-                                                                   placeholder="الاسم بالانجليزي  "
-                                                                   name="name_en">
-                                                            @error('name_en')
+                                                                   placeholder=" تاريخ الانتهاء"
+                                                                   name="limit_date">
+                                                            @error('limit_date')
                                                             <span class="text-danger">{{$message}}</span>
                                                             @enderror
                                                         </div>
@@ -79,12 +78,12 @@
 
                                                     <div class="col-md-6">
                                                         <div class="form-group">
-                                                            <label for="projectinput1">  اضف صوره </label>
-                                                            <input type="file" value="" id="img"
+                                                            <label for="projectinput1">  قيمه الخصم </label>
+                                                            <input type="text" value="{{$promos -> value}}" id="name_en"
                                                                    class="form-control"
-                                                                   accept="image/*"
-                                                                   name="img" required>
-                                                            @error('img')
+                                                                   placeholder="قيمه الخصم  "
+                                                                   name="value">
+                                                            @error('value')
                                                             <span class="text-danger">{{$message}}</span>
                                                             @enderror
                                                         </div>
@@ -97,7 +96,9 @@
                                                             <input type="checkbox"  value="0" name="disabled"
                                                                    id="switcheryColor4"
                                                                    class="switchery" data-color="success"
-                                                                   checked/>
+
+                                                                   @if($promos -> disabled  == 0 ) checked @endif
+                                                            />
                                                             <label for="switcheryColor4"
                                                                    class="card-title ml-1">الحالة </label>
 
@@ -107,6 +108,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
+
                                             </div>
 
 
@@ -116,7 +118,7 @@
                                                     <i class="ft-x"></i> تراجع
                                                 </button>
                                                 <button type="submit" class="btn btn-primary">
-                                                    <i class="la la-check-square-o"></i> حفظ
+                                                    <i class="la la-check-square-o"></i>  تحديث
                                                 </button>
                                             </div>
                                         </form>

@@ -57,6 +57,32 @@ Route::group(['namespace'=>'App\Http\Controllers\Admin', 'middleware'=>'auth:adm
     });
     ##################### End Product ########################
 
+    ##################### Emarh ############################
+    Route::group(['prefix'=>'Emarh'],function (){
+        Route::get('/','EmarhController@index')->name('admin.emarh');
+        Route::get('create','EmarhController@create')->name('admin.emarh.create');
+        Route::post('store','EmarhController@store')->name('admin.emarh.store');
+
+        Route::get('edit/{id}','EmarhController@edit')->name('admin.emarh.edit');
+        Route::post('update/{id}','EmarhController@update')->name('admin.emarh.update');
+
+        Route::get('delete/{id}','EmarhController@destroy') -> name('admin.emarh.delete');
+    });
+    ##################### End Emarh ########################
+
+    ##################### Area ############################
+    Route::group(['prefix'=>'Area'],function (){
+        Route::get('/','AreaController@index')->name('admin.area');
+        Route::get('create','AreaController@create')->name('admin.area.create');
+        Route::post('store','AreaController@store')->name('admin.area.store');
+
+        Route::get('edit/{id}','AreaController@edit')->name('admin.area.edit');
+        Route::post('update/{id}','AreaController@update')->name('admin.area.update');
+
+        Route::get('delete/{id}','AreaController@destroy') -> name('admin.area.delete');
+    });
+    ##################### End Area ########################
+
 });
 
 

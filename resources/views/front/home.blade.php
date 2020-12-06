@@ -47,7 +47,14 @@
 @stop
 
 @section('btnfooter')
-    <div class="btnfooter">
-        <input type="submit" class="orderbtn" value="Start Order"/>
-    </div>
+    @if (Cookie::get('location') !== false)
+        <div class="btnfooter">
+            <a href="{{route('delivery')}}" >
+                <input type="submit" class="orderbtn" value="Start Order"/>
+            </a>
+        </div>
+    @else
+
+    @endif
+
 @stop

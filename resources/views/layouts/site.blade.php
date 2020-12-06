@@ -16,6 +16,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-treeview/1.2.0/bootstrap-treeview.min.css" />
 {{--    <link rel="stylesheet" type="text/css" href="https://cdn3.devexpress.com/jslib/20.2.4/css/dx.common.css" />--}}
 {{--    <link rel="stylesheet" type="text/css" href="https://cdn3.devexpress.com/jslib/20.2.4/css/dx.greenmist.css" />--}}
+<!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
     <!-- Your custom styles (optional) -->
     <link href="{{asset('assets/front/css/style.css')}}" rel="stylesheet">
 </head>
@@ -46,7 +48,12 @@
 {{--Tree View--}}
 {{--    <script src="https://cdn3.devexpress.com/jslib/20.2.4/js/dx.all.js"></script>--}}
 <script type="text/javascript" charset="utf8" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-treeview/1.2.0/bootstrap-treeview.min.js"></script>
-<!-- MDB core JavaScript -->
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
+
+    <!-- (Optional) Latest compiled and minified JavaScript translation files -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/i18n/defaults-*.min.js"></script>
+    <!-- MDB core JavaScript -->
 <script type="text/javascript" src="{{asset('assets/front/js/mdb.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('assets/front/js/myscript.js')}}"></script>
 <!-- Initializations -->
