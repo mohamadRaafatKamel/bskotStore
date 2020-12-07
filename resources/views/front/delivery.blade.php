@@ -4,7 +4,7 @@
 
 @section('toppage')
     <div class="topproducy">
-        <h1>Select Location Delivery</h1>
+        <h1>Order Mode</h1>
         <a href="{{route('home')}}" class="topproducyarrow"><i class="fas fa-arrow-left" style="color: #000;"></i></a>
     </div>
 {{--    <div class="mysearch">--}}
@@ -19,20 +19,31 @@
         <!--Section: Main info-->
         <section class="mt-5 wow fadeIn">
 
-
-            <select class="selectpicker" data-live-search="true">
-                <optgroup label="Picnic">
-                    <option>Mustard</option>
-                    <option>Ketchup</option>
-                    <option>Relish</option>
-                </optgroup>
-                <optgroup label="Camping">
-                    <option>Tent</option>
-                    <option>Flashlight</option>
-                    <option>Toilet Paper</option>
-                </optgroup>
-            </select>
-
+            <form method="post" action="{{ route('set.location') }}">
+                @csrf
+                @if(empty($myOrder))
+                <div class="form-group">
+                    <label for="Name">Name</label>
+                    <input type="text" name="name" class="form-control" id="Name" placeholder="Name" required>
+                </div>
+                <div class="form-group">
+                    <label for="Phone">Phone</label>
+                    <input type="Phone" name="phone" class="form-control" id="Phone" placeholder="Phone" required>
+                </div>
+                @endif
+                <div class="form-group">
+                    <label for="Phone">Location</label>
+                    <select class="selectpicker form-control" name="area_id" data-live-search="true">
+                        @foreach($data as $row)
+                            <optgroup label="{{$row['emarhName']}}">
+                            @foreach($row['areas'] as $area)
+                                <option value="{{$area['id']}}" @if($area['id']==$myOrder->area_id )selected @endif>
+                                    {{$area['name_en']}}</option>
+                                @endforeach
+                            </optgroup>
+                        @endforeach
+                    </select>
+                </div>
 
         </section>
         <!--Section: Main info-->
@@ -43,6 +54,12 @@
 
 @section('btnfooter')
     <div class="btnfooter">
-        <input type="submit" class="orderbtn" value="Start Order"/>
+        @if(!isset($_COOKIE['order']))
+            <input type="submit" value="Next" class="orderbtn">
+        @else
+            <input type="submit" value="Edit" class="orderbtn">
+        @endif
     </div>
+
+    </form>
 @stop

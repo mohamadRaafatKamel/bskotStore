@@ -10,7 +10,7 @@
 @stop
 
 @section('main')
-<main class="h-100">
+<main style="min-height: 500px;">
     <div class="container">
 
         <!--Section: Main info-->

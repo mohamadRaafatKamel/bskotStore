@@ -15,7 +15,7 @@
     </div>
 @stop
 @section('main')
-<main class="h-100">
+<main style="min-height: 500px;">
     <div class="container">
     @include('admin.include.alerts.success')
     @include('admin.include.alerts.errors')
@@ -47,10 +47,10 @@
 @stop
 
 @section('btnfooter')
-    @if (Cookie::get('location') !== false)
+    @if(!isset($_COOKIE['order']))
         <div class="btnfooter">
             <a href="{{route('delivery')}}" >
-                <input type="submit" class="orderbtn" value="Start Order"/>
+                <input type="submit" class="orderbtn" value="{{__('startOrder0')}}"/>
             </a>
         </div>
     @else
