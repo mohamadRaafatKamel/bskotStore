@@ -17,7 +17,7 @@ class Orders extends Model
      * @var array
      */
     protected $fillable = [
-        'id', 'name', 'phone', 'area_id', 'time', 'pay_way', 'total_cost', 'promo_id', 'state', 'updated_at','created_at'
+        'id', 'name', 'phone', 'area_id', 'delivery_adress', 'time', 'pay_way', 'total_cost', 'promo_id', 'state', 'updated_at','created_at'
     ];
 
     public function scopeActive($query){
@@ -26,11 +26,29 @@ class Orders extends Model
 
     public function  scopeSelection($query){
 
-        return $query -> select('id', 'name', 'phone', 'area_id', 'time', 'pay_way', 'total_cost', 'promo_id', 'state', 'disabled', 'created_at');
+        return $query -> select('id', 'name', 'phone', 'area_id', 'delivery_adress', 'time', 'pay_way', 'total_cost', 'promo_id', 'state', 'disabled', 'created_at');
     }
 
     public function getActive(){
         return   $this -> disabled == 0 ? 'مفعل'  : 'غير مفعل';
+    }
+
+    public function culcCostItem ($id)
+    {
+        $items = OrderItem::where('order_id',$id)->get();
+        $totalPrice = 0;
+        if($items){
+            foreach ($items as $item){
+                $product = Product::find($item->pro_id);
+                $totalPrice += $item->pro_amount * $product->price ;
+            }
+        }
+        return $totalPrice;
+    }
+
+    public function culcTimeDelivery($id){
+        $area = Area::find($id);
+        return $area-> estimated_time;
     }
 
 }

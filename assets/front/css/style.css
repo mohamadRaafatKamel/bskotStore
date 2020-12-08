@@ -437,6 +437,7 @@ body,
     text-align: center;
     -webkit-transition: all 0.2s;
     transition: all 0.2s;
+    height: 14px;
 }
 
 /* End View Page */

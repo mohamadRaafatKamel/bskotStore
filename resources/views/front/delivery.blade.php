@@ -21,7 +21,8 @@
 
             <form method="post" action="{{ route('set.location') }}">
                 @csrf
-                @if(empty($myOrder))
+                <?php $selectValue = 0 ?>
+                @if(!isset($myOrder))
                 <div class="form-group">
                     <label for="Name">Name</label>
                     <input type="text" name="name" class="form-control" id="Name" placeholder="Name" required>
@@ -30,6 +31,8 @@
                     <label for="Phone">Phone</label>
                     <input type="Phone" name="phone" class="form-control" id="Phone" placeholder="Phone" required>
                 </div>
+                @else
+                    <?php $selectValue = $myOrder->area_id ?>
                 @endif
                 <div class="form-group">
                     <label for="Phone">Location</label>
@@ -37,7 +40,7 @@
                         @foreach($data as $row)
                             <optgroup label="{{$row['emarhName']}}">
                             @foreach($row['areas'] as $area)
-                                <option value="{{$area['id']}}" @if($area['id']==$myOrder->area_id )selected @endif>
+                                <option value="{{$area['id']}}" @if($area['id']== $selectValue)selected @endif>
                                     {{$area['name_en']}}</option>
                                 @endforeach
                             </optgroup>

@@ -43,4 +43,16 @@ class Product extends Model
         return $cat['name_ar'];
     }
 
+    public static function getNameById($id)
+    {
+        $cat = Product::find($id);
+        return $cat['name_en'];
+    }
+
+    public static function getPriceById($id)
+    {
+        $cat = Product::find($id);
+        return $cat['price'];
+    }
+
 }
