@@ -27,6 +27,7 @@ Route::group(['namespace'=>'App\Http\Controllers', 'middleware'=>'guest'],functi
     Route::get('cart', 'SiteController@cart')->name('cart');
     Route::get('adress', 'SiteController@adress')->name('adress');
     Route::post('setadress', 'SiteController@setadress')->name('set.adress');
+    Route::get('credit', 'SiteController@credit')->name('credit');
 
     Route::get('search', 'SiteController@search')->name('search');
 });

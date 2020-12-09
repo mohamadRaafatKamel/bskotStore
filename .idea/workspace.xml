@@ -20,17 +20,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5585e40b-995d-44d9-96f8-01fc6fef4ad7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/front/adress.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/front/cart.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SiteController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SiteController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Orders.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Orders.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Product.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Product.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/front/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/front/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/front/js/myscript.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/front/js/myscript.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/front/delivery.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/delivery.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/front/include/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/include/header.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/front/view.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/view.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/front/adress.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/adress.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -202,7 +194,7 @@
       <workItem from="1606937622085" duration="17148000" />
       <workItem from="1606985156805" duration="17793000" />
       <workItem from="1607013775678" duration="1518000" />
-      <workItem from="1607084814197" duration="59708000" />
+      <workItem from="1607084814197" duration="61593000" />
     </task>
     <task id="LOCAL-00001" summary="category">
       <created>1606937699613</created>
@@ -281,7 +273,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607357503734</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="cart">
+      <created>1607455254617</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1607455254618</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -309,17 +308,18 @@
     <MESSAGE value="emarh" />
     <MESSAGE value="Area" />
     <MESSAGE value="delivey &amp; + - BTN" />
-    <option name="LAST_COMMIT_MESSAGE" value="delivey &amp; + - BTN" />
+    <MESSAGE value="cart" />
+    <option name="LAST_COMMIT_MESSAGE" value="cart" />
   </component>
   <component name="WindowStateProjectService">
     <state x="413" y="118" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1607338541571">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="413" y="118" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728@0.0.1366.728" timestamp="1607338541571" />
-    <state x="308" y="0" key="CommitChangelistDialog2" timestamp="1607357496656">
+    <state x="308" y="0" key="CommitChangelistDialog2" timestamp="1607455249867">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="308" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1607357496656" />
+    <state x="308" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1607455249867" />
     <state width="1323" height="179" key="GridCell.Tab.0.bottom" timestamp="1606963785785">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

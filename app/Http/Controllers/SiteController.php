@@ -116,16 +116,6 @@ class SiteController extends Controller
         return view('front.cart',compact('empty','order','items'));
     }
 
-    public function adress()
-    {
-        return view('adress');
-    }
-
-    public function setadress(Request $request)
-    {
-
-    }
-
     public function orderComplet($id)
     {
         $order = new Orders();
@@ -135,6 +125,24 @@ class SiteController extends Controller
             'time'=>$order->culcTimeDelivery($isOrder->area_id ),
         ];
         $isOrder->update($data);
+    }
+
+    public function adress()
+    {
+        return view('front.adress');
+    }
+
+    public function setadress(Request $request)
+    {
+        $order = new Orders();
+        $isOrder = $order->find($_COOKIE['order']);
+        $isOrder->update($request->except(['_token']));
+        return redirect()->route('credit');
+    }
+
+    public function credit()
+    {
+        //return view('front.home');
     }
 
     public function search()

@@ -5,7 +5,7 @@
 @section('toppage')
     <div class="topproducy">
         <h1>Check out</h1>
-        <a href="{{route('care')}}" class="topproducyarrow"><i class="fas fa-arrow-left" style="color: #000;"></i></a>
+        <a href="{{route('cart')}}" class="topproducyarrow"><i class="fas fa-arrow-left" style="color: #000;"></i></a>
     </div>
 {{--    <div class="mysearch">--}}
 {{--        <input type="text" id="input-search" placeholder="Search"/>--}}
@@ -23,7 +23,7 @@
                 @csrf
                 <div class="form-group">
                     <label for="Name">Add full adress</label>
-                    <input type="text" name="delivery_adress" class="form-control" id="Name" placeholder="Name" required>
+                    <input type="text" name="delivery_adress" class="form-control" id="Name" placeholder="full adress" required>
                 </div>
 
 
@@ -36,11 +36,7 @@
 
 @section('btnfooter')
     <div class="btnfooter">
-        @if(!isset($_COOKIE['order']))
-            <input type="submit" value="Next" class="orderbtn">
-        @else
-            <input type="submit" value="Edit" class="orderbtn">
-        @endif
+        <input type="submit" value="Next" class="orderbtn">
     </div>
 
     </form>
