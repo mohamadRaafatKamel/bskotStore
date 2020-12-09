@@ -142,7 +142,9 @@ class SiteController extends Controller
 
     public function credit()
     {
-        //return view('front.home');
+        $order = new Orders();
+        $isOrder = $order->find($_COOKIE['order']);
+        return view('front.credit',compact('isOrder'));
     }
 
     public function search()
