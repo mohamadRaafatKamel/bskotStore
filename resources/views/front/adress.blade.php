@@ -23,7 +23,7 @@
                 @csrf
                 <div class="form-group">
                     <label for="Name">Add full adress</label>
-                    <input type="text" name="delivery_adress" class="form-control" id="Name" placeholder="full adress" required>
+                    <input type="text" name="delivery_adress" value="{{ $isOrder->delivery_adress }}" class="form-control" id="Name" placeholder="full adress" required>
                 </div>
 
 
