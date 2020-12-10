@@ -9,6 +9,7 @@ use App\Models\OrderItem;
 use App\Models\Orders;
 use App\Models\Product;
 use http\Cookie;
+use Twilio\Rest\Client;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
@@ -161,6 +162,7 @@ class SiteController extends Controller
             if (isset($payment_status['id'])) { //success payment id -> transaction bank id
                 $paymentMessage = true;
                 $isOrder->update(['bank_transaction_id'=>$payment_status['id'] , 'state'=>1]);
+                return redirect()->route('thankspage');
                 //save order in orders table with transaction id  = $payment_status['id']
                 //return view($this->module_view_folder . '.details',compact('offer'));
             } else {
@@ -199,6 +201,24 @@ class SiteController extends Controller
         curl_close($ch);
         return json_decode($responseData, true);
 
+    }
+
+    public function thankspage()
+    {
+        $recipient = "+2001121426196";
+        $body = "OTP massage body";
+        $this->sendMessage($body, $recipient);
+        return view('front.thankspage');
+    }
+
+    private function sendMessage($message, $recipients)
+    {
+        $account_sid = getenv("TWILIO_SID");
+        $auth_token = getenv("TWILIO_AUTH_TOKEN");
+        $twilio_number = getenv("TWILIO_NUMBER");
+        $client = new Client($account_sid, $auth_token);
+        $client->messages->create($recipients,
+            ['from' => $twilio_number, 'body' => $message] );
     }
 
     public function search()
