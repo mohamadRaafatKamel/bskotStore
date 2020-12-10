@@ -10,6 +10,7 @@
 {{--    <div class="mysearch">--}}
 {{--        <input type="text" id="input-search" placeholder="Search"/>--}}
 {{--    </div>--}}
+    <div class="grayline"></div>
 @stop
 @section('main')
 <main style="min-height: 500px;">
@@ -28,8 +29,8 @@
 
             </div>
             <div class="paymentpage2">
-                <button type="button" id="creditBtn">Credit Card</button>
-{{--                <button type="button" id="cashBtn">cash</button>--}}
+{{--                <button type="button" id="creditBtn">Credit Card</button>--}}
+                <button type="button" id="cashBtn">cash</button>
             </div>
 
             <div>
@@ -68,6 +69,13 @@
 @section('scripts')
     <script>
         $(document).ready(function() {
+            $(document).on('click', '#cashBtn', function (e) {
+                e.preventDefault();
+                location.replace("{{ route('cash') }}");
+            });
+        });
+        /*
+        $(document).ready(function() {
             $(document).on('click', '#creditBtn', function (e) {
                 e.preventDefault();
                 $.ajax({
@@ -89,5 +97,6 @@
                 });
             });
         });
+        */
     </script>
 @stop

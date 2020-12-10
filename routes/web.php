@@ -28,7 +28,12 @@ Route::group(['namespace'=>'App\Http\Controllers', 'middleware'=>'guest'],functi
     Route::get('adress', 'SiteController@adress')->name('adress');
     Route::post('setadress', 'SiteController@setadress')->name('set.adress');
     Route::get('credit', 'SiteController@credit')->name('credit');
+    Route::get('cash', 'SiteController@cash')->name('cash');
     Route::get('thankspage', 'SiteController@thankspage')->name('thankspage');
+
+    Route::get('otpview', 'SiteController@otpview')->name('otpview');
+    Route::post('otpCheck', 'SiteController@otpCheck')->name('otpCheck');
+
     //ajax credit
     Route::get('get-checkout-id', 'PaymentProviderController@getCheckOutId')->name('offers.checkout');
 

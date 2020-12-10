@@ -18,7 +18,7 @@ class Orders extends Model
      */
     protected $fillable = [
         'id', 'name', 'phone', 'area_id', 'delivery_adress', 'time', 'pay_way', 'total_cost',
-        'bank_transaction_id', 'promo_id', 'state', 'updated_at','created_at'
+        'bank_transaction_id', 'otp', 'otp_check', 'promo_id', 'state', 'updated_at','created_at'
     ];
 
     public function scopeActive($query){
@@ -28,7 +28,7 @@ class Orders extends Model
     public function  scopeSelection($query){
 
         return $query -> select('id', 'name', 'phone', 'area_id', 'delivery_adress', 'time',
-            'pay_way', 'total_cost', 'promo_id', 'state', 'bank_transaction_id', 'disabled', 'created_at');
+            'pay_way', 'total_cost', 'otp', 'otp_check', 'promo_id', 'state', 'bank_transaction_id', 'disabled', 'created_at');
     }
 
     public function getActive(){

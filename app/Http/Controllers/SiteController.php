@@ -9,6 +9,7 @@ use App\Models\OrderItem;
 use App\Models\Orders;
 use App\Models\Product;
 use http\Cookie;
+use mysql_xdevapi\Exception;
 use Twilio\Rest\Client;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -86,11 +87,15 @@ class SiteController extends Controller
     {
         if(!isset($_COOKIE['order'])) {
             // check frist
-            $order= Orders::where('phone',$request->phone)->first();
-            setcookie('order', $order->id, time() * ( 60));
+            $order= Orders::where('phone',"+965".$request->phone)->first();
             if(!$order){
+                $request->merge([
+                    'phone' => "+965".$request->phone,
+                ]);
                 $order = Orders::create($request->except(['_token']));
                 setcookie('order', $order->id, time() * ( 60));  //365 * 24 * 60 * 60
+            }else{
+                setcookie('order', $order->id, time() * ( 60));
             }
             return redirect()->route('home');
         }else{
@@ -203,12 +208,36 @@ class SiteController extends Controller
 
     }
 
+    public function cash()
+    {
+        if(!isset($_COOKIE['order'])){
+            return redirect()->route('cart');
+        }
+        $order = new Orders();
+        $isOrder = $order->find($_COOKIE['order']);
+        $isOrder->update(['state'=>'2','pay_way'=>2]);
+        return redirect()->route('thankspage');
+    }
+
     public function thankspage()
     {
-        $recipient = "+2001121426196";
-        $body = "OTP massage body";
-        $this->sendMessage($body, $recipient);
-        return view('front.thankspage');
+        if(!isset($_COOKIE['order'])){
+            return redirect()->route('cart');
+        }
+        $order = new Orders();
+        $isOrder = $order->find($_COOKIE['order']);
+        $recipient = $isOrder->phone;
+        $otp = rand(1000,9999);
+        $isOrder->update(['otp'=>$otp]);
+        $body = "OTP Code : ".$otp;
+        try {
+            $this->sendMessage($body, $recipient);
+            return view('front.thankspage');
+        }catch (\Exception $ex){
+
+        }
+        return view('front.thankspage')->with(['error' => 'هناك خطا ما يرجي المحاوله فيما بعد']);
+
     }
 
     private function sendMessage($message, $recipients)
@@ -219,6 +248,26 @@ class SiteController extends Controller
         $client = new Client($account_sid, $auth_token);
         $client->messages->create($recipients,
             ['from' => $twilio_number, 'body' => $message] );
+    }
+
+    public function otpview()
+    {
+        return view('front.otpview');
+    }
+
+    public function otpCheck(Request $request)
+    {
+        if(isset($_COOKIE['order'])){
+            $order = new Orders();
+            $isOrder = $order->find($_COOKIE['order']);
+            if($request->otp == $isOrder->otp){
+                $isOrder->update(['otp_check'=>1]);
+                return redirect()->route('otpview')->with(['success' => 'thank for confirm']);
+            }else{
+                return redirect()->route('otpview')->with(['error' => 'Not same OTP code']);
+            }
+
+        }
     }
 
     public function search()

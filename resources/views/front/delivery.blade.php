@@ -29,7 +29,7 @@
                 </div>
                 <div class="form-group">
                     <label for="Phone">Phone</label>
-                    <input type="Phone" name="phone" class="form-control" id="Phone" placeholder="Phone" required>
+                    <input type="Phone" name="phone" class="form-control" id="Phone" placeholder="Add phone without +965" required>
                 </div>
                 @else
                     <?php $selectValue = $myOrder->area_id ?>

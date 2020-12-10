@@ -20,17 +20,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5585e40b-995d-44d9-96f8-01fc6fef4ad7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/WhatsApp Image 2020-12-05 at 1.36.31 PM.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/UsersPhoneNumber.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2020_12_10_094709_create_users_phone_number_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/front/thankspage.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/bskot.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/bskot.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/front/otpview.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SiteController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SiteController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Orders.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Orders.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/front/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/front/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/front/cart.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/cart.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/front/credit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/credit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/front/delivery.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/delivery.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/front/include/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/include/header.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/front/thankspage.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/thankspage.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -202,7 +202,7 @@
       <workItem from="1606937622085" duration="17148000" />
       <workItem from="1606985156805" duration="17793000" />
       <workItem from="1607013775678" duration="1518000" />
-      <workItem from="1607084814197" duration="81954000" />
+      <workItem from="1607084814197" duration="91530000" />
     </task>
     <task id="LOCAL-00001" summary="category">
       <created>1606937699613</created>
@@ -309,7 +309,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607559950645</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="SMS Done">
+      <created>1607619679853</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1607619679904</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -339,7 +346,8 @@
     <MESSAGE value="delivey &amp; + - BTN" />
     <MESSAGE value="cart" />
     <MESSAGE value="credit card Done" />
-    <option name="LAST_COMMIT_MESSAGE" value="credit card Done" />
+    <MESSAGE value="SMS Done" />
+    <option name="LAST_COMMIT_MESSAGE" value="SMS Done" />
   </component>
   <component name="WindowStateProjectService">
     <state x="457" y="165" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1607517226791">
@@ -350,10 +358,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="413" y="118" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728@0.0.1366.728" timestamp="1607338541571" />
-    <state x="308" y="0" key="CommitChangelistDialog2" timestamp="1607559944249">
+    <state x="308" y="0" key="CommitChangelistDialog2" timestamp="1607619667442">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="308" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1607559944249" />
+    <state x="308" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1607619667428" />
     <state width="1323" height="179" key="GridCell.Tab.0.bottom" timestamp="1606963785785">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
