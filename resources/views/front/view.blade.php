@@ -36,7 +36,7 @@
     <div class="grayline"></div>
     <div class="price">
         <p class="first">Price : </p>
-        <p class="second">{{$product->price}} KWD</p>
+        <p class="second">{{$product->price}} AED</p>
         <input type="hidden" id="price" value="{{$product->price}}">
     </div>
     <div class="grayline"></div>
@@ -70,8 +70,32 @@
 
 @section('btnfooter')
     <div class="btnfooter">
-        <input type="submit" class="orderbtn" id="orderbtn" value="Add to Order . KWD {{$product->price}}"/>
+        <input type="submit" class="orderbtn" id="orderbtn" value="Add to Order . AED {{$product->price}}"/>
     </div>
 
     </form>
+@stop
+
+@section('scripts')
+    <script>
+$(document).ready(function(){
+    $("#plusBtn").click(function(){
+        var number = parseInt($("#proamount").val());
+        $("#proamount").val(number + 1);
+        $("#numbr").html(number + 1);
+        $("#orderbtn").val("Add to Order . AED " +parseInt($("#price").val())*(number + 1));
+    });
+
+    $("#minusBtn").click(function(){
+        var number = parseInt($("#proamount").val());
+        if(number != 1){
+            $("#proamount").val(number - 1);
+            $("#numbr").html(number - 1);
+            $("#orderbtn").val("Add to Order . AED " +parseInt($("#price").val())*(number - 1));
+        }
+    });
+
+});
+    </script>
+
 @stop

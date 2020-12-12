@@ -19,7 +19,31 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5585e40b-995d-44d9-96f8-01fc6fef4ad7" name="Default Changelist" comment="" />
+    <list default="true" id="5585e40b-995d-44d9-96f8-01fc6fef4ad7" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/bskot.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/bskot.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WhatsApp Image 2020-12-05 at 1.36.31 PM.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SiteController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SiteController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/front/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/front/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/front/img/logo.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/assets/front/img/logo.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/front/img/topImg.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/assets/front/img/topImg.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/front/js/myscript.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/front/js/myscript.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_12_10_094709_create_users_phone_number_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/category/cat_Diet.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/category/cat_Diet.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/ar/auth.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/ar/pagination.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/ar/passwords.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/ar/validation.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/en/front.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/front/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/home.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/front/view.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/view.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/site.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/site.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/admin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -188,7 +212,7 @@
       <workItem from="1606899536820" duration="23204000" />
       <workItem from="1606937622085" duration="17148000" />
       <workItem from="1606985156805" duration="17793000" />
-      <workItem from="1607808937040" duration="709000" />
+      <workItem from="1607808937040" duration="1114000" />
     </task>
     <task id="LOCAL-00001" summary="category">
       <created>1606937699613</created>
@@ -232,7 +256,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607809480234</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="front">
+      <created>1607809894965</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1607809894965</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -259,10 +290,10 @@
     <option name="LAST_COMMIT_MESSAGE" value="front" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="308" y="0" key="CommitChangelistDialog2" timestamp="1607809455303">
+    <state x="308" y="0" key="CommitChangelistDialog2" timestamp="1607809862631">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="308" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1607809455303" />
+    <state x="308" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1607809862631" />
     <state width="1323" height="179" key="GridCell.Tab.0.bottom" timestamp="1606963785785">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -279,10 +310,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1323" height="179" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1606963785785" />
-    <state x="275" y="96" key="Vcs.Push.Dialog.v2" timestamp="1607809503672">
+    <state x="275" y="96" key="Vcs.Push.Dialog.v2" timestamp="1607810006893">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="96" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1607809503672" />
+    <state x="275" y="96" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1607810006893" />
     <state x="339" y="162" key="run.anything.popup" timestamp="1606849346498">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

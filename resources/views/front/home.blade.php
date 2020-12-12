@@ -50,7 +50,7 @@
     @if(!isset($_COOKIE['order']))
         <div class="btnfooter">
             <a href="{{route('delivery')}}" >
-                <input type="submit" class="orderbtn" value="{{__('startOrder0')}}"/>
+                <input type="submit" class="orderbtn" value="{{__('startOrder0')}}" style="text-align:center;" />
             </a>
         </div>
     @else

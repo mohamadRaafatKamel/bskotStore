@@ -45,7 +45,7 @@ class SiteController extends Controller
 
     public function addOrder($id,Request $request)
     {
-//        try {
+        try {
             $product = Product::find($id);
             if(!isset($_COOKIE['order'])){
                 return redirect()->route('delivery');
@@ -55,11 +55,11 @@ class SiteController extends Controller
             }
             OrderItem::create(array_merge($request->except('_token'),['pro_id'=>$id,'order_id'=>$_COOKIE['order']]));
 
-//            return redirect()->route('home');
-//
-//        }catch (\Exception $ex) {
-//            return redirect()->route('home');
-//        }
+            return redirect()->route('home');
+
+        }catch (\Exception $ex) {
+            return redirect()->route('home');
+        }
     }
 
     public function delivery()
