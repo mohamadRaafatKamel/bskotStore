@@ -82,11 +82,13 @@
 @stop
 
 @section('btnfooter')
+    @if($empty == 0)
     <div class="btnfooter">
         <a href="{{ route('adress') }}">
             <input type="submit" class="orderbtn" value="check Out"/>
         </a>
     </div>
+    @endif
 @stop
 
 

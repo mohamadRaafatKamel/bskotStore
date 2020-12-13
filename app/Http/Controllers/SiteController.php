@@ -243,6 +243,8 @@ class SiteController extends Controller
         $this->orderComplet($_COOKIE['order']);
         $order = Orders::find($_COOKIE['order']);
         $items = OrderItem::where('order_id',$order->id)->get();
+        if ($items->count()==0)
+            $empty = 1;
 
         return view('front.cart',compact('empty','order','items'));
     }
