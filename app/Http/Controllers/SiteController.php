@@ -20,6 +20,7 @@ class SiteController extends Controller
     {
         $categories = Category::select()->active()->get();
 
+        // button data
         $myitem = null;
         if(isset($_COOKIE['order'])){
             $order = new Orders();
@@ -147,6 +148,45 @@ class SiteController extends Controller
         }
     }
 
+    public function removeItemOrder(Request $request)
+    {
+        if(isset($request->id)){
+            //Check item
+            $item = OrderItem::find($request->id);
+            if (!$item) {
+                return ['item' => '0'];
+            }else{
+                $item->delete();
+                $order = new Orders();
+                return [
+                    'success' => '1',
+                    'costItems'=>$order->culcCostItem($_COOKIE['order']),
+                ];
+            }
+        }
+    }
+
+    public function numItemOrder(Request $request)
+    {
+        if(isset($request->id) && isset($request->type)){
+            //Check item
+            $item = OrderItem::find($request->id);
+            if (!$item) {
+                return ['item' => '0'];
+            }else{
+                if($request->type == "p")
+                    $item->update(['pro_amount'=> $item->pro_amount + 1]);
+                if($request->type == "m")
+                    $item->update(['pro_amount'=> $item->pro_amount - 1]);
+                $order = new Orders();
+                return [
+                    'success' => '1',
+                    'costItems'=>$order->culcCostItem($_COOKIE['order']),
+                ];
+            }
+        }
+    }
+
     public function delivery()
     {
         $data = [];
@@ -200,7 +240,7 @@ class SiteController extends Controller
         }else{
             $empty = 0;
         }
-        //$this->orderComplet($_COOKIE['order']);
+        $this->orderComplet($_COOKIE['order']);
         $order = Orders::find($_COOKIE['order']);
         $items = OrderItem::where('order_id',$order->id)->get();
 

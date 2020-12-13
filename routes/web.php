@@ -27,6 +27,10 @@ Route::group(['namespace'=>'App\Http\Controllers', 'middleware'=>'guest'],functi
     Route::post('setlocation', 'SiteController@setlocation')->name('set.location');
 
     Route::get('cart', 'SiteController@cart')->name('cart');
+    //ajax in cart
+    Route::get('removeItemOrder', 'SiteController@removeItemOrder')->name('remove.itemOrder');
+    Route::get('numItemOrder', 'SiteController@numItemOrder')->name('num.itemOrder');
+
     Route::get('adress', 'SiteController@adress')->name('adress');
     Route::post('setadress', 'SiteController@setadress')->name('set.adress');
     Route::get('credit', 'SiteController@credit')->name('credit');
