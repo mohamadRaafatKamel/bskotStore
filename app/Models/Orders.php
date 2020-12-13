@@ -48,6 +48,18 @@ class Orders extends Model
         return $totalPrice;
     }
 
+    public function culcContItem ($id)
+    {
+        $items = OrderItem::where('order_id',$id)->get();
+        $total = 0;
+        if($items){
+            foreach ($items as $item){
+                $total += $item->pro_amount;
+            }
+        }
+        return $total;
+    }
+
     public function culcTimeDelivery($id){
         $area = Area::find($id);
         return $area-> estimated_time;

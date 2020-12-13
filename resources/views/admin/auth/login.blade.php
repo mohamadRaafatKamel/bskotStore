@@ -8,7 +8,7 @@
                     <div class="card-header border-0">
                         <div class="card-title text-center">
                             <div class="p-1">
-                                <img src="{{asset('assets/front/img/logo.jpg')}}" alt="LOGO"/>
+                                <img src="{{asset('assets/front/img/logo.jpg')}}" width="100" height="100" alt="LOGO"/>
 
                             </div>
                         </div>

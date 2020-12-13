@@ -29,9 +29,22 @@ class SiteController extends Controller
             return redirect()->route('home')->with(['error' => '  غير موجوده']);
         }
 
+        $myitem = null;
+        if(isset($_COOKIE['order'])){
+            $order = new Orders();
+            $items = OrderItem::where(['order_id'=>$_COOKIE['order']])->get();
+            if($items){
+                foreach ($items as $item){
+                    $myitem[$item->pro_id ] = $item->pro_amount ;
+                }
+                $myitem['allItems']=$order->culcContItem($_COOKIE['order']) ;
+                $myitem['costItems']=$order->culcCostItem($_COOKIE['order']) ;
+            }
+        }
+
         $products = Product::select()->active()->where('cat_id',$id)->get();
 
-        return view('front.product',compact('products'));
+        return view('front.product',compact('products','myitem'));
     }
 
     public function view($id)
@@ -40,25 +53,77 @@ class SiteController extends Controller
         if (!$product) {
             return redirect()->route('home')->with(['error' => '  غير موجوده']);
         }
-        return view('front.view',compact('product'));
+        if(isset($_COOKIE['order'])){
+            $item = OrderItem::where(['pro_id'=>$id,'order_id'=>$_COOKIE['order']])->first();
+        }else{
+            $item = null;
+        }
+
+        return view('front.view',compact('product','item'));
     }
 
     public function addOrder($id,Request $request)
     {
         try {
-            $product = Product::find($id);
+            //Check cookies
             if(!isset($_COOKIE['order'])){
                 return redirect()->route('delivery');
             }
+
+            //Check product
+            $product = Product::find($id);
             if (!$product) {
                 return redirect()->route('home')->with(['error' => '  غير موجوده']);
             }
-            OrderItem::create(array_merge($request->except('_token'),['pro_id'=>$id,'order_id'=>$_COOKIE['order']]));
 
-            return redirect()->route('home');
+            //check before add
+            $item = OrderItem::where(['pro_id'=>$id,'order_id'=>$_COOKIE['order']])->first();
+            if($item) {
+                $item->update($request->except('_token'));
+            }else{
+                OrderItem::create(array_merge($request->except('_token'),['pro_id'=>$id,'order_id'=>$_COOKIE['order']]));
+            }
+
+            return redirect()->route('product',$product->cat_id);
 
         }catch (\Exception $ex) {
             return redirect()->route('home');
+        }
+    }
+
+    public function addOrderByajax(Request $request)
+    {
+        try {
+            $id = $request -> id;
+
+            //Check cookies
+            if(!isset($_COOKIE['order'])){
+                return ['cookies' => "0"];
+            }
+
+            //Check product
+            $product = Product::find($id);
+            if (!$product) {
+                return ['product' => '0'];
+            }
+
+            //check before add
+            $item = OrderItem::where(['pro_id'=>$id,'order_id'=>$_COOKIE['order']])->first();
+            if($item) {
+                $item->update(['pro_amount'=> $item->pro_amount + 1]);
+            }else{
+                $item = OrderItem::create(array_merge([
+                    'pro_id'=>$id,
+                    'order_id'=>$_COOKIE['order'],
+                    'pro_amount'=>1,
+                    'notes'=>null,
+                ]));
+            }
+
+            return ['success'=>$item->pro_amount ];
+
+        }catch (\Exception $ex) {
+            return ['error'=>1];
         }
     }
 

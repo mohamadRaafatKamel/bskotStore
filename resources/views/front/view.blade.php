@@ -43,7 +43,7 @@
     <form method="post" action="{{ route('add.order',$product->id) }}">
         @csrf
         <div class="contnernotes">
-            <input type="text" class="notes" name="notes" placeholder="Add Instructions (Option)">
+            <input type="text" class="notes" name="notes" placeholder="Add Instructions (Option)" @if($item)value="{{$item->notes}}" @endif >
         </div>
         <div class="grayline"></div>
         <div class="contnernotes pulse-minus" style="place-items: center;">
@@ -53,8 +53,13 @@
                     <path fill-rule="evenodd" d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
                 </svg>
             </button>
-            <p id="numbr">1</p>
-            <input type="hidden" name="pro_amount" id="proamount" value="1">
+            @if($item)
+                <p id="numbr">{{$item->pro_amount}}</p>
+                <input type="hidden" name="pro_amount" id="proamount" value="{{$item->pro_amount}}">
+            @else
+                <p id="numbr">1</p>
+                <input type="hidden" name="pro_amount" id="proamount" value="1">
+            @endif
             <button id="minusBtn" type="button">
                 <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-dash-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                     <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
@@ -70,7 +75,11 @@
 
 @section('btnfooter')
     <div class="btnfooter">
-        <input type="submit" class="orderbtn" id="orderbtn" value="Add to Order . AED {{$product->price}}"/>
+        @if($item)
+            <input type="submit" class="orderbtn" id="orderbtn" value="Add to Order . AED {{$product->price * $item->pro_amount}}"/>
+        @else
+            <input type="submit" class="orderbtn" id="orderbtn" value="Add to Order . AED {{$product->price}}"/>
+        @endif
     </div>
 
     </form>

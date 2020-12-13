@@ -20,6 +20,8 @@ Route::group(['namespace'=>'App\Http\Controllers', 'middleware'=>'guest'],functi
 
     Route::get('view/{id}', 'SiteController@view')->name('view');
     Route::post('addorder/{id}', 'SiteController@addorder')->name('add.order');
+    // for ajax
+    Route::get('addOrderByajax', 'SiteController@addOrderByajax')->name('add.order.ajax');
 
     Route::get('delivery', 'SiteController@delivery')->name('delivery');
     Route::post('setlocation', 'SiteController@setlocation')->name('set.location');
