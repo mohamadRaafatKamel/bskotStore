@@ -19,7 +19,21 @@ class SiteController extends Controller
     public function index()
     {
         $categories = Category::select()->active()->get();
-        return view('front.home',compact('categories'));
+
+        $myitem = null;
+        if(isset($_COOKIE['order'])){
+            $order = new Orders();
+            $items = OrderItem::where(['order_id'=>$_COOKIE['order']])->get();
+            if($items){
+                foreach ($items as $item){
+                    $myitem[$item->pro_id ] = $item->pro_amount ;
+                }
+                $myitem['allItems']=$order->culcContItem($_COOKIE['order']) ;
+                $myitem['costItems']=$order->culcCostItem($_COOKIE['order']) ;
+            }
+        }
+
+        return view('front.home',compact('categories','myitem'));
     }
 
     public function product($id)
@@ -120,7 +134,13 @@ class SiteController extends Controller
                 ]));
             }
 
-            return ['success'=>$item->pro_amount ];
+            $order = new Orders();
+
+            return [
+                'success'=>  $item->pro_amount,
+                'allItems'=> $order->culcContItem($_COOKIE['order']),
+                'costItems'=>$order->culcCostItem($_COOKIE['order']),
+            ];
 
         }catch (\Exception $ex) {
             return ['error'=>1];

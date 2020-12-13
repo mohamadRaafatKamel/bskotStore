@@ -52,13 +52,11 @@
     <div class="btnfooter">
         @if($myitem)
             <a href="{{route('cart')}}" >
-                <button type="button" class="reviewbtn">
+                <button type="button" class="orderbtn" style="display: flex">
                     <span class="reviewbtn-item" id="reviewItem">{{ $myitem['allItems'] }}</span>
-                    <span class="conten">
-                        <span class="reviewbtn-mid">Review order </span>
-                    </span>
+                    <span class="reviewbtn-mid">Review order </span>
                     <span style="margin-left: auto;">
-                        <span class="reviewbtn-cost"> {{ $myitem['costItems'] }} AED</span>
+                        <span class="reviewbtn-cost" id="reviewCost"> {{ $myitem['costItems'] }} AED</span>
                     </span>
                 </button>
             </a>
@@ -99,6 +97,8 @@
                         // scsses
                         if (data.success) {
                             $('#s'+id).empty().html(data.success+"x ");
+                            $('#reviewItem').empty().html(data.allItems);
+                            $('#reviewCost').empty().html(data.costItems +" AED");
                         }
                     }, error: function (reject) {
                         //console.log(reject);

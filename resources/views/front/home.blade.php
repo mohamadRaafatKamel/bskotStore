@@ -47,14 +47,21 @@
 @stop
 
 @section('btnfooter')
-    @if(!isset($_COOKIE['order']))
-        <div class="btnfooter">
-            <a href="{{route('delivery')}}" >
-                <input type="submit" class="orderbtn" value="{{__('startOrder0')}}" style="text-align:center;" />
-            </a>
-        </div>
+    <div class="btnfooter">
+    @if($myitem)
+        <a href="{{route('cart')}}" >
+            <button type="button" class="orderbtn" style="display: flex">
+                <span class="reviewbtn-item" id="reviewItem">{{ $myitem['allItems'] }}</span>
+                <span class="reviewbtn-mid">Review order </span>
+                <span style="margin-left: auto;">
+                        <span class="reviewbtn-cost" id="reviewCost"> {{ $myitem['costItems'] }} AED</span>
+                    </span>
+            </button>
+        </a>
     @else
-
+        <a href="{{route('delivery')}}" >
+            <input type="submit" class="orderbtn" value="Start Order"/>
+        </a>
     @endif
-
+    </div>
 @stop
