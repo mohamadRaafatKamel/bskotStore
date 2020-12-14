@@ -132,3 +132,30 @@
 
     </script>
 @stop
+
+<style>
+.addcartbtn{
+    border-radius: 4px;
+    color: rgb(0, 0, 0);
+    background-color: rgb(255, 255, 255);
+    font-size: 13px;
+    letter-spacing: -0.1px;
+    line-height: 1.23;
+    padding: 8px 16px;
+    min-height: 32px;
+    cursor: pointer;
+    width: 100%;
+    -webkit-box-align: center;
+    align-items: center;
+    position: relative;
+    font-stretch: normal;
+    font-style: normal;
+    font-weight: 600;
+    text-decoration: none;
+    touch-action: manipulation;
+    transition: all 0.2s ease-in 0s;
+    border: 1px solid;
+    user-select: none;
+}
+</style>
+

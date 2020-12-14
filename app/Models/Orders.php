@@ -48,7 +48,7 @@ class Orders extends Model
         return $totalPrice;
     }
 
-    public function culcContItem ($id)
+    public static function culcContItem ($id)
     {
         $items = OrderItem::where('order_id',$id)->get();
         $total = 0;

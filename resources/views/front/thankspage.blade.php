@@ -34,9 +34,9 @@
 
 
 @section('btnfooter')
-    <a href="{{ route('otpview') }}">
+    <a href="{{ route('home') }}">
         <div class="btnfooter">
-            <input type="submit" value="Conferm OTP code" class="orderbtn">
+            <input type="submit" value="Back " class="orderbtn">
         </div>
     </a>
 

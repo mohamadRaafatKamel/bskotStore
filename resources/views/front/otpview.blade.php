@@ -5,7 +5,7 @@
 @section('toppage')
     <div class="topproducy">
         <h1>Order Look Up</h1>
-        <a href="{{route('home')}}" class="topproducyarrow"><i class="fas fa-arrow-left" style="color: #000;"></i></a>
+        <a href="{{route('cart')}}" class="topproducyarrow"><i class="fas fa-arrow-left" style="color: #000;"></i></a>
     </div>
 {{--    <div class="mysearch">--}}
 {{--        <input type="text" id="input-search" placeholder="Search"/>--}}

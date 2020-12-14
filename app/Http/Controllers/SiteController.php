@@ -212,14 +212,15 @@ class SiteController extends Controller
     {
         if(!isset($_COOKIE['order'])) {
             // check frist
-            $order= Orders::where('phone',"+965".$request->phone)->first();
+            $order= Orders::where(['phone'=>"+971".$request->phone,'state'=>'0'])->first();
             if(!$order){
                 $request->merge([
-                    'phone' => "+965".$request->phone,
+                    'phone' => "+971".$request->phone,
                 ]);
                 $order = Orders::create($request->except(['_token']));
                 setcookie('order', $order->id, time() * ( 60));  //365 * 24 * 60 * 60
             }else{
+                $order->update(['area_id'=> $request->area_id]);
                 setcookie('order', $order->id, time() * ( 60));
             }
             return redirect()->route('home');
@@ -227,7 +228,6 @@ class SiteController extends Controller
             $myOrder = Orders::find($_COOKIE['order']);
             $myOrder->update($request->except('_token'));
         }
-        $this->setCookie($request,'order','55');
         return redirect()->route('home');
 
     }
@@ -398,6 +398,10 @@ class SiteController extends Controller
         $body .=" AED ";
         try {
             $this->sendMessage($body, $recipient);
+            if (isset($_COOKIE['order'])) {
+                unset($_COOKIE['order']);
+                setcookie('order', null, -1, '/');
+            }
             return view('front.thankspage');
         }catch (\Exception $ex){
 

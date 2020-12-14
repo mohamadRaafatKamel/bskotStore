@@ -5,7 +5,7 @@
 @section('toppage')
     <div class="topproducy">
         <h1>Check out</h1>
-        <a href="{{route('adress')}}" class="topproducyarrow"><i class="fas fa-arrow-left" style="color: #000;"></i></a>
+        <a href="{{route('cart')}}" class="topproducyarrow"><i class="fas fa-arrow-left" style="color: #000;"></i></a>
     </div>
 {{--    <div class="mysearch">--}}
 {{--        <input type="text" id="input-search" placeholder="Search"/>--}}
@@ -71,7 +71,7 @@
         $(document).ready(function() {
             $(document).on('click', '#cashBtn', function (e) {
                 e.preventDefault();
-                location.replace("{{ route('otpview') }}");
+                location.replace("{{ route('cash') }}");
             });
         });
         /*
