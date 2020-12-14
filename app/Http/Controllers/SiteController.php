@@ -275,8 +275,44 @@ class SiteController extends Controller
         $order = new Orders();
         $isOrder = $order->find($_COOKIE['order']);
         $isOrder->update($request->except(['_token']));
-        return redirect()->route('credit');
+        return redirect()->route('otpview');
     }
+
+    public function otpview()
+    {
+        if(!isset($_COOKIE['order'])){
+            return redirect()->route('cart');
+        }
+        $order = new Orders();
+        $isOrder = $order->find($_COOKIE['order']);
+        $recipient = $isOrder->phone;
+        $otp = rand(1000,9999);
+        $isOrder->update(['otp'=>$otp]);
+        $body = "OTP Code : ".$otp;
+        try {
+            $this->sendMessage($body, $recipient);
+            return view('front.otpview');
+        }catch (\Exception $ex){
+            return view('front.otpview');
+        }
+
+    }
+
+    public function otpCheck(Request $request)
+    {
+        if(isset($_COOKIE['order'])){
+            $order = new Orders();
+            $isOrder = $order->find($_COOKIE['order']);
+            if($request->otp == $isOrder->otp){
+                $isOrder->update(['otp_check'=>1]);
+                return redirect()->route('credit')->with(['success' => 'thank for confirm']);
+            }else{
+                return redirect()->route('otpview')->with(['error' => 'Not same OTP code']);
+            }
+
+        }
+    }
+
 
     public function credit()
     {
@@ -286,6 +322,7 @@ class SiteController extends Controller
         // normal view
         $order = new Orders();
         $isOrder = $order->find($_COOKIE['order']);
+        $paymentMessage = false;
 
         // after payment
         if(\request('id') && \request('resourcePath')){
@@ -304,7 +341,7 @@ class SiteController extends Controller
         }
 
 
-        return view('front.credit',compact('isOrder','paymentMessage'));
+        return view('front.credit',compact('isOrder'));
     }
 
     private function getPaymentStatus($id, $resourcepath)
@@ -354,9 +391,11 @@ class SiteController extends Controller
         $order = new Orders();
         $isOrder = $order->find($_COOKIE['order']);
         $recipient = $isOrder->phone;
-        $otp = rand(1000,9999);
-        $isOrder->update(['otp'=>$otp]);
-        $body = "OTP Code : ".$otp;
+        $body = "نشكر لكم اختياركم بسكوتي ,تم تأكيد طلبكم , رقم ";
+        $body .=$isOrder->id;
+        $body .=" بقيمه ";
+        $body .=$isOrder->total_cost;
+        $body .=" AED ";
         try {
             $this->sendMessage($body, $recipient);
             return view('front.thankspage');
@@ -377,45 +416,26 @@ class SiteController extends Controller
             ['from' => $twilio_number, 'body' => $message] );
     }
 
-    public function otpview()
-    {
-        return view('front.otpview');
-    }
-
-    public function otpCheck(Request $request)
-    {
-        if(isset($_COOKIE['order'])){
-            $order = new Orders();
-            $isOrder = $order->find($_COOKIE['order']);
-            if($request->otp == $isOrder->otp){
-                $isOrder->update(['otp_check'=>1]);
-                return redirect()->route('otpview')->with(['success' => 'thank for confirm']);
-            }else{
-                return redirect()->route('otpview')->with(['error' => 'Not same OTP code']);
-            }
-
-        }
-    }
 
     public function search()
     {
         //return view('front.home');
     }
-/*
-    public function setCookie(Request $request,$cookName,$cookValue)
-    {
-        $minutes = 60;
-        $response = new Response('Set Cookie');
-        $response->withCookie(cookie($cookName, $cookValue, $minutes));
-        return $response;
-    }
+    /*
+        public function setCookie(Request $request,$cookName,$cookValue)
+        {
+            $minutes = 60;
+            $response = new Response('Set Cookie');
+            $response->withCookie(cookie($cookName, $cookValue, $minutes));
+            return $response;
+        }
 
-    public function getCookie(Request $request,$cookName)
-    {
-        $value = $request->cookie($cookName);
-        echo $value;
-    }
-*/
+        public function getCookie(Request $request,$cookName)
+        {
+            $value = $request->cookie($cookName);
+            echo $value;
+        }
+    */
 
 
 

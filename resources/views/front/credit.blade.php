@@ -71,7 +71,7 @@
         $(document).ready(function() {
             $(document).on('click', '#cashBtn', function (e) {
                 e.preventDefault();
-                location.replace("{{ route('cash') }}");
+                location.replace("{{ route('otpview') }}");
             });
         });
         /*

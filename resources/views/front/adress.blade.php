@@ -21,10 +21,23 @@
 
             <form method="post" action="{{ route('set.adress') }}">
                 @csrf
+
+                <div class="form-group">
+                    <label for="Name">Name</label>
+                    <input type="text" name="name" value="{{ $isOrder->name }}" class="form-control" id="Name" placeholder="Name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="Name">Phone</label>
+                    <input type="Phone" name="phone" value="{{ $isOrder->phone }}" class="form-control" id="Phone" placeholder="Add phone without +965" required>
+                </div>
+
                 <div class="form-group">
                     <label for="Name">Add full adress</label>
                     <input type="text" name="delivery_adress" value="{{ $isOrder->delivery_adress }}" class="form-control" id="Name" placeholder="full adress" required>
                 </div>
+
+
 
 
         </section>

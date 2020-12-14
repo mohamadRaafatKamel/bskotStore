@@ -20,9 +20,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5585e40b-995d-44d9-96f8-01fc6fef4ad7" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/resources/views/front/checkorder.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/bskot.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/bskot.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SiteController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SiteController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/front/cart.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/cart.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/front/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/front/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/front/adress.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/adress.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/front/credit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/credit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/front/otpview.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/otpview.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -144,6 +152,7 @@
       <path value="$PROJECT_DIR$/vendor/guzzlehttp/promises" />
       <path value="$PROJECT_DIR$/vendor/guzzlehttp/psr7" />
       <path value="$PROJECT_DIR$/vendor/nunomaduro/collision" />
+      <path value="$PROJECT_DIR$/vendor/twilio/sdk" />
     </include_path>
   </component>
   <component name="ProjectId" id="1l4G0sbplShYONCxqEUYwNNVuV5" />
@@ -163,15 +172,15 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\www\laravel\bskot\app\Http\Controllers\Admin" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\www\laravel\bskot\resources\views\front" />
       <recent name="C:\www\laravel\bskot\resources\views\admin" />
       <recent name="C:\www\laravel\bskot\app\Http\Controllers\Admin" />
       <recent name="C:\www\laravel\bskot\app\Http\Requests" />
       <recent name="C:\www\laravel\bskot\app\Models" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\www\laravel\bskot\app\Http\Controllers\Admin" />
     </key>
   </component>
   <component name="RunManager">
@@ -192,7 +201,8 @@
       <workItem from="1606899536820" duration="23204000" />
       <workItem from="1606937622085" duration="17148000" />
       <workItem from="1606985156805" duration="17793000" />
-      <workItem from="1607808937040" duration="29966000" />
+      <workItem from="1607808937040" duration="29992000" />
+      <workItem from="1607949139649" duration="7768000" />
     </task>
     <task id="LOCAL-00001" summary="category">
       <created>1606937699613</created>
@@ -271,7 +281,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607891102560</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="remove plus minus BTN by ajax">
+      <created>1607896020383</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1607896020383</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -302,10 +319,10 @@
     <option name="LAST_COMMIT_MESSAGE" value="remove plus minus BTN by ajax" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="308" y="0" key="CommitChangelistDialog2" timestamp="1607891100288">
+    <state x="308" y="0" key="CommitChangelistDialog2" timestamp="1607896018279">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="308" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1607891100288" />
+    <state x="308" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1607896018279" />
     <state width="1323" height="179" key="GridCell.Tab.0.bottom" timestamp="1606963785785">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -322,10 +339,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1323" height="179" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1606963785785" />
-    <state x="275" y="96" key="Vcs.Push.Dialog.v2" timestamp="1607891115120">
+    <state x="275" y="96" key="Vcs.Push.Dialog.v2" timestamp="1607896022849">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="96" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1607891115120" />
+    <state x="275" y="96" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1607896022849" />
     <state x="339" y="162" key="run.anything.popup" timestamp="1606849346498">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
