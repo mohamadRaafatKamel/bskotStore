@@ -22,14 +22,14 @@
             <form method="post" action="{{ route('set.location') }}">
                 @csrf
                 <?php $selectValue = 0 ?>
-                @if(!isset($myOrder))
+                @if(!$myOrder)
                 <div class="form-group">
                     <label for="Name">Name</label>
                     <input type="text" name="name" class="form-control" id="Name" placeholder="Name" required>
                 </div>
                 <div class="form-group">
                     <label for="Phone">Phone</label>
-                    <input type="Phone" name="phone" class="form-control" id="Phone" placeholder="Add phone without +965" required>
+                    <input type="Phone" name="phone" class="form-control" id="Phone" placeholder="Add phone without +971" required>
                 </div>
                 @else
                     <?php $selectValue = $myOrder->area_id ?>

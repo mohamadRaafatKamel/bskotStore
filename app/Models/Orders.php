@@ -60,9 +60,31 @@ class Orders extends Model
         return $total;
     }
 
-    public function culcTimeDelivery($id){
+    public function culcTimeDelivery($id)
+    {
         $area = Area::find($id);
         return $area-> estimated_time;
+    }
+
+    public function getOrderState($state)
+    {
+        switch ($state){
+            case 0:
+                return "في انتظار الدفع";
+                break;
+            case 1:
+                return "تم الدفع و جاري تجهيز الطلب";
+                break;
+            case 2:
+                return "جاري التجهيز الطلب و الدفع عند الاستلام";
+                break;
+            case 3:
+                return "جاري توصبل الطلب";
+                break;
+            case 4:
+                return "تم تسليم الطلب";
+                break;
+        }
     }
 
 }

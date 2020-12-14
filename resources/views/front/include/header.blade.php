@@ -32,7 +32,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('otpview') }}">Order Status</a>
+                    <a class="nav-link" href="{{ route('check.order') }}">Order Status</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#" target="_blank">Free

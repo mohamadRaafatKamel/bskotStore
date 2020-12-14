@@ -202,6 +202,7 @@ class SiteController extends Controller
                 }
             }
         }
+        $myOrder=null;
         if(isset($_COOKIE['order'])) {
             $myOrder = Orders::select()->find($_COOKIE['order']);
         }
@@ -313,7 +314,6 @@ class SiteController extends Controller
         }
     }
 
-
     public function credit()
     {
         if(!isset($_COOKIE['order'])){
@@ -420,6 +420,22 @@ class SiteController extends Controller
             ['from' => $twilio_number, 'body' => $message] );
     }
 
+    public function checkorder()
+    {
+        return view('front.checkorder');
+    }
+
+    public function checkorderp(Request $request)
+    {
+        $order = new Orders();
+        $isOrder = $order->find($request->id);
+        if($isOrder){
+            return redirect()->route('check.order')->with(
+                ['success' => $order->getOrderState($isOrder->state)]);
+        }else{
+            return redirect()->route('check.order')->with(['error' => 'Not Found']);
+        }
+    }
 
     public function search()
     {
