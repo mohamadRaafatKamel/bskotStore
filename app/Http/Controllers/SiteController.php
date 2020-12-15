@@ -423,7 +423,7 @@ class SiteController extends Controller
         $recipient = $isOrder->phone;
         $body = "نشكر لكم اختياركم بسكوتي ,تم تأكيد طلبكم , رقم ";
         $body .=$isOrder->id;
-        $body .=" بقيمه ";
+        $body .=" بقيمة ";
         $body .=$isOrder->total_cost;
         $body .=" AED ";
         try {

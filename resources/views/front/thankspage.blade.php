@@ -22,7 +22,7 @@
             <div class="paymentpage1">
                 <i class="fa fa-check"></i>
                 <h1>Thank you for Payment</h1>
-                <p>SMS massage send for your phone please conferm OTP code</p>
+                <p>SMS massage send for your phone please conferm code</p>
             </div>
 
         </section>

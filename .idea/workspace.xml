@@ -20,11 +20,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5585e40b-995d-44d9-96f8-01fc6fef4ad7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/lang/ar/msg.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/lang/en/msg.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app.zip" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SiteController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SiteController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/front/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/home.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/front/thankspage.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/thankspage.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -197,7 +197,7 @@
       <workItem from="1606985156805" duration="17793000" />
       <workItem from="1607808937040" duration="29992000" />
       <workItem from="1607949139649" duration="13756000" />
-      <workItem from="1608033735647" duration="10416000" />
+      <workItem from="1608033735647" duration="11744000" />
     </task>
     <task id="LOCAL-00001" summary="category">
       <created>1606937699613</created>
@@ -311,7 +311,14 @@
       <option name="project" value="LOCAL" />
       <updated>1608062812714</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="start lang">
+      <created>1608066271189</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1608066271189</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -342,13 +349,14 @@
     <MESSAGE value="upload02" />
     <MESSAGE value="check order" />
     <MESSAGE value="promo code" />
-    <option name="LAST_COMMIT_MESSAGE" value="promo code" />
+    <MESSAGE value="start lang" />
+    <option name="LAST_COMMIT_MESSAGE" value="start lang" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="308" y="0" key="CommitChangelistDialog2" timestamp="1608062806451">
+    <state x="308" y="0" key="CommitChangelistDialog2" timestamp="1608066269083">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="308" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1608062806451" />
+    <state x="308" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1608066269083" />
     <state width="1323" height="179" key="GridCell.Tab.0.bottom" timestamp="1606963785785">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
