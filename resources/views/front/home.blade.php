@@ -52,7 +52,7 @@
         <a href="{{route('cart')}}" >
             <button type="button" class="orderbtn" style="display: flex">
                 <span class="reviewbtn-item" id="reviewItem">{{ $myitem['allItems'] }}</span>
-                <span class="reviewbtn-mid">Review order </span>
+                <span class="reviewbtn-mid">{{ __('msg.Revieworder') }}</span>
                 <span style="margin-left: auto;">
                         <span class="reviewbtn-cost" id="reviewCost"> {{ $myitem['costItems'] }} AED</span>
                     </span>
@@ -60,7 +60,7 @@
         </a>
     @else
         <a href="{{route('delivery')}}" >
-            <input type="submit" class="orderbtn" value="Start Order"/>
+            <input type="submit" class="orderbtn" value="{{ __('msg.StartOrder') }}"/>
         </a>
     @endif
     </div>
