@@ -30,6 +30,7 @@ Route::group(['namespace'=>'App\Http\Controllers', 'middleware'=>'guest'],functi
     //ajax in cart
     Route::get('removeItemOrder', 'SiteController@removeItemOrder')->name('remove.itemOrder');
     Route::get('numItemOrder', 'SiteController@numItemOrder')->name('num.itemOrder');
+    Route::get('promocode', 'SiteController@checkPromoCode')->name('promo.code');
 
     Route::get('adress', 'SiteController@adress')->name('adress');
     Route::post('setadress', 'SiteController@setadress')->name('set.adress');

@@ -8,6 +8,7 @@ use App\Models\Emarh;
 use App\Models\OrderItem;
 use App\Models\Orders;
 use App\Models\Product;
+use App\Models\PromoCode;
 use http\Cookie;
 use mysql_xdevapi\Exception;
 use Twilio\Rest\Client;
@@ -187,6 +188,30 @@ class SiteController extends Controller
         }
     }
 
+    public function checkPromoCode(Request $request)
+    {
+        if(isset($request->promocode) && isset($_COOKIE['order'])){
+            //Check work promo
+            $promo = new PromoCode();
+            $order = new Orders();
+            $promo->checkWork();
+            //check
+            $myorder = Orders::find($_COOKIE['order']);
+            $promoCode=PromoCode::select()->where('code',$request->promocode)->first();
+            if ($myorder && $promoCode) {
+                $totalCost = $order->culcCostItem($_COOKIE['order']);
+                $costAfterCode = $totalCost - ($totalCost / $promoCode->value);
+                $myorder->update(['promo_id'=>$promoCode->id,'total_cost'=>$costAfterCode]);
+                return [
+                    'success' => '1',
+                    'costItems'=>$costAfterCode,
+                ];
+            }else{
+                return ['order' => '0'];
+            }
+        }
+    }
+
     public function delivery()
     {
         $data = [];
@@ -212,7 +237,7 @@ class SiteController extends Controller
     public function setlocation(Request $request)
     {
         if(!isset($_COOKIE['order'])) {
-            // check frist
+            // check first
             $order= Orders::where(['phone'=>"+971".$request->phone,'state'=>'0'])->first();
             if(!$order){
                 $request->merge([
@@ -254,8 +279,13 @@ class SiteController extends Controller
     {
         $order = new Orders();
         $isOrder = $order->find($id);
+        $totalCost = $order->culcCostItem($id);
+        if($isOrder->promo_id){
+            $promoCode = PromoCode::find($isOrder->promo_id);
+            $totalCost = $totalCost - ($totalCost / $promoCode->value);
+        }
         $data=[
-            'total_cost'=>$order->culcCostItem($id),
+            'total_cost'=>$totalCost,
             'time'=>$order->culcTimeDelivery($isOrder->area_id ),
         ];
         $isOrder->update($data);

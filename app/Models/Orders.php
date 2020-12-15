@@ -35,6 +35,11 @@ class Orders extends Model
         return   $this -> disabled == 0 ? 'مفعل'  : 'غير مفعل';
     }
 
+    public static function getCode($id){
+        $promo = PromoCode::find($id);
+        return $promo->code;
+    }
+
     public function culcCostItem ($id)
     {
         $items = OrderItem::where('order_id',$id)->get();

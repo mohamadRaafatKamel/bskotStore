@@ -71,6 +71,14 @@
     </div>
 
     <div class="grayline"></div>
+        <div class=" price" style="display: -webkit-box;padding-right: 35px;margin-bottom: 10px;">
+            <input type="text" id="promoCode" class="notes" name="promo_id" placeholder="Enter Code"
+                   @if($order->promo_id)value="{{ \App\Models\Orders::getCode($order->promo_id) }}" @endif
+                   style="width: 70%">
+            <button type="button" id="applyCode" class="applycodebtn">Apply</button>
+        </div>
+        <div id="promoResult" style="text-align: center;color: #f7760e;"></div>
+    <div class="grayline"></div>
     <div class="price">
         <p class="first">Total : </p>
         <p class="second" id="totalCost">{{$order->total_cost}} AED</p>
@@ -96,6 +104,31 @@
 @section('scripts')
     <script>
         $(document).ready(function() {
+
+            // Apply promo Code
+            $(document).on('click', '#applyCode', function (e) {
+                e.preventDefault();
+                let promoCode = $('#promoCode').val();
+                $.ajax({
+                    type: 'get',
+                    url: "{{route('promo.code') }}" ,
+                    data: { promocode : promoCode },
+                    success: function (data) {
+                        console.log(data);
+                        // no order
+                        if(data.order == 0){
+                            $('#promoResult').empty().html("Code Not Valid");
+                        }
+                        // success
+                        if (data.success) {
+                            $('#promoResult').empty().html("Thank You code added");
+                            $('#totalCost').empty().html(data.costItems +" AED");
+                        }
+                    }, error: function (reject) {
+                        console.log(reject);
+                    }
+                });
+            });
 
             // remove Button
             $(document).on('click', '.addcartbtn', function (e) {
