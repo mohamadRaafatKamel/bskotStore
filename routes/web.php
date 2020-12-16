@@ -52,6 +52,7 @@ Route::group(['namespace'=>'App\Http\Controllers', 'middleware'=>'guest'],functi
         Route::get('get-checkout-id', 'PaymentProviderController@getCheckOutId')->name('offers.checkout');
 
         Route::get('search', 'SiteController@search')->name('search');
+        Route::get('branches', 'SiteController@branches')->name('branches');
 
 
     });

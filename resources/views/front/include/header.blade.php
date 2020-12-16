@@ -32,40 +32,40 @@
             <!-- Left -->
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="{{ route('home') }}">Home
+                    <a class="nav-link" href="{{ route('home') }}">{{ __('msg.Menu') }}
                         <span class="sr-only">(current)</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('check.order') }}">Order Status</a>
+                    <a class="nav-link" href="{{ route('search') }}">{{ __('msg.search') }}</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#" target="_blank">Free
-                        download</a>
+                    <a class="nav-link" href="{{ route('branches') }}">{{ __('msg.Branches') }}</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#" target="_blank">Free tutorials</a>
+                    <a class="nav-link" href="{{ route('check.order') }}">{{ __('msg.Order Status') }}</a>
                 </li>
+
             </ul>
 
             <!-- Right -->
             <ul class="navbar-nav nav-flex-icons">
                 <li class="nav-item">
                     <a href="#" class="nav-link" target="_blank">
-                        <i class="fab fa-facebook-f"></i>
+                        <i class="fab fa-snapchat-ghost"></i>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="#" class="nav-link" target="_blank">
-                        <i class="fab fa-twitter"></i>
+                        <i class="fab fa-instagram"></i>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link border border-light rounded"
-                       target="_blank">
-                        <i class="fab fa-github mr-2"></i>MDB GitHub
-                    </a>
-                </li>
+{{--                <li class="nav-item">--}}
+{{--                    <a href="#" class="nav-link border border-light rounded"--}}
+{{--                       target="_blank">--}}
+{{--                        <i class="fab fa-github mr-2"></i>MDB GitHub--}}
+{{--                    </a>--}}
+{{--                </li>--}}
             </ul>
 
         </div>

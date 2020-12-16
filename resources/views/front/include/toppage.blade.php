@@ -20,7 +20,7 @@
 <div class="sec-nav">
     <img src="{{asset('assets/front/img/logo.jpg')}}"/>
     <div>
-        <h1>Baskotii</h1>
-        <h2>Hand made with love</h2>
+        <h1>{{ __('msg.Baskotii') }}</h1>
+        <h2>{{ __('msg.Hand made with love') }}</h2>
     </div>
 </div>

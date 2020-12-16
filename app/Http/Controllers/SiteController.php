@@ -269,27 +269,39 @@ class SiteController extends Controller
         }
         $this->orderComplet($_COOKIE['order']);
         $order = Orders::find($_COOKIE['order']);
-        $items = OrderItem::where('order_id',$order->id)->get();
-        if ($items->count()==0)
-            $empty = 1;
+        if($order){
+            $items = OrderItem::where('order_id',$order->id)->get();
+            if ($items->count()==0)
+                $empty = 1;
 
-        return view('front.cart',compact('empty','order','items'));
+            return view('front.cart',compact('empty','order','items'));
+        }else{
+            $empty = 1;
+            return view('front.cart',compact('empty'));
+        }
+
+
     }
 
     public function orderComplet($id)
     {
         $order = new Orders();
         $isOrder = $order->find($id);
-        $totalCost = $order->culcCostItem($id);
-        if($isOrder->promo_id){
-            $promoCode = PromoCode::find($isOrder->promo_id);
-            $totalCost = $totalCost - ($totalCost / $promoCode->value);
+        if($isOrder){
+            $totalCost = $order->culcCostItem($id);
+            if($isOrder->promo_id){
+                $promoCode = PromoCode::find($isOrder->promo_id);
+                $totalCost = $totalCost - ($totalCost / $promoCode->value);
+            }
+            $data=[
+                'total_cost'=>$totalCost,
+                'time'=>$order->culcTimeDelivery($isOrder->area_id ),
+            ];
+            $isOrder->update($data);
+        }else{
+            unset($_COOKIE['order']);
+            setcookie('order', null, -1, '/');
         }
-        $data=[
-            'total_cost'=>$totalCost,
-            'time'=>$order->culcTimeDelivery($isOrder->area_id ),
-        ];
-        $isOrder->update($data);
     }
 
     public function adress()
@@ -484,6 +496,11 @@ class SiteController extends Controller
     }
 
     public function search()
+    {
+        //return view('front.home');
+    }
+
+    public function branches()
     {
         //return view('front.home');
     }
