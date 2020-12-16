@@ -317,6 +317,7 @@ class SiteController extends Controller
     public function setadress(Request $request)
     {
         $order = new Orders();
+
         $isOrder = $order->find($_COOKIE['order']);
         $isOrder->update($request->except(['_token']));
         return redirect()->route('otpview');

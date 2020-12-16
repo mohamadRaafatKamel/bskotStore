@@ -58,9 +58,9 @@
             <button type="button" class="orderbtn" style="display: flex">
                 <span class="reviewbtn-item" id="reviewItem">{{ $myitem['allItems'] }}</span>
                 <span class="reviewbtn-mid">{{ __('msg.Revieworder') }}</span>
-                <span style="margin-left: auto;">
-                        <span class="reviewbtn-cost" id="reviewCost"> {{ $myitem['costItems']." ". __('msg.AED') }} </span>
-                    </span>
+                <span style="margin-left: auto;direction: rtl">
+                    <span class="reviewbtn-cost" id="reviewCost"> {{ $myitem['costItems']." ". __('msg.AED') }} </span>
+                </span>
             </button>
         </a>
     @else

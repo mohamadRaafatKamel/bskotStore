@@ -21,6 +21,9 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
     <!-- Your custom styles (optional) -->
     <link href="{{asset('assets/front/css/style.css')}}" rel="stylesheet">
+    @if(\Illuminate\Support\Facades\App::isLocale('ar'))
+        <link href="{{asset('assets/front/css/styleAr.css')}}" rel="stylesheet">
+    @endif
 </head>
 
 <body>

@@ -15,9 +15,12 @@
                 </span></a>
                 @endif
             </a>
-
-            <a class="navbar-brand" href="{{ route('lang','ar') }}">ع</a>
-            <a class="navbar-brand" href="{{ route('lang','en') }}">E</a>
+            @if(\Illuminate\Support\Facades\App::isLocale('en'))
+                <a class="navbar-brand" href="{{ route('lang','ar') }}">ع</a>
+            @endif
+            @if(\Illuminate\Support\Facades\App::isLocale('ar'))
+                <a class="navbar-brand" href="{{ route('lang','en') }}">E</a>
+            @endif
         </div>
 
         <!-- Collapse -->

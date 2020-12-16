@@ -20,15 +20,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5585e40b-995d-44d9-96f8-01fc6fef4ad7" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/assets/front/css/styleAr.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SiteController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SiteController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/front/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/front/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/ar/msg.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/ar/msg.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/en/msg.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/msg.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/front/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/home.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/front/include/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/include/header.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/front/include/toppage.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/include/toppage.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/site.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/site.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -165,17 +162,17 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/lang/ar" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/assets/front/css" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\www\laravel\bskot\assets\front\css" />
       <recent name="C:\www\laravel\bskot\resources\lang\ar" />
       <recent name="C:\www\laravel\bskot\resources\views\front" />
       <recent name="C:\www\laravel\bskot\resources\views\admin" />
       <recent name="C:\www\laravel\bskot\app\Http\Controllers\Admin" />
-      <recent name="C:\www\laravel\bskot\app\Http\Requests" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\www\laravel\bskot\app\Http\Controllers\Admin" />
@@ -201,7 +198,7 @@
       <workItem from="1606985156805" duration="17793000" />
       <workItem from="1607808937040" duration="29992000" />
       <workItem from="1607949139649" duration="13756000" />
-      <workItem from="1608033735647" duration="22432000" />
+      <workItem from="1608033735647" duration="26207000" />
     </task>
     <task id="LOCAL-00001" summary="category">
       <created>1606937699613</created>
@@ -336,7 +333,14 @@
       <option name="project" value="LOCAL" />
       <updated>1608131326767</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="lang home and include">
+      <created>1608136081254</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1608136081254</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -370,13 +374,14 @@
     <MESSAGE value="start lang" />
     <MESSAGE value="upload" />
     <MESSAGE value="lang" />
-    <option name="LAST_COMMIT_MESSAGE" value="lang" />
+    <MESSAGE value="lang home and include" />
+    <option name="LAST_COMMIT_MESSAGE" value="lang home and include" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="308" y="0" key="CommitChangelistDialog2" timestamp="1608131321523">
+    <state x="308" y="0" key="CommitChangelistDialog2" timestamp="1608136073623">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="308" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1608131321523" />
+    <state x="308" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1608136073623" />
     <state width="1323" height="179" key="GridCell.Tab.0.bottom" timestamp="1606963785785">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
