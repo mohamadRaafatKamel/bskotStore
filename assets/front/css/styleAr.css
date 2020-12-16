@@ -14,3 +14,21 @@ body{
 .btnfooter{
     direction: ltr;
 }
+
+/* in delivery select with search */
+/*Bootstrap select RTL fix*/
+.dropdown-toggle::after {
+    float: left;
+    margin-top: 0.6em;
+    vertical-align: 0.1em;
+}
+.bootstrap-select .dropdown-toggle .filter-option {
+    text-align: right!important;
+}
+.bootstrap-select .dropdown-toggle .filter-option-inner {
+    padding-right: 0!important;
+}
+/* for menu */
+.bootstrap-select .dropdown-menu .inner .dropdown-menu {
+     text-align: right!important;
+ }

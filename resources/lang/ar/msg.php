@@ -14,5 +14,11 @@ return [
     'StartOrder'=>'بدا طلب',
     'Revieworder'=>'مراجعه الطلب',
     'AED'=>'دينار',
+    // front.delivery
+    'Order Mode'=>'طريقة الاستلام',
+    'Name'=>'الاسم',
+    'Phone'=>'رقم الهاتف',
+    'PhonePlaceholder'=>'اضف رقم الهاتف بدون +971',
+    'Location'=>'المنطقه',
 
 ];

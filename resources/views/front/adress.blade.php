@@ -5,7 +5,12 @@
 @section('toppage')
     <div class="topproducy">
         <h1>Check out</h1>
-        <a href="{{route('cart')}}" class="topproducyarrow"><i class="fas fa-arrow-left" style="color: #000;"></i></a>
+        @if(\Illuminate\Support\Facades\App::isLocale('en'))
+            <a href="{{route('cart')}}" class="topproducyarrow"><i class="fas fa-arrow-left" style="color: #000;"></i></a>
+        @endif
+        @if(\Illuminate\Support\Facades\App::isLocale('ar'))
+            <a href="{{route('cart')}}" class="topproducyarrow"><i class="fas fa-arrow-right" style="color: #000;"></i></a>
+        @endif
     </div>
 {{--    <div class="mysearch">--}}
 {{--        <input type="text" id="input-search" placeholder="Search"/>--}}

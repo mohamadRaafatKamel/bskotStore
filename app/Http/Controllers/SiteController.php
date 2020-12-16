@@ -223,6 +223,7 @@ class SiteController extends Controller
                 if ($areas) {
                     $data [] = [
                         'emarhName' => $emarh->name_en,
+                        'emarhName_ar' => $emarh->name_ar,
                         'areas' => $areas,
                     ];
                 }
