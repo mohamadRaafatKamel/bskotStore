@@ -4,7 +4,12 @@
 
 @section('toppage')
     <div class="topproducy">
-        <a href="{{route('product',$product->cat_id)}}" class="topproducyarrow"><i class="fas fa-arrow-left" style="color: #000;"></i></a>
+        @if(\Illuminate\Support\Facades\App::isLocale('en'))
+            <a href="{{route('product',$product->cat_id)}}" class="topproducyarrow"><i class="fas fa-arrow-left" style="color: #000;"></i></a>
+        @endif
+        @if(\Illuminate\Support\Facades\App::isLocale('ar'))
+            <a href="{{route('product',$product->cat_id)}}" class="topproducyarrow"><i class="fas fa-arrow-right" style="color: #000;"></i></a>
+        @endif
     </div>
     <div class="view" style="background-image: url('{{asset($product->img)}}'); background-repeat: no-repeat; background-size: cover;">
 
@@ -24,7 +29,14 @@
     </div>
     <div class="sec-nav">
         <div>
+            @if(\Illuminate\Support\Facades\App::isLocale('en'))
             <h1>{{$product->name_en}}</h1>
+            <p>{{$product->notes_en}}</p>
+            @endif
+            @if(\Illuminate\Support\Facades\App::isLocale('ar'))
+                    <h1>{{$product->name_ar}}</h1>
+                    <p>{{$product->notes_ar}}</p>
+            @endif
         </div>
     </div>
 @stop
@@ -35,15 +47,15 @@
 <main>
     <div class="grayline"></div>
     <div class="price">
-        <p class="first">Price : </p>
-        <p class="second">{{$product->price}} AED</p>
+        <p class="first">{{ __('msg.Price') }} : </p>
+        <p class="second">{{$product->price}} {{ __('msg.AED') }}</p>
         <input type="hidden" id="price" value="{{$product->price}}">
     </div>
     <div class="grayline"></div>
     <form method="post" action="{{ route('add.order',$product->id) }}">
         @csrf
         <div class="contnernotes">
-            <input type="text" class="notes" name="notes" placeholder="Add Instructions (Option)" @if($item)value="{{$item->notes}}" @endif >
+            <input type="text" class="notes" name="notes" placeholder="{{ __('msg.Add Instructions') }}" @if($item)value="{{$item->notes}}" @endif >
         </div>
         <div class="grayline"></div>
         <div class="contnernotes pulse-minus" style="place-items: center;">
@@ -76,9 +88,9 @@
 @section('btnfooter')
     <div class="btnfooter">
         @if($item)
-            <input type="submit" class="orderbtn" id="orderbtn" value="Add to Order . AED {{$product->price * $item->pro_amount}}"/>
+            <input type="submit" class="orderbtn" id="orderbtn" value="{{ __('msg.Add to Order') }} . {{ __('msg.AED') }} {{$product->price * $item->pro_amount}}"/>
         @else
-            <input type="submit" class="orderbtn" id="orderbtn" value="Add to Order . AED {{$product->price}}"/>
+            <input type="submit" class="orderbtn" id="orderbtn" value="{{ __('msg.Add to Order') }} . {{ __('msg.AED') }} {{$product->price}}"/>
         @endif
     </div>
 
@@ -92,7 +104,7 @@ $(document).ready(function(){
         var number = parseInt($("#proamount").val());
         $("#proamount").val(number + 1);
         $("#numbr").html(number + 1);
-        $("#orderbtn").val("Add to Order . AED " +parseInt($("#price").val())*(number + 1));
+        $("#orderbtn").val("{{ __('msg.Add to Order') }} . {{ __('msg.AED') }} " +parseInt($("#price").val())*(number + 1));
     });
 
     $("#minusBtn").click(function(){
@@ -100,7 +112,7 @@ $(document).ready(function(){
         if(number != 1){
             $("#proamount").val(number - 1);
             $("#numbr").html(number - 1);
-            $("#orderbtn").val("Add to Order . AED " +parseInt($("#price").val())*(number - 1));
+            $("#orderbtn").val("{{ __('msg.Add to Order') }} . {{ __('msg.AED') }} " +parseInt($("#price").val())*(number - 1));
         }
     });
 

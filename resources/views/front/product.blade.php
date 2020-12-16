@@ -11,7 +11,8 @@
         @if(\Illuminate\Support\Facades\App::isLocale('ar'))
             <h1>{{ $category->name_ar }}</h1>
             <a href="{{route('home')}}" class="topproducyarrow"><i class="fas fa-arrow-right" style="color: #000;"></i></a>
-        @endif    </div>
+        @endif
+    </div>
 @stop
 
 @section('main')
@@ -77,7 +78,7 @@
             </a>
         @else
             <a href="{{route('delivery')}}" >
-                <input type="submit" class="orderbtn" value="{{ __('msg.StartOrder') }}"/>
+                <input type="submit" class="orderbtn" value="{{ __('msg.StartOrder') }}`"/>
             </a>
         @endif
     </div>

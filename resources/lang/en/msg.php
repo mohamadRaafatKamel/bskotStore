@@ -6,14 +6,17 @@ return [
     'search'=>'Search',
     'Branches'=>'Branches',
     'Order Status'=>'Order Status',
+
     // front.include.toppage
     'Baskotii'=>'Baskotii',
     'Hand made with love'=>'Hand made with love',
+
     // front.home
     'Search'=>'Search',
     'StartOrder'=>'Start Order',
     'Revieworder'=>'Review order',
     'AED'=>'AED',
+
     // front.delivery
     'Order Mode'=>'Order Mode',
     'Name'=>'Name',
@@ -22,9 +25,11 @@ return [
     'Location'=>'Location',
     'Next'=>'Next',
     'Edit'=>'Edit',
-    ''=>'',
-    ''=>'',
-    ''=>'',
+
+    //front.view
+    'Price'=>'Price',
+    'Add Instructions'=>'Add Instructions (Option)',
+    'Add to Order'=>'Add to Order',
     ''=>'',
     ''=>'',
     ''=>'',
