@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\App;
 
 class Product extends Model
 {
@@ -46,7 +47,10 @@ class Product extends Model
     public static function getNameById($id)
     {
         $cat = Product::find($id);
-        return $cat['name_en'];
+        if(App::isLocale('en'))
+            return $cat['name_en'];
+        if(App::isLocale('ar'))
+            return $cat['name_ar'];
     }
 
     public static function getPriceById($id)

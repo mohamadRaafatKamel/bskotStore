@@ -4,8 +4,13 @@
 
 @section('toppage')
     <div class="topproducy">
-        <h1>Review Order</h1>
-        <a href="{{route('home')}}" class="topproducyarrow"><i class="fas fa-arrow-left" style="color: #000;"></i></a>
+        <h1>{{ __('msg.Review Order') }}</h1>
+        @if(\Illuminate\Support\Facades\App::isLocale('en'))
+            <a href="{{route('home')}}" class="topproducyarrow"><i class="fas fa-arrow-left" style="color: #000;"></i></a>
+        @endif
+        @if(\Illuminate\Support\Facades\App::isLocale('ar'))
+            <a href="{{route('home')}}" class="topproducyarrow"><i class="fas fa-arrow-right" style="color: #000;"></i></a>
+        @endif
     </div>
 
 @stop
@@ -23,25 +28,25 @@
                 </svg>
             </i>
             <br/><br/>
-            <h1>Your bag is empty</h1>
-            <p>Browse menu and add items to your order to proceed</p>
+            <h1>{{ __('msg.emptyCart1') }}</h1>
+            <p>{{ __('msg.emptyCart2') }}</p>
         </div>
     @endif
 
     @if($empty == 0)
     <div class="sec-nav" style="display: block">
-        <h1> Delivery Info </h1>
-        <p>{{ $order->time }} minet</p>
+        <h1> {{ __('msg.Delivery Info') }} </h1>
+        <p>{{ $order->time }} {{ __('msg.day') }}</p>
     </div>
     <div class="grayline"></div>
 
     <div class="sec-nav" style="display: block">
-        <h1>Order Items</h1>
+        <h1>{{ __('msg.Order Items') }}</h1>
         @foreach($items as $item)
             <div id="d{{ $item ->id }}">
                 <div class="price">
                     <p class="first"> {{\App\Models\Product::getNameById($item->pro_id)}} </p>
-                    <p class="second">{{\App\Models\Product::getPriceById($item->pro_id)}} AED</p>
+                    <p class="second">{{\App\Models\Product::getPriceById($item->pro_id)}} {{ __('msg.AED') }}</p>
                 </div>
                 <div class="price">
                     <div>
@@ -64,7 +69,7 @@
                         </div>
                     </div>
 {{--                    Remove Button--}}
-                    <button type="button" id="{{ $item ->id }}" class="addcartbtn" style="width: auto;">remove</button>
+                    <button type="button" id="{{ $item ->id }}" class="addcartbtn" style="width: auto;">{{ __('msg.Remove') }}</button>
                 </div>
             </div>
         @endforeach
@@ -72,16 +77,16 @@
 
     <div class="grayline"></div>
         <div class=" price" style="display: -webkit-box;padding-right: 35px;margin-bottom: 10px;">
-            <input type="text" id="promoCode" class="notes" name="promo_id" placeholder="Enter Code"
+            <input type="text" id="promoCode" class="notes" name="promo_id" placeholder="{{ __('msg.Enter Code') }}"
                    @if($order->promo_id)value="{{ \App\Models\Orders::getCode($order->promo_id) }}" @endif
                    style="width: 70%">
-            <button type="button" id="applyCode" class="applycodebtn">Apply</button>
+            <button type="button" id="applyCode" class="applycodebtn">{{ __('msg.Apply') }}</button>
         </div>
         <div id="promoResult" style="text-align: center;color: #f7760e;"></div>
     <div class="grayline"></div>
     <div class="price">
-        <p class="first">Total : </p>
-        <p class="second" id="totalCost">{{$order->total_cost}} AED</p>
+        <p class="first">{{ __('msg.Total') }} : </p>
+        <p class="second" id="totalCost">{{$order->total_cost}} {{ __('msg.AED') }}</p>
     </div>
     @endif
 
@@ -94,7 +99,7 @@
     @if($empty == 0)
     <div class="btnfooter">
         <a href="{{ route('adress') }}">
-            <input type="submit" class="orderbtn" value="check Out"/>
+            <input type="submit" class="orderbtn" value="{{ __('msg.check Out') }}"/>
         </a>
     </div>
     @endif

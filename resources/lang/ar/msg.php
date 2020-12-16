@@ -31,4 +31,17 @@ return [
     'Add Instructions'=>'اضف تفاصيل (اختياري)',
     'Add to Order'=>'اضف للطلب',
 
+    //front.cart
+    'Review Order'=>'مراجعه الطلب',
+    'emptyCart1'=>'حقيبتك فارغه',
+    'emptyCart2'=>'تصفح القائمه و اضف بعض المنتجات',
+    'Delivery Info'=>'معلوات التوصيل',
+    'day'=>'يوم',
+    'Order Items'=>'محتوي الطلب',
+    'Remove'=>'مسح',
+    'Apply'=>'تحقق',
+    'Enter Code'=>'اضف كود الخصم',
+    'check Out'=>'اتمام الطلب',
+    'Total'=>'الاجمالي',
+
 ];
