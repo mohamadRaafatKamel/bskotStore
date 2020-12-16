@@ -10,6 +10,7 @@ use App\Models\Orders;
 use App\Models\Product;
 use App\Models\PromoCode;
 use http\Cookie;
+use Illuminate\Support\Facades\App;
 use mysql_xdevapi\Exception;
 use Twilio\Rest\Client;
 use Illuminate\Http\Request;
@@ -467,26 +468,25 @@ class SiteController extends Controller
         }
     }
 
+    public function lang($lang)
+    {
+        if(session()->has('lang')){
+            session()->forget('lang');
+        }
+
+        if (in_array($lang, ['en', 'ar'])) {
+            session()->put('lang',$lang);
+        }else{
+            session()->put('lang','en');
+        }
+        App::setLocale('ar');
+        return redirect()->route('home');
+    }
+
     public function search()
     {
         //return view('front.home');
     }
-    /*
-        public function setCookie(Request $request,$cookName,$cookValue)
-        {
-            $minutes = 60;
-            $response = new Response('Set Cookie');
-            $response->withCookie(cookie($cookName, $cookValue, $minutes));
-            return $response;
-        }
-
-        public function getCookie(Request $request,$cookName)
-        {
-            $value = $request->cookie($cookName);
-            echo $value;
-        }
-    */
-
 
 
 }

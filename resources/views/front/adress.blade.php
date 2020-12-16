@@ -29,7 +29,7 @@
 
                 <div class="form-group">
                     <label for="Name">Phone</label>
-                    <input type="Phone" name="phone" value="{{ $isOrder->phone }}" class="form-control" id="Phone" placeholder="Add phone without +965" required>
+                    <input type="Phone" name="phone" value="{{ $isOrder->phone }}" class="form-control" id="Phone" placeholder="Add phone without +971" required>
                 </div>
 
                 <div class="form-group">
