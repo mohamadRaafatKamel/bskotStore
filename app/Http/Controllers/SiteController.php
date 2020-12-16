@@ -61,7 +61,7 @@ class SiteController extends Controller
 
         $products = Product::select()->active()->where('cat_id',$id)->get();
 
-        return view('front.product',compact('products','myitem'));
+        return view('front.product',compact('products','myitem','category'));
     }
 
     public function view($id)

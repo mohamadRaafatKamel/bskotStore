@@ -4,9 +4,14 @@
 
 @section('toppage')
     <div class="topproducy">
-        <h1>New Items</h1>
-        <a href="{{route('home')}}" class="topproducyarrow"><i class="fas fa-arrow-left" style="color: #000;"></i></a>
-    </div>
+        @if(\Illuminate\Support\Facades\App::isLocale('en'))
+            <h1>{{ $category->name_en }}</h1>
+            <a href="{{route('home')}}" class="topproducyarrow"><i class="fas fa-arrow-left" style="color: #000;"></i></a>
+        @endif
+        @if(\Illuminate\Support\Facades\App::isLocale('ar'))
+            <h1>{{ $category->name_ar }}</h1>
+            <a href="{{route('home')}}" class="topproducyarrow"><i class="fas fa-arrow-right" style="color: #000;"></i></a>
+        @endif    </div>
 @stop
 
 @section('main')
@@ -23,14 +28,24 @@
                             <a href="{{route('view',$product ->id)}}">
                                 <img src="{{ asset($product ->img) }}" class="img-fluid z-depth-1-half" alt="">
                                 <div style="display: flex;">
-                                    <span class="productcount" id="s{{ $product ->id }}">
-                                        @if(isset($myitem[$product ->id]))
-                                            {{ $myitem[$product ->id] }}x
-                                        @endif
-                                    </span>
-                                    <p>{{$product -> name_en}}</p>
+                                    @if(\Illuminate\Support\Facades\App::isLocale('en'))
+                                        <span class="productcount" id="s{{ $product ->id }}">
+                                            @if(isset($myitem[$product ->id]))
+                                                &nbsp;{{ $myitem[$product ->id] }}<span>x</span>
+                                            @endif
+                                        </span>
+                                        <p>{{$product -> name_en}}</p>
+                                    @endif
+                                    @if(\Illuminate\Support\Facades\App::isLocale('ar'))
+                                        <span class="productcount" id="s{{ $product ->id }}">
+                                            @if(isset($myitem[$product ->id]))
+                                                 <span>x</span>{{ $myitem[$product ->id] }}&nbsp;
+                                             @endif
+                                        </span>
+                                        <p>{{$product -> name_ar}}</p>
+                                    @endif
                                 </div>
-                                <button type="button" class="addcartbtn" id="{{ $product ->id }}" >{{$product->price}} AED</button>
+                                <button type="button" class="addcartbtn" id="{{ $product ->id }}" >{{$product->price}} {{ __('msg.AED') }}</button>
                             </a>
                         </div>
                     @endforeach
@@ -54,15 +69,15 @@
             <a href="{{route('cart')}}" >
                 <button type="button" class="orderbtn" style="display: flex">
                     <span class="reviewbtn-item" id="reviewItem">{{ $myitem['allItems'] }}</span>
-                    <span class="reviewbtn-mid">Review order </span>
-                    <span style="margin-left: auto;">
-                        <span class="reviewbtn-cost" id="reviewCost"> {{ $myitem['costItems'] }} AED</span>
+                    <span class="reviewbtn-mid">{{ __('msg.Revieworder') }}</span>
+                    <span style="margin-left: auto;direction: rtl">
+                        <span class="reviewbtn-cost" id="reviewCost"> {{ $myitem['costItems'] }} {{ __('msg.AED') }}</span>
                     </span>
                 </button>
             </a>
         @else
             <a href="{{route('delivery')}}" >
-                <input type="submit" class="orderbtn" value="Start Order"/>
+                <input type="submit" class="orderbtn" value="{{ __('msg.StartOrder') }}"/>
             </a>
         @endif
     </div>
@@ -96,9 +111,14 @@
                         }
                         // scsses
                         if (data.success) {
+                            @if(\Illuminate\Support\Facades\App::isLocale('en'))
                             $('#s'+id).empty().html(data.success+"x ");
+                            @endif
+                            @if(\Illuminate\Support\Facades\App::isLocale('ar'))
+                            $('#s'+id).empty().html(" x"+data.success);
+                            @endif
                             $('#reviewItem').empty().html(data.allItems);
-                            $('#reviewCost').empty().html(data.costItems +" AED");
+                            $('#reviewCost').empty().html(data.costItems +" {{ __('msg.AED') }}");
                         }
                     }, error: function (reject) {
                         //console.log(reject);
