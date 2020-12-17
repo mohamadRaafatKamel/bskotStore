@@ -15,7 +15,7 @@ return [
     'Search'=>'بحث',
     'StartOrder'=>'بدا طلب',
     'Revieworder'=>'مراجعه الطلب',
-    'AED'=>'دينار',
+    'AED'=>'درهم',
 
     // front.delivery
     'Order Mode'=>'طريقة الاستلام',

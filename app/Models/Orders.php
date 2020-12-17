@@ -92,4 +92,23 @@ class Orders extends Model
         }
     }
 
+    public function getAreaName($id)
+    {
+        $area = Area::select('name_ar')->find($id);
+        return $area['name_ar'];
+    }
+
+    public function getpaymentWay($state)
+    {
+        switch ($state){
+            case 1:
+                return "كريكيت كارت";
+                break;
+            case 2:
+                return "كاش";
+                break;
+        }
+    }
+
+
 }

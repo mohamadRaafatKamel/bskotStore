@@ -78,7 +78,7 @@
             </a>
         @else
             <a href="{{route('delivery')}}" >
-                <input type="submit" class="orderbtn" value="{{ __('msg.StartOrder') }}`"/>
+                <input type="submit" class="orderbtn" value="{{ __('msg.StartOrder') }}"/>
             </a>
         @endif
     </div>

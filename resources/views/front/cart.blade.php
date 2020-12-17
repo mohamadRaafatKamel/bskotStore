@@ -92,7 +92,7 @@
             $discou = $totall / $promoCode->value;
             $val=$promoCode->value;
         }else{
-            $totall=$discou=0;
+            $totall=$discou=$val=0;
         }
 
         ?>

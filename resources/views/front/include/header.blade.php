@@ -54,12 +54,12 @@
             <!-- Right -->
             <ul class="navbar-nav nav-flex-icons">
                 <li class="nav-item">
-                    <a href="#" class="nav-link" target="_blank">
+                    <a href="https://www.snapchat.com/add/baskotii1" class="nav-link" target="_blank">
                         <i class="fab fa-snapchat-ghost"></i>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link" target="_blank">
+                    <a href="https://instagram.com/baskotii" class="nav-link" target="_blank">
                         <i class="fab fa-instagram"></i>
                     </a>
                 </li>

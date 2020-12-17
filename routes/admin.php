@@ -83,6 +83,18 @@ Route::group(['namespace'=>'App\Http\Controllers\Admin', 'middleware'=>'auth:adm
     });
     ##################### End Area ########################
 
+    ##################### Order ############################
+    Route::group(['prefix'=>'Order'],function (){
+        Route::get('/','OrderController@index')->name('admin.order');
+        Route::get('/sending','OrderController@sending')->name('admin.order.sending');
+        Route::get('/done','OrderController@done')->name('admin.order.done');
+
+        Route::get('view/{id}','OrderController@view')->name('admin.order.view');
+        Route::get('vsending/{id}','OrderController@viewSending')->name('admin.order.view.sending');
+        Route::get('vdone/{id}','OrderController@viewDone') -> name('admin.order.view.done');
+    });
+    ##################### End Order ########################
+
 });
 
 

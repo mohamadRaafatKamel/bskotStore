@@ -20,16 +20,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5585e40b-995d-44d9-96f8-01fc6fef4ad7" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/OrderController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bskot.zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/order/done.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/order/index.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/order/sending.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/order/view.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/front/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/front/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/front/adress.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/adress.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/front/branches.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/branches.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Orders.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Orders.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/ar/msg.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/ar/msg.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/dashboard.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/include/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/include/header.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/include/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/include/sidebar.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/front/cart.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/cart.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/front/checkorder.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/checkorder.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/front/credit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/credit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/front/include/footer.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/include/footer.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/front/include/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/include/header.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/site.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/site.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/front/product.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/product.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/admin.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -166,7 +173,7 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/front" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/admin/order" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -175,11 +182,11 @@
       <recent name="C:\www\laravel\bskot\app\Http\Controllers\Admin" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\www\laravel\bskot\resources\views\front" />
-      <recent name="C:\www\laravel\bskot\assets\front\css" />
-      <recent name="C:\www\laravel\bskot\resources\lang\ar" />
+      <recent name="C:\www\laravel\bskot\resources\views\admin\order" />
       <recent name="C:\www\laravel\bskot\resources\views\admin" />
       <recent name="C:\www\laravel\bskot\app\Http\Controllers\Admin" />
+      <recent name="C:\www\laravel\bskot\resources\views\front" />
+      <recent name="C:\www\laravel\bskot\assets\front\css" />
     </key>
   </component>
   <component name="RunManager">
@@ -203,7 +210,7 @@
       <workItem from="1607808937040" duration="29992000" />
       <workItem from="1607949139649" duration="13756000" />
       <workItem from="1608033735647" duration="42184000" />
-      <workItem from="1608180436799" duration="17842000" />
+      <workItem from="1608180436799" duration="30047000" />
     </task>
     <task id="LOCAL-00001" summary="category">
       <created>1606937699613</created>
@@ -422,7 +429,14 @@
       <option name="project" value="LOCAL" />
       <updated>1608217284641</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="front design">
+      <created>1608219769166</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1608219769166</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -442,7 +456,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="category" />
     <MESSAGE value="product" />
     <MESSAGE value="front" />
     <MESSAGE value="front2" />
@@ -467,13 +480,14 @@
     <MESSAGE value="display promoCode Detail" />
     <MESSAGE value="SEARCH" />
     <MESSAGE value="SEARCH Done" />
-    <option name="LAST_COMMIT_MESSAGE" value="SEARCH Done" />
+    <MESSAGE value="front design" />
+    <option name="LAST_COMMIT_MESSAGE" value="front design" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="308" y="0" key="CommitChangelistDialog2" timestamp="1608217282726">
+    <state x="308" y="0" key="CommitChangelistDialog2" timestamp="1608219767083">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="308" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1608217282726" />
+    <state x="308" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1608219767083" />
     <state width="1323" height="179" key="GridCell.Tab.0.bottom" timestamp="1606963785785">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
