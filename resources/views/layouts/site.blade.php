@@ -27,14 +27,14 @@
 </head>
 
 <body>
-<div style="min-height: 500px;">
+
 @yield('toppage')
 
 
-
+<div style="min-height: 500px">
 <!--Main layout-->
 @yield('main')
-
+</div>
 <!--Main layout-->
 @yield('btnfooter')
 
@@ -69,7 +69,7 @@
 </script>
 
 @yield('scripts')
-</div>
+
 </body>
 
 </html>

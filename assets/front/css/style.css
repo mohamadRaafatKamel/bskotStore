@@ -11,11 +11,11 @@ body{
 
 /* Navbar animation */
 .navbar {
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .top-nav-collapse {
-  background-color: #1C2331;
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
 .sec-nav {
@@ -756,14 +756,8 @@ body{
 
 /* End Search Page */
 
-/* Adding color to the Navbar on mobile */
-@media only screen and (max-width: 768px) {
-  .navbar {
-    background-color: rgba(0, 0, 0, 0.2);
-  }
 
-  /* Footer color for sake of consistency with Navbar */
-  .page-footer {
-    background-color: #1C2331;
-  }
+.page-footer {
+    background-color: #999999;
+    font-weight: 600;
 }

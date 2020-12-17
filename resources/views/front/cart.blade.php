@@ -16,7 +16,7 @@
 @stop
 
 @section('main')
-<main style="min-height: 500px;">
+<main style="min-height: 600px;">
 
     <div class="grayline"></div>
 

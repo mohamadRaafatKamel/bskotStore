@@ -16,10 +16,10 @@
                 @endif
             </a>
             @if(\Illuminate\Support\Facades\App::isLocale('en'))
-                <a class="navbar-brand" href="{{ route('lang','ar') }}">ع</a>
+                <a class="navbar-brand" href="{{ route('lang','ar') }}" >ع</a>
             @endif
             @if(\Illuminate\Support\Facades\App::isLocale('ar'))
-                <a class="navbar-brand" href="{{ route('lang','en') }}">E</a>
+                <a class="navbar-brand" href="{{ route('lang','en') }}">EN</a>
             @endif
         </div>
 

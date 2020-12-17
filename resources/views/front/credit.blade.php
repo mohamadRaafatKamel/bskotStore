@@ -15,7 +15,7 @@
     <div class="grayline"></div>
 @stop
 @section('main')
-<main style="min-height: 500px;">
+<main style="min-height: 600px;">
     <div class="container">
     @include('admin.include.alerts.success')
     @include('admin.include.alerts.errors')
