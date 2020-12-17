@@ -43,6 +43,11 @@ return [
     'Enter Code'=>'Enter Code',
     'check Out'=>'check Out',
     'Total'=>'Total',
+    'discount'=>'Discount',
+    'price'=>'Price',
+    'CodeNotValid'=>'Code Not Valid',
+    'ThankYoucodeadded'=>'Thank You code added',
+    'removeCode'=>'Code removed',
 
     //front.adress
     'fulladress'=>'Add full adress',
@@ -76,7 +81,5 @@ return [
 
     //front.Branches
     'Branches1'=>'Branche Open Soon',
-    ''=>'',
-    ''=>'',
-    ''=>'',
+
 ];

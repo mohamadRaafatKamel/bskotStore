@@ -201,11 +201,35 @@ class SiteController extends Controller
             $promoCode=PromoCode::select()->where('code',$request->promocode)->first();
             if ($myorder && $promoCode) {
                 $totalCost = $order->culcCostItem($_COOKIE['order']);
-                $costAfterCode = $totalCost - ($totalCost / $promoCode->value);
+                $discount = $totalCost / $promoCode->value;
+                $costAfterCode = $totalCost - $discount;
                 $myorder->update(['promo_id'=>$promoCode->id,'total_cost'=>$costAfterCode]);
                 return [
                     'success' => '1',
+                    'totalCost2'=>$totalCost,
+                    'discountCost'=>$discount,
                     'costItems'=>$costAfterCode,
+                    'value'=>$promoCode->value,
+                ];
+            }else{
+                return ['order' => '0'];
+            }
+        }
+    }
+
+    public function removePromoCode(Request $request)
+    {
+        if(isset($_COOKIE['order'])){
+            //Check work promo
+            $order = new Orders();
+            //check
+            $myorder = Orders::find($_COOKIE['order']);
+            if ($myorder) {
+                $totalCost = $order->culcCostItem($_COOKIE['order']);
+                $myorder->update(['promo_id'=>null ,'total_cost'=>$totalCost]);
+                return [
+                    'success' => '1',
+                    'costItems'=>$totalCost,
                 ];
             }else{
                 return ['order' => '0'];
@@ -271,11 +295,15 @@ class SiteController extends Controller
         $this->orderComplet($_COOKIE['order']);
         $order = Orders::find($_COOKIE['order']);
         if($order){
+            $promoCode = null;
+            if($order->promo_id){
+                $promoCode=PromoCode::find($order->promo_id);
+            }
             $items = OrderItem::where('order_id',$order->id)->get();
             if ($items->count()==0)
                 $empty = 1;
 
-            return view('front.cart',compact('empty','order','items'));
+            return view('front.cart',compact('empty','order','items','promoCode'));
         }else{
             $empty = 1;
             return view('front.cart',compact('empty'));
@@ -497,15 +525,14 @@ class SiteController extends Controller
         return redirect()->route('home');
     }
 
-    public function search()
-    {
-        //return view('front.home');
-    }
-
     public function branches()
     {
         return view('front.branches');
     }
 
+    public function search()
+    {
+        //return view('front.home');
+    }
 
 }

@@ -78,14 +78,35 @@
     <div class="grayline"></div>
         <div class=" price" style="display: -webkit-box;padding-right: 35px;margin-bottom: 10px;">
             <input type="text" id="promoCode" class="notes" name="promo_id" placeholder="{{ __('msg.Enter Code') }}"
-                   @if($order->promo_id)value="{{ \App\Models\Orders::getCode($order->promo_id) }}" @endif
+                   @if($promoCode)value="{{ $promoCode->code }}" @endif
                    style="width: 70%">
-            <button type="button" id="applyCode" class="applycodebtn">{{ __('msg.Apply') }}</button>
+            <button type="button" id="applyCode"@if($promoCode) style="display: none"@endif class="applycodebtn">{{ __('msg.Apply') }}</button>
+            <button type="button" id="removeCode"@if(!$promoCode) style="display: none"@endif class="applycodebtn">{{ __('msg.Remove') }}</button>
         </div>
         <div id="promoResult" style="text-align: center;color: #f7760e;"></div>
     <div class="grayline"></div>
+    <div id="codeDetal" @if(!$promoCode) style="display: none"@endif>
+        <?php
+        if($promoCode){
+            $totall = \App\Models\Orders::culcCostItem($_COOKIE['order']);
+            $discou = $totall / $promoCode->value;
+            $val=$promoCode->value;
+        }else{
+            $totall=$discou=0;
+        }
+
+        ?>
+        <div class="price">
+            <p class="first">{{ __('msg.Total') }} : </p>
+            <p class="second" id="totalCost2">{{$totall}} {{ __('msg.AED') }}</p>
+        </div>
+        <div class="price">
+            <p class="first">{{ __('msg.discount') }} <span id="codeVal">%{{$val}}</span> : </p>
+            <p class="second" id="discountCost">{{$discou}} {{ __('msg.AED') }}</p>
+        </div>
+    </div>
     <div class="price">
-        <p class="first">{{ __('msg.Total') }} : </p>
+        <p class="first">{{ __('msg.price') }} : </p>
         <p class="second" id="totalCost">{{$order->total_cost}} {{ __('msg.AED') }}</p>
     </div>
     @endif
@@ -119,18 +140,52 @@
                     url: "{{route('promo.code') }}" ,
                     data: { promocode : promoCode },
                     success: function (data) {
-                        console.log(data);
+                        //console.log(data);
                         // no order
                         if(data.order == 0){
-                            $('#promoResult').empty().html("Code Not Valid");
+                            $('#promoResult').empty().html("{{ __('msg.CodeNotValid') }}");
                         }
                         // success
                         if (data.success) {
-                            $('#promoResult').empty().html("Thank You code added");
-                            $('#totalCost').empty().html(data.costItems +" AED");
+                            $('#promoResult').empty().html("{{ __('msg.ThankYoucodeadded') }}");
+                            $('#totalCost2').empty().html(data.totalCost2 +" {{ __('msg.AED') }}");
+                            $('#discountCost').empty().html(data.discountCost +" {{ __('msg.AED') }}");
+                            $('#totalCost').empty().html(data.costItems +" {{ __('msg.AED') }}");
+                            $('#codeVal').empty().html(data.value +"%");
+                            $('#removeCode').css({"display": "initial"});
+                            $('#codeDetal').css({"display": "initial"});
+                            $('#applyCode').css({"display": "none"});
                         }
                     }, error: function (reject) {
-                        console.log(reject);
+                        //console.log(reject);
+                    }
+                });
+            });
+
+            //Remove promo Code
+            $(document).on('click', '#removeCode', function (e) {
+                e.preventDefault();
+                $.ajax({
+                    type: 'get',
+                    url: "{{route('remove.promo.code') }}" ,
+                    data: { },
+                    success: function (data) {
+                        //console.log(data);
+                        // no order
+                        if(data.order == 0){
+                            location.replace("{{ route('home') }}");
+                        }
+                        // success
+                        if (data.success) {
+                            $('#promoResult').empty().html("{{ __('msg.removeCode') }}");
+                            $('#totalCost').empty().html(data.costItems +" {{ __('msg.AED') }}");
+                            $('#removeCode').css({"display": "none"});
+                            $('#codeDetal').css({"display": "none"});
+                            $('#applyCode').css({"display": "initial"});
+                            $('#promoCode').val('');
+                        }
+                    }, error: function (reject) {
+                        //console.log(reject);
                     }
                 });
             });
@@ -153,7 +208,7 @@
                         // success
                         if (data.success) {
                             $('#d'+id).empty().html("");
-                            $('#totalCost').empty().html(data.costItems +" AED");
+                            $('#totalCost').empty().html(data.costItems +" {{ __('msg.AED') }}");
                         }
                     }, error: function (reject) {
                         //console.log(reject);
@@ -198,7 +253,7 @@
                         }
                         // success
                         if (data.success) {
-                            $('#totalCost').empty().html(data.costItems +" AED");
+                            $('#totalCost').empty().html(data.costItems +" {{ __('msg.AED') }}");
                         }
                     }, error: function (reject) {
                         //console.log(reject);

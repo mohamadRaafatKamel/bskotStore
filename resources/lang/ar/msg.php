@@ -43,6 +43,11 @@ return [
     'Enter Code'=>'اضف كود الخصم',
     'check Out'=>'اتمام الطلب',
     'Total'=>'الاجمالي',
+    'discount'=>'الخصم',
+    'price'=>'السعر',
+    'CodeNotValid'=>'كود غير صحيح',
+    'ThankYoucodeadded'=>'تم اضافه الكود',
+    'removeCode'=>'تم مسح الكود',
 
     //front.adress
     'fulladress'=>'أضف العنوان بالتفصيل',

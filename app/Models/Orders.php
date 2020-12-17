@@ -40,7 +40,7 @@ class Orders extends Model
         return $promo->code;
     }
 
-    public function culcCostItem ($id)
+    public static function culcCostItem ($id)
     {
         $items = OrderItem::where('order_id',$id)->get();
         $totalPrice = 0;
