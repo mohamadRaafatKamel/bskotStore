@@ -4,12 +4,14 @@
 
 @section('toppage')
     <div class="topproducy">
-        <h1>Order Look Up</h1>
-        <a href="{{route('cart')}}" class="topproducyarrow"><i class="fas fa-arrow-left" style="color: #000;"></i></a>
+        <h1>{{ __('msg.Order Look Up') }}</h1>
+        @if(\Illuminate\Support\Facades\App::isLocale('en'))
+            <a href="{{route('cart')}}" class="topproducyarrow"><i class="fas fa-arrow-left" style="color: #000;"></i></a>
+        @endif
+        @if(\Illuminate\Support\Facades\App::isLocale('ar'))
+            <a href="{{route('cart')}}" class="topproducyarrow"><i class="fas fa-arrow-right" style="color: #000;"></i></a>
+        @endif
     </div>
-{{--    <div class="mysearch">--}}
-{{--        <input type="text" id="input-search" placeholder="Search"/>--}}
-{{--    </div>--}}
     <div class="grayline"></div>
 @stop
 @section('main')
@@ -20,12 +22,12 @@
         <!--Section: Main info-->
         <section class="mt-5 wow fadeIn">
             <div class="otppage1">
-                <p>OTP code can be found in SMS messages, after placing an order.</p>
+                <p>{{ __('msg.otpmessages') }}</p>
             </div>
             <div class="contnernotes">
                 <form action="{{ route('otpCheck') }}" method="post">
                     @csrf
-                    <input type="text" class="notes" name="otp" placeholder="OTP Code" required>
+                    <input type="text" class="notes" name="otp" placeholder="{{ __('msg.OTP Code') }}" required>
 
             </div>
         </section>
@@ -39,7 +41,7 @@
 @section('btnfooter')
     @if(isset($_COOKIE['order']))
         <div class="btnfooter">
-            <input type="submit" value="confirm OTP code" class="orderbtn">
+            <input type="submit" value="{{ __('msg.confirm OTP code') }}" class="orderbtn">
         </div>
         @endif
     </form>

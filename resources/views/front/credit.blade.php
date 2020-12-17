@@ -1,15 +1,17 @@
 
 @extends('layouts.site')
-@section('title', 'Delivery Adress')
+@section('title', __('msg.Payment'))
 
 @section('toppage')
     <div class="topproducy">
-        <h1>Check out</h1>
-        <a href="{{route('cart')}}" class="topproducyarrow"><i class="fas fa-arrow-left" style="color: #000;"></i></a>
+        <h1>{{ __('msg.check Out') }}</h1>
+        @if(\Illuminate\Support\Facades\App::isLocale('en'))
+            <a href="{{route('cart')}}" class="topproducyarrow"><i class="fas fa-arrow-left" style="color: #000;"></i></a>
+        @endif
+        @if(\Illuminate\Support\Facades\App::isLocale('ar'))
+            <a href="{{route('cart')}}" class="topproducyarrow"><i class="fas fa-arrow-right" style="color: #000;"></i></a>
+        @endif
     </div>
-{{--    <div class="mysearch">--}}
-{{--        <input type="text" id="input-search" placeholder="Search"/>--}}
-{{--    </div>--}}
     <div class="grayline"></div>
 @stop
 @section('main')
@@ -25,12 +27,12 @@
                         <path fill-rule="evenodd" d="M12.136.326A1.5 1.5 0 0 1 14 1.78V3h.5A1.5 1.5 0 0 1 16 4.5v9a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 13.5v-9a1.5 1.5 0 0 1 1.432-1.499L12.136.326zM5.562 3H13V1.78a.5.5 0 0 0-.621-.484L5.562 3zM1.5 4a.5.5 0 0 0-.5.5v9a.5.5 0 0 0 .5.5h13a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-13z"/>
                     </svg>
                 </i>
-                <h1>Payment Method</h1>
+                <h1>{{ __('msg.Payment Method') }}</h1>
 
             </div>
             <div class="paymentpage2">
 {{--                <button type="button" id="creditBtn">Credit Card</button>--}}
-                <button type="button" id="cashBtn">cash</button>
+                <button type="button" id="cashBtn">{{ __('msg.cash') }}</button>
             </div>
 
             <div>

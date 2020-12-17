@@ -1,15 +1,17 @@
 
 @extends('layouts.site')
-@section('title', 'Thanks Page')
+@section('title', __('msg.Thanks Page'))
 
 @section('toppage')
     <div class="topproducy">
-        <h1>Check out</h1>
-        <a href="{{route('home')}}" class="topproducyarrow"><i class="fas fa-arrow-left" style="color: #000;"></i></a>
+        <h1>{{ __('msg.check Out') }}</h1>
+        @if(\Illuminate\Support\Facades\App::isLocale('en'))
+            <a href="{{route('cart')}}" class="topproducyarrow"><i class="fas fa-arrow-left" style="color: #000;"></i></a>
+        @endif
+        @if(\Illuminate\Support\Facades\App::isLocale('ar'))
+            <a href="{{route('cart')}}" class="topproducyarrow"><i class="fas fa-arrow-right" style="color: #000;"></i></a>
+        @endif
     </div>
-{{--    <div class="mysearch">--}}
-{{--        <input type="text" id="input-search" placeholder="Search"/>--}}
-{{--    </div>--}}
     <div class="grayline"></div>
 @stop
 @section('main')
@@ -21,8 +23,8 @@
         <section class="mt-5 wow fadeIn">
             <div class="paymentpage1">
                 <i class="fa fa-check"></i>
-                <h1>Thank you for Payment</h1>
-                <p>SMS massage send for your phone please conferm code</p>
+                <h1>{{ __('msg.ThanksPage1') }}</h1>
+                <p>{{ __('msg.ThanksPage2') }}</p>
             </div>
 
         </section>
@@ -36,7 +38,7 @@
 @section('btnfooter')
     <a href="{{ route('home') }}">
         <div class="btnfooter">
-            <input type="submit" value="Back " class="orderbtn">
+            <input type="submit" value="{{ __('msg.Back') }} " class="orderbtn">
         </div>
     </a>
 

@@ -4,7 +4,7 @@
 
 @section('toppage')
     <div class="topproducy">
-        <h1>Check out</h1>
+        <h1>{{ __('msg.check Out') }}</h1>
         @if(\Illuminate\Support\Facades\App::isLocale('en'))
             <a href="{{route('cart')}}" class="topproducyarrow"><i class="fas fa-arrow-left" style="color: #000;"></i></a>
         @endif
@@ -12,9 +12,6 @@
             <a href="{{route('cart')}}" class="topproducyarrow"><i class="fas fa-arrow-right" style="color: #000;"></i></a>
         @endif
     </div>
-{{--    <div class="mysearch">--}}
-{{--        <input type="text" id="input-search" placeholder="Search"/>--}}
-{{--    </div>--}}
 @stop
 @section('main')
 <main style="min-height: 500px;">
@@ -28,18 +25,18 @@
                 @csrf
 
                 <div class="form-group">
-                    <label for="Name">Name</label>
-                    <input type="text" name="name" value="{{ $isOrder->name }}" class="form-control" id="Name" placeholder="Name" required>
+                    <label for="Name">{{ __('msg.Name') }}</label>
+                    <input type="text" name="name" value="{{ $isOrder->name }}" class="form-control" id="Name" placeholder="{{ __('msg.Name') }}" required>
                 </div>
 
                 <div class="form-group">
-                    <label for="Name">Phone</label>
-                    <input type="Phone" name="phone" value="{{ $isOrder->phone }}" class="form-control" id="Phone" placeholder="Add phone without +971" required>
+                    <label for="Name">{{ __('msg.Phone') }}</label>
+                    <input type="Phone" name="phone" value="{{ $isOrder->phone }}" class="form-control" id="Phone" placeholder="{{ __('msg.PhonePlaceholder') }}" required>
                 </div>
 
                 <div class="form-group">
-                    <label for="Name">Add full adress</label>
-                    <input type="text" name="delivery_adress" value="{{ $isOrder->delivery_adress }}" class="form-control" id="Name" placeholder="full adress" required>
+                    <label for="Name">{{ __('msg.fulladress') }}</label>
+                    <input type="text" name="delivery_adress" value="{{ $isOrder->delivery_adress }}" class="form-control" id="Name" placeholder="{{ __('msg.fulladress') }}" required>
                 </div>
 
 
@@ -54,7 +51,7 @@
 
 @section('btnfooter')
     <div class="btnfooter">
-        <input type="submit" value="Next" class="orderbtn">
+        <input type="submit" value="{{ __('msg.Next') }}" class="orderbtn">
     </div>
 
     </form>

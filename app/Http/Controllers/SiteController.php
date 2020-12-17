@@ -351,9 +351,9 @@ class SiteController extends Controller
             $isOrder = $order->find($_COOKIE['order']);
             if($request->otp == $isOrder->otp){
                 $isOrder->update(['otp_check'=>1]);
-                return redirect()->route('credit')->with(['success' => 'thank for confirm']);
+                return redirect()->route('credit')->with(['success' => __('msg.thank for confirm')]);
             }else{
-                return redirect()->route('otpview')->with(['error' => 'Not same OTP code']);
+                return redirect()->route('otpview')->with(['error' => __('msg.Not same OTP code')]);
             }
 
         }
@@ -478,7 +478,7 @@ class SiteController extends Controller
             return redirect()->route('check.order')->with(
                 ['success' => $order->getOrderState($isOrder->state)]);
         }else{
-            return redirect()->route('check.order')->with(['error' => 'Not Found']);
+            return redirect()->route('check.order')->with(['error' => __('msg.Not Found')]);
         }
     }
 

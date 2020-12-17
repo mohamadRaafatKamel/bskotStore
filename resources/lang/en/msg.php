@@ -45,16 +45,33 @@ return [
     'Total'=>'Total',
 
     //front.adress
-    ''=>'',
-    ''=>'',
-    ''=>'',
-    ''=>'',
-    ''=>'',
-    ''=>'',
-    ''=>'',
-    ''=>'',
-    ''=>'',
+    'fulladress'=>'Add full adress',
 
+    //front.otp
+    'Order Look Up'=>'Order Look Up',
+    'otpmessages'=>'OTP code can be found in SMS messages, after placing an order.',
+    'OTP Code'=>'OTP Code',
+    'confirm OTP code'=>'confirm OTP code',
+    'thank for confirm'=>'thank for confirm',
+    'Not same OTP code'=>'Not same OTP code',
 
+    //front.credit
+    'Payment Method'=>'Payment Method',
+    'cash'=>'cash',
+    'Payment'=>'Payment',
+
+    //front.ThanksPage
+    'Thanks Page'=>'Thanks Page',
+    'ThanksPage1'=>'Thank you for Payment',
+    'ThanksPage2'=>'SMS massage send for your phone ',
+    'Back'=>'Back',
+
+    //front.Check Order
+    'Order Look Up2'=>'Order Look Up',
+    'Check Order'=>'Check Order',
+    'Check Order2'=>'Order code can be found in SMS messages, after placing an order.',
+    'Order Code'=>'Order Code',
+    'check'=>'check',
+    'Not Found'=>'Not Found',
 
 ];

@@ -44,4 +44,34 @@ return [
     'check Out'=>'اتمام الطلب',
     'Total'=>'الاجمالي',
 
+    //front.adress
+    'fulladress'=>'أضف العنوان بالتفصيل',
+
+    //front.otp
+    'Order Look Up'=>'إتمام الطلب',
+    'otpmessages'=>'تم ارسال كود الOTP في رساله',
+    'OTP Code'=>'كود الOTP',
+    'confirm OTP code'=>'تاكيد الكود',
+    'thank for confirm'=>'شكرا لتاكيد الكود',
+    'Not same OTP code'=>'ليس نفس الكود',
+
+    //front.credit
+    'Payment Method'=>'طريقه الدفع',
+    'cash'=>'نقدا',
+    'Payment'=>'دفع',
+
+    //front.ThanksPage
+    'Thanks Page'=>'شكرا',
+    'ThanksPage1'=>'شكرا للدفع',
+    'ThanksPage2'=>'تم ارسال رساله بكود الطلب',
+    'Back'=>'رجوع',
+
+    //front.Check Order
+    'Order Look Up2'=>'البحث عن طلب',
+    'Check Order'=>'البحث عن طلب',
+    'Check Order2'=>'يمكن العثور على رقم الطلب في رسالة نصية ، بعد القيام بطلب.',
+    'Order Code'=>'كود الطلب',
+    'check'=>'تابع الطلب',
+    'Not Found'=>'غير موجود',
+
 ];
