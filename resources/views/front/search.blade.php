@@ -48,28 +48,36 @@
         <!--Section: Main info-->
         <section class="mt-5 wow fadeIn">
             <!--Grid row-->
-
             <div class="paymentpage1" id="myDIV0">
                 <h1>{{ __('msg.Find products') }}</h1>
                 <p>{{ __('msg.searchPage2') }}</p>
             </div>
-
-            <div class="row" id="myDIV" style="display: none">
+            <div class="paymentpage1" id="myDIV1" style="display: none">
+                <h1>{{ __('msg.Not Found') }}</h1>
+                <p>{{ __('msg.searchPage2') }}</p>
+            </div>
+            <div id="myDIV">
                 @if($products)
+                    <ul class="searchlist" id="ulContener">
                     @foreach($products as $product)
-                        <div class="col-6 producthome" style="padding: 8px 8px 32px;">
+                        <li style="display: none" class="liproduct">
                             <a href="{{route('view',$product ->id)}}">
+                                <div class="searchcontent">
+                                    <h3 @if(\Illuminate\Support\Facades\App::isLocale('ar'))style="display: none"@endif>{{$product -> name_en}}</h3>
+                                    <h4 @if(\Illuminate\Support\Facades\App::isLocale('ar'))style="display: none"@endif>{{$product -> notes_en}}</h4>
+                                    <h3 @if(\Illuminate\Support\Facades\App::isLocale('en'))style="display: none"@endif>{{$product -> name_ar}}</h3>
+                                    <h4 @if(\Illuminate\Support\Facades\App::isLocale('en'))style="display: none"@endif>{{$product -> notes_ar}}</h4>
+                                    <button type="button" class="addcartbtn" style="width: auto">{{$product->price}} {{ __('msg.AED') }}</button>
+                                </div>
                                 <img src="{{ asset($product ->img) }}" class="img-fluid z-depth-1-half" alt="">
-                                <p style="font-size: 13px;font-weight: 500;letter-spacing: -0.1px; @if(! \Illuminate\Support\Facades\App::isLocale('en')) display: none @endif ">
-                                    {{$product -> name_en}}</p>
-                                <p style="font-size: 13px;font-weight: 500;letter-spacing: -0.1px; @if(! \Illuminate\Support\Facades\App::isLocale('ar')) display: none @endif ">
-                                    {{$product -> name_ar}}</p>
-                                <p style="font-size: 13px;font-weight: 500;letter-spacing: -0.1px;">{{$product->price}} {{ __('msg.AED') }}</p>
                             </a>
-                        </div>
-
+                        </li>
                     @endforeach
+                    </ul>
                 @endif
+
+
+
             </div>
             <!--Grid row-->
         </section>
@@ -90,18 +98,35 @@
         $(document).ready(function(){
             $("#anythingSearch").on("keyup", function() {
                 var value = $(this).val().toLowerCase();
-                console.log(value);
-                if(!value){
-                    $('#myDIV0').css({"display": "initial"});
-                    $('#myDIV').css({"display": "none"});
-                }else {
-                    $('#myDIV0').css({"display": "none"});
-                    $('#myDIV').css({"display": "initial"});
-                }
-                $("#myDIV .producthome").filter(function() {
+                $("#myDIV li").filter(function() {
                     $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
                 });
+                displayLayer();
             });
+
+            function displayLayer(){
+                var value = $('#anythingSearch').val();
+                let numrelated = $('#ulContener > li:visible').length;
+                console.log(numrelated);
+                if(!value){
+                    // init page
+                    $('#myDIV0').css({"display": "flex"});
+                    $('#myDIV1').css({"display": "none"});
+                    $('.liproduct').css({"display": "none"});
+                }else {
+                    if ( numrelated == 0){
+                        // no result
+                        $('#myDIV0').css({"display": "none"});
+                        $('#myDIV1').css({"display": "flex"});
+                       // $('#myDIV').css({"display": "none"});
+                    }else {
+                        // have result
+                        $('#myDIV0').css({"display": "none"});
+                        $('#myDIV1').css({"display": "none"});
+                        //$('#myDIV').css({"display": "block"});
+                    }
+                }
+            }
         });
     </script>
 @stop
