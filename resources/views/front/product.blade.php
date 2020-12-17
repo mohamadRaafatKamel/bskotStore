@@ -104,7 +104,7 @@
                         //console.log(data);
                         // no cookies
                         if(data.cookies == 0){
-                            location.replace("{{ route('delivery') }}");
+                            location.replace("{{ route('delivery') }}?id="+id);
                         }
                         // no product
                         if(data.product == 0){

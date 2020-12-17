@@ -10,6 +10,7 @@ use App\Models\OrderItem;
 use App\Models\Orders;
 use App\Models\Product;
 use App\Models\PromoCode;
+use Twilio\Rest\Client;
 
 class OrderController extends Controller
 {
@@ -52,6 +53,16 @@ class OrderController extends Controller
 
             $order->update(['state'=>'3']);
 
+            $recipient = $order->phone;
+            $body = "جاري توصيل طلبك رقم ";
+            $body .=$order->id;
+            $body .=" بقيمة ";
+            $body .=$order->total_cost;
+            $body .=" AED ";
+            $body .=" من فضلك تواجد في العنوان ";
+            $body .=$order->delivery_adress;
+            $body .=" خلال الساعات القادمة ";
+            $this->sendMessage($body, $recipient);
             return redirect()->route('admin.order.view',$id)->with(['success' => 'تم التحديث بنجاح']);
 
         } catch (\Exception $ex) {
@@ -67,6 +78,12 @@ class OrderController extends Controller
                 return redirect()->route('admin.order', $id)->with(['error' => '  غير موجوده']);
             }
 
+            $recipient = $order->phone;
+            $body = " تم تسليم طلبكم رقم ";
+            $body .=$order->id;
+            $body .=" نشكر لكم ثقتكم ببسكوتي ونتطلع لنيل شرف خدمتكم مرة أخرى. ";
+            $this->sendMessage($body, $recipient);
+
             $order->update(['state'=>'4']);
 
             return redirect()->route('admin.order.view',$id)->with(['success' => 'تم التحديث بنجاح']);
@@ -76,71 +93,15 @@ class OrderController extends Controller
         }
     }
 
-/*
-    public function create()
+    private function sendMessage($message, $recipients)
     {
-        $emarhs = Emarh::select()->active()->get();
-        return view('admin.area.create',compact('emarhs'));
+        $recipients = "+20".$recipients;
+        $account_sid = getenv("TWILIO_SID");
+        $auth_token = getenv("TWILIO_AUTH_TOKEN");
+        $twilio_number = getenv("TWILIO_NUMBER");
+        $client = new Client($account_sid, $auth_token);
+        $client->messages->create($recipients,
+            ['from' => $twilio_number, 'body' => $message] );
     }
 
-    public function store(AreaRequest $request)
-    {
-        try {
-            if (!$request->has('disabled'))
-                $request->request->add(['disabled' => 1]);
-
-            Area::create($request->except(['_token']));
-            return redirect()->route('admin.area')->with(['success'=>'تم الحفظ']);
-        }catch (\Exception $ex){
-            return redirect()->route('admin.area.create')->with(['error'=>'يوجد خطء']);
-        }
-    }
-
-    public function edit($id)
-    {
-        $emarhs = Emarh::select()->active()->get();
-        $areas = Area::select()->find($id);
-        if(!$areas){
-            return redirect()->route('admin.area')->with(['error'=>"غير موجود"]);
-        }
-        return view('admin.area.edit',compact('areas','emarhs'));
-    }
-
-    public function update($id, AreaRequest $request)
-    {
-        try {
-
-            $areas = Area::find($id);
-            if (!$areas) {
-                return redirect()->route('admin.area.edit', $id)->with(['error' => '  غير موجوده']);
-            }
-
-            if (!$request->has('disabled'))
-                $request->request->add(['disabled' => 1]);
-
-            $areas->update($request->except('_token'));
-
-            return redirect()->route('admin.area')->with(['success' => 'تم التحديث بنجاح']);
-
-        } catch (\Exception $ex) {
-            return redirect()->route('admin.area')->with(['error' => 'هناك خطا ما يرجي المحاوله فيما بعد']);
-        }
-    }
-*/
-//    public function destroy($id)
-//    {
-//
-//        try {
-//            $promos = PromoCode::find($id);
-//            if (!$promos) {
-//                return redirect()->route('admin.promocode', $id)->with(['error' => '  غير موجوده']);
-//            }
-//            $promos->delete();
-//
-//            return redirect()->route('admin.promocode')->with(['success' => 'تم حذف  بنجاح']);
-//
-//        } catch (\Exception $ex) {
-//            return redirect()->route('admin.promocode')->with(['error' => 'هناك خطا ما يرجي المحاوله فيما بعد']);
-//        }
-//    }
 }

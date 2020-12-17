@@ -9,7 +9,7 @@ return [
 
     // front.include.toppage
     'Baskotii'=>'بسكوتي',
-    'Hand made with love'=>'مصنوع يدوي بحب',
+    'Hand made with love'=>'صنع بحب',
 
     // front.home
     'Search'=>'بحث',
@@ -80,7 +80,7 @@ return [
     'Not Found'=>'غير موجود',
 
     //front.Branches
-    'Branches1'=>'الفروح ستكون متاحه قريبا',
+    'Branches1'=>'الفروع ستكون متاحه قريبا',
 
     //front.search
     'Cancel'=>'الغاء',

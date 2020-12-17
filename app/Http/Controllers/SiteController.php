@@ -84,7 +84,7 @@ class SiteController extends Controller
         try {
             //Check cookies
             if(!isset($_COOKIE['order'])){
-                return redirect()->route('delivery');
+                return redirect()->route('delivery',['id'=>$id]);
             }
 
             //Check product
@@ -239,6 +239,10 @@ class SiteController extends Controller
 
     public function delivery()
     {
+        if(isset($_GET['id'])){
+            session()->put('id',$_GET['id']);
+            //print_r(session()->get('id'));die();
+        }
         $data = [];
         $emarhs = Emarh::select()->active()->get();
         if ($emarhs) {
@@ -266,22 +270,58 @@ class SiteController extends Controller
             // check first
             $order= Orders::where(['phone'=>$request->phone,'state'=>'0'])->first();
             if(!$order){
-                $request->merge([
-                    'phone' => $request->phone,
-                ]);
+                // create new order
                 $order = Orders::create($request->except(['_token']));
                 setcookie('order', $order->id, time() * ( 60));  //365 * 24 * 60 * 60
             }else{
+                // update only area
                 $order->update(['area_id'=> $request->area_id]);
                 setcookie('order', $order->id, time() * ( 60));
             }
-            return redirect()->route('home');
+            //return redirect()->route('home');
         }else{
             $myOrder = Orders::find($_COOKIE['order']);
             $myOrder->update($request->except('_token'));
         }
+        if(session()->has('id')){
+            //print_r(session()->get('id'));die();
+            $cat = $this->addItemAfterDelivery(session()->get('id'),$order->id);
+            if($cat){
+                //print_r($cat);die();
+                return redirect()->route('product',$cat);
+            }
+        }
         return redirect()->route('home');
+    }
 
+    public function addItemAfterDelivery($id,$orderId){
+        try {
+            //Check product
+            $product = Product::find($id);
+            if (!$product) {
+                return redirect()->route('home');
+                //return "not found";
+            }
+
+            //check before add
+        //print_r($_COOKIE);die();
+            $item = OrderItem::where(['pro_id'=>$id,'order_id'=>$orderId ] )->first();
+            if($item) {
+                $item->update(['pro_amount'=> $item->pro_amount + 1]);
+            }else{
+
+                $item = OrderItem::create(array_merge([
+                    'pro_id'=>$id,
+                    'order_id'=>$orderId,
+                    'pro_amount'=>1,
+                    'notes'=>null,
+                ]));
+            }
+            return $product->cat_id;
+        }catch (\Exception $ex) {
+            //return redirect()->route('home');
+            return "dddd";
+        }
     }
 
     public function cart()
