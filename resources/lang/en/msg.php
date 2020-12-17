@@ -82,4 +82,9 @@ return [
     //front.Branches
     'Branches1'=>'Branche Open Soon',
 
+    //front.search
+    'Cancel'=>'Cancel',
+    'searchPage2'=>'Type in what you are looking for',
+    'Find products'=>'Find products',
+
 ];

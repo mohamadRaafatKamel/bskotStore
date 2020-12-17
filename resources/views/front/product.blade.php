@@ -35,7 +35,7 @@
                                                 &nbsp;{{ $myitem[$product ->id] }}<span>x</span>
                                             @endif
                                         </span>
-                                        <p>{{$product -> name_en}}</p>
+                                        <p style="font-size: 13px;font-weight: 500;letter-spacing: -0.1px;">{{$product -> name_en}}</p>
                                     @endif
                                     @if(\Illuminate\Support\Facades\App::isLocale('ar'))
                                         <span class="productcount" id="s{{ $product ->id }}">
@@ -43,7 +43,7 @@
                                                  <span>x</span>{{ $myitem[$product ->id] }}&nbsp;
                                              @endif
                                         </span>
-                                        <p>{{$product -> name_ar}}</p>
+                                        <p style="font-size: 13px;font-weight: 500;letter-spacing: -0.1px;">{{$product -> name_ar}}</p>
                                     @endif
                                 </div>
                                 <button type="button" class="addcartbtn" id="{{ $product ->id }}" >{{$product->price}} {{ __('msg.AED') }}</button>

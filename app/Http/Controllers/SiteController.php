@@ -532,7 +532,8 @@ class SiteController extends Controller
 
     public function search()
     {
-        //return view('front.home');
+        $products = Product::select()->active()->get();
+        return view('front.search',compact('products'));
     }
 
 }

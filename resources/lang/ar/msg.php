@@ -82,4 +82,9 @@ return [
     //front.Branches
     'Branches1'=>'الفروح ستكون متاحه قريبا',
 
+    //front.search
+    'Cancel'=>'الغاء',
+    'searchPage2'=>'أدخل ما تبحث عنه',
+    'Find products'=>'البحث عن المنتجات',
+
 ];
