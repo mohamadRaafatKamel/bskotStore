@@ -240,10 +240,10 @@ class SiteController extends Controller
     {
         if(!isset($_COOKIE['order'])) {
             // check first
-            $order= Orders::where(['phone'=>"+971".$request->phone,'state'=>'0'])->first();
+            $order= Orders::where(['phone'=>$request->phone,'state'=>'0'])->first();
             if(!$order){
                 $request->merge([
-                    'phone' => "+971".$request->phone,
+                    'phone' => $request->phone,
                 ]);
                 $order = Orders::create($request->except(['_token']));
                 setcookie('order', $order->id, time() * ( 60));  //365 * 24 * 60 * 60
@@ -449,14 +449,14 @@ class SiteController extends Controller
             }
             return view('front.thankspage');
         }catch (\Exception $ex){
-
+            return view('front.thankspage')->with(['error' => 'هناك خطا ما يرجي المحاوله فيما بعد']);
         }
-        return view('front.thankspage')->with(['error' => 'هناك خطا ما يرجي المحاوله فيما بعد']);
 
     }
 
     private function sendMessage($message, $recipients)
     {
+        $recipients = "+971".$recipients;
         $account_sid = getenv("TWILIO_SID");
         $auth_token = getenv("TWILIO_AUTH_TOKEN");
         $twilio_number = getenv("TWILIO_NUMBER");
@@ -504,7 +504,7 @@ class SiteController extends Controller
 
     public function branches()
     {
-        //return view('front.home');
+        return view('front.branches');
     }
 
 

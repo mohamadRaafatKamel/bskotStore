@@ -74,4 +74,7 @@ return [
     'check'=>'تابع الطلب',
     'Not Found'=>'غير موجود',
 
+    //front.Branches
+    'Branches1'=>'الفروح ستكون متاحه قريبا',
+
 ];

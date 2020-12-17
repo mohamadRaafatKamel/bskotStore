@@ -74,4 +74,9 @@ return [
     'check'=>'check',
     'Not Found'=>'Not Found',
 
+    //front.Branches
+    'Branches1'=>'Branche Open Soon',
+    ''=>'',
+    ''=>'',
+    ''=>'',
 ];

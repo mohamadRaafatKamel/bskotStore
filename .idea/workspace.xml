@@ -20,10 +20,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5585e40b-995d-44d9-96f8-01fc6fef4ad7" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/resources/views/front/branches.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/area/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/area/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/area/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/area/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/area/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/area/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SiteController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SiteController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/ar/msg.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/ar/msg.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/en/msg.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/msg.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -160,15 +161,15 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/assets/front/css" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/front" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\www\laravel\bskot\resources\views\front" />
       <recent name="C:\www\laravel\bskot\assets\front\css" />
       <recent name="C:\www\laravel\bskot\resources\lang\ar" />
-      <recent name="C:\www\laravel\bskot\resources\views\front" />
       <recent name="C:\www\laravel\bskot\resources\views\admin" />
       <recent name="C:\www\laravel\bskot\app\Http\Controllers\Admin" />
     </key>
@@ -196,7 +197,7 @@
       <workItem from="1606985156805" duration="17793000" />
       <workItem from="1607808937040" duration="29992000" />
       <workItem from="1607949139649" duration="13756000" />
-      <workItem from="1608033735647" duration="37732000" />
+      <workItem from="1608033735647" duration="39439000" />
     </task>
     <task id="LOCAL-00001" summary="category">
       <created>1606937699613</created>
@@ -380,7 +381,14 @@
       <option name="project" value="LOCAL" />
       <updated>1608165149554</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="day not min in area delivery">
+      <created>1608174428284</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1608174428284</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -420,13 +428,14 @@
     <MESSAGE value="lang view" />
     <MESSAGE value="lang cart" />
     <MESSAGE value="lang Done" />
-    <option name="LAST_COMMIT_MESSAGE" value="lang Done" />
+    <MESSAGE value="day not min in area delivery" />
+    <option name="LAST_COMMIT_MESSAGE" value="day not min in area delivery" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="308" y="0" key="CommitChangelistDialog2" timestamp="1608165142487">
+    <state x="308" y="0" key="CommitChangelistDialog2" timestamp="1608174423447">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="308" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1608165142487" />
+    <state x="308" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1608174423447" />
     <state width="1323" height="179" key="GridCell.Tab.0.bottom" timestamp="1606963785785">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
