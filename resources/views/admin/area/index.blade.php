@@ -61,7 +61,7 @@
                                                     <tr>
                                                         <td>{{$area -> name_ar}}</td>
                                                         <td>{{$area -> name_en}}</td>
-                                                        <td>{{$area -> estimated_time}} د </td>
+                                                        <td>{{$area -> estimated_time}} يوم </td>
                                                         <td>{{$area -> getEmarh() }} </td>
                                                         <td>{{$area -> getActive()}}</td>
                                                         <td>

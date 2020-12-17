@@ -80,10 +80,10 @@
 
                                                     <div class="col-md-6">
                                                         <div class="form-group">
-                                                            <label for="projectinput1">   وقت التوصيل بالدقائق </label>
+                                                            <label for="projectinput1">   وقت التوصيل بالايام </label>
                                                             <input type="text" value="" id="name_en"
                                                                    class="form-control"
-                                                                   placeholder=" وقت التوصيل بالدقائق "
+                                                                   placeholder=" وقت التوصيل بالايام "
                                                                    name="estimated_time">
                                                             @error('estimated_time')
                                                             <span class="text-danger">{{$message}}</span>
