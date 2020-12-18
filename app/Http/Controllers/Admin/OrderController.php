@@ -95,7 +95,7 @@ class OrderController extends Controller
 
     private function sendMessage($message, $recipients)
     {
-        $recipients = "+20".$recipients;
+        $recipients = "+971".$recipients;
         $account_sid = getenv("TWILIO_SID");
         $auth_token = getenv("TWILIO_AUTH_TOKEN");
         $twilio_number = getenv("TWILIO_NUMBER");

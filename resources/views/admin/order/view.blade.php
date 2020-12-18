@@ -75,6 +75,10 @@
                                                                 <th>{{$order -> culcCostItem($order ->id)}}</th>
                                                             </tr>
                                                             <tr>
+                                                                <th>المبلغ التوصيل</th>
+                                                                <th>{{$order -> getDeliveryPrice($order -> area_id)}}</th>
+                                                            </tr>
+                                                            <tr>
                                                                 <th>المبلغ الدفوع</th>
                                                                 <th>{{$order -> total_cost}}</th>
                                                             </tr>
