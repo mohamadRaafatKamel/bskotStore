@@ -159,10 +159,12 @@ class SiteController extends Controller
                 return ['item' => '0'];
             }else{
                 $item->delete();
-                $order = new Orders();
+                $this->orderComplet($_COOKIE['order']);
+                $order = Orders::find($_COOKIE['order']);
                 return [
                     'success' => '1',
-                    'costItems'=>$order->culcCostItem($_COOKIE['order']),
+                    'costItems'=>$order->total_cost,
+                    'costItems2'=>\App\Models\Orders::culcCostItem($_COOKIE['order']),
                 ];
             }
         }
@@ -181,9 +183,12 @@ class SiteController extends Controller
                 if($request->type == "m")
                     $item->update(['pro_amount'=> $item->pro_amount - 1]);
                 $order = new Orders();
+                $this->orderComplet($_COOKIE['order']);
+                $myorder = Orders::find($_COOKIE['order']);
                 return [
                     'success' => '1',
-                    'costItems'=>$order->culcCostItem($_COOKIE['order']),
+                    'costItems'=>$myorder->total_cost,
+                    'costItems2'=>$order->culcCostItem($_COOKIE['order']),
                 ];
             }
         }
@@ -200,9 +205,11 @@ class SiteController extends Controller
             $myorder = Orders::find($_COOKIE['order']);
             $promoCode=PromoCode::select()->where('code',$request->promocode)->first();
             if ($myorder && $promoCode) {
+                $delivery = $order->getDeliveryPrice($myorder->area_id);
                 $totalCost = $order->culcCostItem($_COOKIE['order']);
                 $discount = $totalCost / $promoCode->value;
                 $costAfterCode = $totalCost - $discount;
+                $costAfterCode += $delivery;
                 $myorder->update(['promo_id'=>$promoCode->id,'total_cost'=>$costAfterCode]);
                 return [
                     'success' => '1',
@@ -225,7 +232,9 @@ class SiteController extends Controller
             //check
             $myorder = Orders::find($_COOKIE['order']);
             if ($myorder) {
+                $delivery = $order->getDeliveryPrice($myorder->area_id);
                 $totalCost = $order->culcCostItem($_COOKIE['order']);
+                $totalCost += $delivery;
                 $myorder->update(['promo_id'=>null ,'total_cost'=>$totalCost]);
                 return [
                     'success' => '1',
@@ -332,9 +341,13 @@ class SiteController extends Controller
         }else{
             $empty = 0;
         }
+        $orderOpj= new Orders();
         $this->orderComplet($_COOKIE['order']);
         $order = Orders::find($_COOKIE['order']);
         if($order){
+            //get delivery detal
+            $delivery = $orderOpj->getDeliveryPrice($order->area_id);
+            // get promoCode detals
             $promoCode = null;
             if($order->promo_id){
                 $promoCode=PromoCode::find($order->promo_id);
@@ -343,7 +356,7 @@ class SiteController extends Controller
             if ($items->count()==0)
                 $empty = 1;
 
-            return view('front.cart',compact('empty','order','items','promoCode'));
+            return view('front.cart',compact('empty','order','items','promoCode','delivery'));
         }else{
             $empty = 1;
             return view('front.cart',compact('empty'));
@@ -358,10 +371,12 @@ class SiteController extends Controller
         $isOrder = $order->find($id);
         if($isOrder){
             $totalCost = $order->culcCostItem($id);
+            $delivery = $order->getDeliveryPrice($isOrder->area_id);
             if($isOrder->promo_id){
                 $promoCode = PromoCode::find($isOrder->promo_id);
                 $totalCost = $totalCost - ($totalCost / $promoCode->value);
             }
+            $totalCost +=$delivery;
             $data=[
                 'total_cost'=>$totalCost,
                 'time'=>$order->culcTimeDelivery($isOrder->area_id ),

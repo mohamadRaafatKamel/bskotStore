@@ -20,6 +20,7 @@ return [
     // front.delivery
     'Order Mode'=>'طريقة الاستلام',
     'Name'=>'الاسم',
+    'delivery'=>'التوصيل',
     'Phone'=>'رقم الهاتف',
     'PhonePlaceholder'=>'اضف رقم الهاتف بدون +971',
     'Location'=>'المنطقه',

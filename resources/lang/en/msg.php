@@ -20,6 +20,7 @@ return [
     // front.delivery
     'Order Mode'=>'Order Mode',
     'Name'=>'Name',
+    'delivery'=>'Delivery',
     'Phone'=>'Phone',
     'PhonePlaceholder'=>'Add phone without +971',
     'Location'=>'Location',

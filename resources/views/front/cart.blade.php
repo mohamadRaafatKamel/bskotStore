@@ -85,26 +85,34 @@
         </div>
         <div id="promoResult" style="text-align: center;color: #f7760e;"></div>
     <div class="grayline"></div>
-    <div id="codeDetal" @if(!$promoCode) style="display: none"@endif>
-        <?php
-        if($promoCode){
-            $totall = \App\Models\Orders::culcCostItem($_COOKIE['order']);
-            $discou = $totall / $promoCode->value;
-            $val=$promoCode->value;
-        }else{
-            $totall=$discou=$val=0;
-        }
 
-        ?>
+    <?php $totall = \App\Models\Orders::culcCostItem($_COOKIE['order']); ?>
         <div class="price">
             <p class="first">{{ __('msg.Total') }} : </p>
             <p class="second" id="totalCost2">{{$totall}} {{ __('msg.AED') }}</p>
         </div>
+
+    <div id="codeDetal" @if(!$promoCode) style="display: none"@endif>
+        <?php
+        if($promoCode){
+            $discou = $totall / $promoCode->value;
+            $val=$promoCode->value;
+        }else{
+            $discou=$val=0;
+        }
+
+        ?>
         <div class="price">
             <p class="first">{{ __('msg.discount') }} <span id="codeVal">%{{$val}}</span> : </p>
             <p class="second" id="discountCost">{{$discou}} {{ __('msg.AED') }}</p>
         </div>
     </div>
+
+
+        <div class="price">
+            <p class="first">{{ __('msg.delivery') }} : </p>
+            <p class="second" id="deliveryCost">{{$delivery}} {{ __('msg.AED') }}</p>
+        </div>
     <div class="price">
         <p class="first">{{ __('msg.price') }} : </p>
         <p class="second" id="totalCost">{{$order->total_cost}} {{ __('msg.AED') }}</p>
@@ -209,6 +217,7 @@
                         if (data.success) {
                             $('#d'+id).empty().html("");
                             $('#totalCost').empty().html(data.costItems +" {{ __('msg.AED') }}");
+                            $('#totalCost2').empty().html(data.costItems2 +" {{ __('msg.AED') }}");
                         }
                     }, error: function (reject) {
                         //console.log(reject);
@@ -254,6 +263,8 @@
                         // success
                         if (data.success) {
                             $('#totalCost').empty().html(data.costItems +" {{ __('msg.AED') }}");
+                            $('#totalCost2').empty().html(data.costItems2 +" {{ __('msg.AED') }}");
+
                         }
                     }, error: function (reject) {
                         //console.log(reject);

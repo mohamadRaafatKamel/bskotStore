@@ -110,5 +110,12 @@ class Orders extends Model
         }
     }
 
+    public function getDeliveryPrice($id)//id aria
+    {
+        $area = Area::select('emarh_id')->find($id);
+        $emarh= Emarh::find($area['emarh_id']);
+        return $emarh['price'];
+    }
+
 
 }
