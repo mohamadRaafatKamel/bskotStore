@@ -80,6 +80,21 @@
 
                                                     <div class="col-md-6">
                                                         <div class="form-group">
+                                                            <label for="projectinput1">  الترتيب </label>
+                                                            <input type="number"
+                                                                   value="{{$category -> position}}"
+                                                                   id="position"
+                                                                   class="form-control"
+                                                                   placeholder=" الترتيب  "
+                                                                   name="position">
+                                                            @error('position')
+                                                            <span class="text-danger">{{$message}}</span>
+                                                            @enderror
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
                                                             <label for="projectinput1">  اضف صوره </label>
                                                             <input type="file" id="img"
                                                                    class="form-control"

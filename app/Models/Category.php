@@ -17,7 +17,7 @@ class Category extends Model
      * @var array
      */
     protected $fillable = [
-        'id', 'name_ar', 'name_en', 'img', 'disabled', 'updated_at','created_at'
+        'id', 'name_ar', 'name_en','position', 'img', 'disabled', 'updated_at','created_at'
     ];
 
     public function scopeActive($query){
@@ -26,7 +26,7 @@ class Category extends Model
 
     public function  scopeSelection($query){
 
-        return $query -> select('id','name_ar', 'name_en', 'img', 'disabled', 'created_at');
+        return $query -> select('id','name_ar', 'name_en','position', 'img', 'disabled', 'created_at');
     }
 
     public function getActive(){

@@ -49,6 +49,7 @@
                                             <tr>
                                                 <th> الاسم عربي</th>
                                                 <th>الاسم انجليزي</th>
+                                                <th>الترتيب</th>
                                                 <th>الحالة</th>
                                             </tr>
                                             </thead>
@@ -59,6 +60,7 @@
                                                     <tr>
                                                         <td>{{$category -> name_ar}}</td>
                                                         <td>{{$category -> name_en}}</td>
+                                                        <td>{{$category -> position}}</td>
                                                         <td>{{$category -> getActive()}}</td>
                                                         <td>
                                                             <div class="btn-group" role="group"

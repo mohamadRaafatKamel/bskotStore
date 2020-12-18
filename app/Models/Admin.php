@@ -37,6 +37,11 @@ class Admin extends Authenticatable
         'remember_token',
     ];
 
+    public function  scopeSelection($query){
+
+        return $query -> select('id','name', 'email','photo', 'password', 'created_at', 'updated_at');
+    }
+
     /**
      * The attributes that should be cast to native types.
      *
