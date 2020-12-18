@@ -19,11 +19,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5585e40b-995d-44d9-96f8-01fc6fef4ad7" name="Default Changelist" comment="delevirt in cart">
+    <list default="true" id="5585e40b-995d-44d9-96f8-01fc6fef4ad7" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/OrderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/OrderController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bskot.zip" beforeDir="false" afterPath="$PROJECT_DIR$/bskot.zip" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/order/view.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/order/view.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SiteController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SiteController.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -198,7 +196,8 @@
       <workItem from="1607949139649" duration="13756000" />
       <workItem from="1608033735647" duration="42184000" />
       <workItem from="1608180436799" duration="43366000" />
-      <workItem from="1608304176802" duration="614000" />
+      <workItem from="1608304176802" duration="1789000" />
+      <workItem from="1608323069979" duration="980000" />
     </task>
     <task id="LOCAL-00001" summary="category">
       <created>1606937699613</created>
@@ -445,7 +444,14 @@
       <option name="project" value="LOCAL" />
       <updated>1608252245048</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="add delivery admin view">
+      <created>1608305053467</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1608305053467</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -465,7 +471,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="add item by ajax" />
     <MESSAGE value="END add item by ajax" />
     <MESSAGE value="remove plus minus BTN by ajax" />
     <MESSAGE value="otp and confirm SMS cicle complet" />
@@ -490,17 +495,18 @@
     <MESSAGE value="order in admin" />
     <MESSAGE value="save id product when add delivery" />
     <MESSAGE value="delevirt in cart" />
-    <option name="LAST_COMMIT_MESSAGE" value="delevirt in cart" />
+    <MESSAGE value="add delivery admin view" />
+    <option name="LAST_COMMIT_MESSAGE" value="add delivery admin view" />
   </component>
   <component name="WindowStateProjectService">
     <state x="413" y="118" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1608240801695">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="413" y="118" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728@0.0.1366.728" timestamp="1608240801695" />
-    <state x="308" y="0" key="CommitChangelistDialog2" timestamp="1608253347964">
+    <state x="308" y="0" key="CommitChangelistDialog2" timestamp="1608305048475">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="308" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1608253347964" />
+    <state x="308" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1608305048475" />
     <state width="1323" height="179" key="GridCell.Tab.0.bottom" timestamp="1606963785785">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -521,10 +527,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="275" y="96" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1608253358655" />
-    <state x="339" y="162" key="run.anything.popup" timestamp="1606849346498">
+    <state x="339" y="162" key="run.anything.popup" timestamp="1608304735465">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="339" y="162" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1606849346498" />
+    <state x="339" y="162" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1608304735465" />
     <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1606943053851">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

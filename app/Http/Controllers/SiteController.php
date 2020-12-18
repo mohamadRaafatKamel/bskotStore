@@ -203,7 +203,7 @@ class SiteController extends Controller
             $promo->checkWork();
             //check
             $myorder = Orders::find($_COOKIE['order']);
-            $promoCode=PromoCode::select()->where('code',$request->promocode)->first();
+            $promoCode=PromoCode::select()->active()->where('code',$request->promocode)->first();
             if ($myorder && $promoCode) {
                 $delivery = $order->getDeliveryPrice($myorder->area_id);
                 $totalCost = $order->culcCostItem($_COOKIE['order']);
