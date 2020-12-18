@@ -95,6 +95,19 @@ Route::group(['namespace'=>'App\Http\Controllers\Admin', 'middleware'=>'auth:adm
     });
     ##################### End Order ########################
 
+    ##################### Admin ############################
+    Route::group(['prefix'=>'admin'],function (){
+        Route::get('/','AdminController@index')->name('admin.admin');
+        Route::get('create','AdminController@create')->name('admin.admin.create');
+        Route::post('store','AdminController@store')->name('admin.admin.store');
+
+        Route::get('edit/{id}','AdminController@edit')->name('admin.admin.edit');
+        Route::post('update/{id}','AdminController@update')->name('admin.admin.update');
+
+        Route::get('delete/{id}','AdminController@destroy') -> name('admin.admin.delete');
+    });
+    ##################### End Admin ########################
+
 });
 
 
