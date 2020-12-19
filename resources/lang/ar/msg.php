@@ -13,7 +13,7 @@ return [
 
     // front.home
     'Search'=>'بحث',
-    'StartOrder'=>'بدا طلب',
+    'StartOrder'=>'بدء الطلب',
     'Revieworder'=>'مراجعه الطلب',
     'AED'=>'درهم',
 
